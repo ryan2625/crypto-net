@@ -1,0 +1,35 @@
+import React, { useEffect, useState } from 'react'
+
+function MarketBanner() {
+
+    const [marketData, setMarketData] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
+          .then(response => response.json())
+          .then(data => {
+            setMarketData(data);
+            console.log(data);
+          })
+          .catch(error => console.error(error));
+      }, []);
+    
+  return (
+    <div>
+        {marketData.map((coin) =>{
+            return (
+                <div>
+                    <img src={coin.image} alt={coin.name} />
+                    <h2>{coin.name}</h2>
+                    <h3>{coin.symbol}</h3>
+                    <h3>{coin.current_price}</h3>
+                    <h3>{coin.market_cap}</h3>
+                    <h3>{coin.price_change_percentage_24h}</h3>
+                </div>
+            )
+        })}
+    </div>
+  )
+}
+
+export default MarketBanner

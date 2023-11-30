@@ -1,12 +1,15 @@
-import './App.css';
-import { Canvas } from '@react-three/fiber';
-import Experience from './Experience';
+import './App.scss';
+import FirstBanner from './components/FirstBanner';
+import MarketBanner from './components/MarketBanner';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Canvas>  
-      <Experience />
-    </Canvas>
+    <div className="hello">
+      <Navbar />
+      <FirstBanner />
+      <MarketBanner />
+    </div>
   );
 }
 
