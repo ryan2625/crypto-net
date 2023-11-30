@@ -1,8 +1,12 @@
 import React from 'react'
+import "../styles/navbar.scss"
+import  image  from "./CRYPTO-BUSISNE.png"
 
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <div className="navbar">
+        <img src={image} alt="" />
+    </div>
   )
 }
 
