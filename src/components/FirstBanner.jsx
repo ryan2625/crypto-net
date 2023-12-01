@@ -8,12 +8,14 @@ function FirstBanner() {
       data : {
         markets: 0,
         active_cryptocurrencies: 0,
+        market_cap_change_percentage_24h_usd: 0,
         total_market_cap: {
           usd: 0
         },
         total_volume: {
           usd: 0
-        }
+        },
+        
       }
     }
   )
@@ -38,11 +40,7 @@ function FirstBanner() {
   return (
     <div className='first-banner'>
       <div className="trending">
-        <div>
-          <h4>Markets: </h4>
-          <p>{marketData.data.markets}</p>
-        </div>
-        <div>
+        <div id="first">
           <h4>Active Coins: </h4>
           <p>{marketData.data.
             active_cryptocurrencies}</p>
@@ -52,10 +50,17 @@ function FirstBanner() {
           <p>{marketData.data.total_market_cap.usd}</p>
         </div>
         <div>
+          <h4>24H Change </h4>
+          <p>{marketData.data.market_cap_change_percentage_24h_usd}</p>
+        </div>
+        <div>
           <h4>Market Volume: </h4>
           <p>{marketData.data.total_volume.usd}</p>
         </div>
-
+        <div>
+          <h4>Markets: </h4>
+          <p>{marketData.data.markets}</p>
+        </div>
       </div>
       <h1>
         The World’s Leading Cryptocurrency Platform
