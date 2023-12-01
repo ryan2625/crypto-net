@@ -1,0 +1,50 @@
+@import "./variables.scss";
+
+.market-banner{
+    background-color: rgb(11, 40, 77);
+}
+
+.top-coins{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0 auto;
+
+    div {
+        margin-top: 3rem;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        text-align: center;
+
+        img {
+            width: 100px;
+            align-self: center;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+    }
+}
+
+.green{
+    color: rgb(1, 222, 1);
+}
+
+.red{
+    color: rgb(255, 0, 0);
+}

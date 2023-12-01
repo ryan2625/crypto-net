@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import "../styles/market-banner.scss"
 
 function MarketBanner() {
 
     const [coinData, setCoinData] = useState([])
 
     const [topCoins, setTopCoins] = useState([])
+
+    const [color, setColor] = useState("")
 
     useEffect(() => {
 
@@ -22,23 +25,24 @@ function MarketBanner() {
           })
           .catch(error => console.error(error));
         }
-
-
         fetchData();
-
       }, []);
+
+      useEffect(() => {
+        
+      }, [])
     
   return (
-    <div>
+    <div className='market-banner'>
       <div className="top-coins">
         {
           topCoins.map((coin) => {
+            var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
             return (
               <div>
                 <img src={coin.image} alt={coin.name} />
-                <h2>{coin.name}</h2>
-                <h3>{coin.current_price}</h3>
-                <h3>{coin.price_change_percentage_24h}</h3>
+                <h2>{coin.name} <span className={coin.price_change_percentage_24h > 1 ? "green" : "red"}>{truncate} %</span></h2>
+                <h3>${coin.current_price}</h3>
               </div>
             )
           })
