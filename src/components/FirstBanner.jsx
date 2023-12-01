@@ -3,26 +3,59 @@ import "../styles/first-banner.scss"
 
 function FirstBanner() {
 
-  const [marketData, setMarketData] = useState([])
+  const [marketData, setMarketData] = useState(
+    {
+      data : {
+        markets: 0,
+        active_cryptocurrencies: 0,
+        total_market_cap: {
+          usd: 0
+        },
+        total_volume: {
+          usd: 0
+        }
+      }
+    }
+  )
 
   useEffect(() => {
-    fetch("https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
+
+    const fetchData = async () => {
+    const res = await fetch("https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
       .then(response => response.json())
       .then(data => {
+        console.log("Data: " + data);
         setMarketData(data);
-        console.log(data);
       })
       .catch(error => console.error(error));
+    }
+
+    fetchData();
+    
   }, []);
 
 
   return (
     <div className='first-banner'>
       <div className="trending">
-        <p>Markets: {marketData.data.markets}</p>
-        <p>Active Coins: {marketData.data.active_cryptocurrencies}</p>
-        <p>Market Cap: {marketData.data.total_market_cap.usd}</p>
-        <p>Market Volume: {marketData.data.total_volume.usd}</p>
+        <div>
+          <h4>Markets: </h4>
+          <p>{marketData.data.markets}</p>
+        </div>
+        <div>
+          <h4>Active Coins: </h4>
+          <p>{marketData.data.
+            active_cryptocurrencies}</p>
+        </div>
+        <div>
+          <h4>Market Cap: </h4>
+          <p>{marketData.data.total_market_cap.usd}</p>
+        </div>
+        <div>
+          <h4>Market Volume: </h4>
+          <p>{marketData.data.total_volume.usd}</p>
+        </div>
+
       </div>
       <h1>
         The World’s Leading Cryptocurrency Platform
@@ -35,10 +68,10 @@ function FirstBanner() {
           Trusted by more than 80M users world-wide
         </li>
         <li>
-        Leader in regulatory compliance and security certifications
+          Leader in regulatory compliance and security certifications
         </li>
         <li>
-        The industry’s most comprehensive insurance coverage and verified proof of reserves
+          The industry’s most comprehensive insurance coverage and verified proof of reserves
         </li>
       </ul>
     </div>
