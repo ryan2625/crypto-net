@@ -73,12 +73,15 @@ function FirstBanner() {
       </h2>
       <ul>
         <li>
+          <span><CheckCircleIcon/></span>
           Trusted by more than 80M users world-wide
         </li>
         <li>
+          <span><CheckCircleIcon/></span>
           Leader in regulatory compliance and security certifications
         </li>
         <li>
+          <span><CheckCircleIcon /></span>
           The industry’s most comprehensive insurance coverage and verified proof of reserves
         </li>
       </ul>

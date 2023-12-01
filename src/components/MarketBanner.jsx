@@ -4,6 +4,8 @@ function MarketBanner() {
 
     const [coinData, setCoinData] = useState([])
 
+    const [topCoins, setTopCoins] = useState([])
+
     useEffect(() => {
 
       const fetchData = async () => {
@@ -12,9 +14,15 @@ function MarketBanner() {
           .then(data => {
             console.log("DATA : " + data);
             setCoinData(data);
+            var dummyCoins = []
+            for (let i = 0; i < 4; i++) {
+              dummyCoins.push(data[i])
+            }
+            setTopCoins(dummyCoins)
           })
           .catch(error => console.error(error));
         }
+
 
         fetchData();
 
@@ -22,6 +30,20 @@ function MarketBanner() {
     
   return (
     <div>
+      <div className="top-coins">
+        {
+          topCoins.map((coin) => {
+            return (
+              <div>
+                <img src={coin.image} alt={coin.name} />
+                <h2>{coin.name}</h2>
+                <h3>{coin.current_price}</h3>
+                <h3>{coin.price_change_percentage_24h}</h3>
+              </div>
+            )
+          })
+        }
+      </div>
         {coinData.map((coin) =>{
             return (
                 <div>

@@ -58,6 +58,22 @@
     color: $white;
     li {
       margin: 1rem;
+      margin-left: 2.5rem;
+      position: relative;
+
+      span {
+        color: rgb(0, 157, 255);
+        font-size: 12px;
+        position: absolute;
+        left: -2rem;
+        top: -2px;
+
+
+        svg {
+          background-color: white;
+          border-radius: 50%;
+        }
+      }
     }
   }
 
