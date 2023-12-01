@@ -21,6 +21,8 @@
   height: 60px;
   align-items: center;
   border-bottom: 1px solid rgba(151, 151, 151, 0.685);
+  background-color: $bg-deep;
+  margin-bottom: 2rem;
   
 
   div {
@@ -39,11 +41,36 @@
   }
 }
 
+.catch{
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: calc(1vw + 30px);
+  }
+
+  h2 { 
+    font-size: calc(.75vw + 20px);
+  }
+
+  ul {
+    color: $white;
+    li {
+      margin: 1rem;
+    }
+  }
+
+}
+
+.catch > * {
+  margin-bottom: 2rem;
+}
+
+
+
 #first {
   margin-left: 2rem;
 }
 
 
-.first-banner > * {
-    margin-bottom: 2rem;
-}

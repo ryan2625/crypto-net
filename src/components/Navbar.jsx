@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/navbar.scss"
-import  image  from "./CRYPTO-BUSISNE.png"
+import  image  from "./crypto-logo-official.png"
 
 function Navbar() {
   return (

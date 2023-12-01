@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/first-banner.scss"
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 function FirstBanner() {
 
@@ -62,6 +63,8 @@ function FirstBanner() {
           <p>{marketData.data.markets}</p>
         </div>
       </div>
+
+      <div className="catch">
       <h1>
         The World’s Leading Cryptocurrency Platform
       </h1>
@@ -79,6 +82,7 @@ function FirstBanner() {
           The industry’s most comprehensive insurance coverage and verified proof of reserves
         </li>
       </ul>
+      </div>
     </div>
   )
 }
