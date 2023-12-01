@@ -2,10 +2,3 @@ https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_
 
 API return 100 top coins
 
-
-Main backgrouhd
-#12192b
-
-
-Main background (Lighter)
-#122640

@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+.first-banner {
+  background-color: $bg-main;
+  color: $white;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  ul {
+    list-style: none;
+    text-align: left;
+  }
+  
+}
+
+
+.first-banner > * {
+    margin-bottom: 2rem;
+}
