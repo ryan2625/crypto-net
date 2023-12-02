@@ -21,6 +21,20 @@ function FirstBanner() {
     }
   )
 
+  const [billion, formatBillion] = useState({marketCap : 0, marketVolume : 0})
+
+  function setFormat(num, num2){
+    const formattedNumber = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      compactDisplay: 'short',
+    }).format(num);
+    const formattedNumber2 = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      compactDisplay: 'short',
+    }).format(num2);
+    formatBillion({marketCap: formattedNumber, marketVolume: formattedNumber2})
+  }
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -29,13 +43,14 @@ function FirstBanner() {
       .then(data => {
         console.log("Data: " + data);
         setMarketData(data);
+        setFormat(marketData.data.total_market_cap.usd, marketData.data.total_volume.usd)
       })
       .catch(error => console.error(error));
     }
 
     fetchData();
     
-  }, []);
+  }, [billion]);
 
 
   return (
@@ -43,20 +58,20 @@ function FirstBanner() {
       <div className="trending">
         <div id="first">
           <h4>Active Coins: </h4>
-          <p>{marketData.data.
-            active_cryptocurrencies}</p>
+          <p>{new Intl.NumberFormat().format(marketData.data.
+            active_cryptocurrencies)}</p>
         </div>
         <div>
           <h4>Market Cap: </h4>
-          <p>{marketData.data.total_market_cap.usd}</p>
+          <p>{billion.marketCap} USD</p>
         </div>
         <div>
-          <h4>24H Change </h4>
-          <p>{marketData.data.market_cap_change_percentage_24h_usd}</p>
+          <h4>24H Change:</h4>
+          <p className={marketData.data.market_cap_change_percentage_24h_usd > 1 ? "green" : "red"}>{marketData.data.market_cap_change_percentage_24h_usd.toString().substring(0, 4)} %</p>
         </div>
         <div>
           <h4>Market Volume: </h4>
-          <p>{marketData.data.total_volume.usd}</p>
+          <p>{billion.marketVolume} USD</p>
         </div>
         <div>
           <h4>Markets: </h4>

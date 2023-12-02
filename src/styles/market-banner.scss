@@ -43,8 +43,16 @@
 
 .green{
     color: rgb(1, 222, 1);
+
+    &::before{
+        content: "+";
+    }
 }
 
 .red{
     color: rgb(255, 0, 0);
+
+    &::before{
+        content: "-";
+    }
 }

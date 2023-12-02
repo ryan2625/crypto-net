@@ -7,8 +7,6 @@ function MarketBanner() {
 
     const [topCoins, setTopCoins] = useState([])
 
-    const [color, setColor] = useState("")
-
     useEffect(() => {
 
       const fetchData = async () => {
@@ -42,24 +40,26 @@ function MarketBanner() {
               <div>
                 <img src={coin.image} alt={coin.name} />
                 <h2>{coin.name} <span className={coin.price_change_percentage_24h > 1 ? "green" : "red"}>{truncate} %</span></h2>
-                <h3>${coin.current_price}</h3>
+                <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
               </div>
             )
           })
         }
       </div>
+      <div className="coin-base">
         {coinData.map((coin) =>{
             return (
                 <div>
                     <img src={coin.image} alt={coin.name} />
                     <h2>{coin.name}</h2>
                     <h3>{coin.symbol}</h3>
-                    <h3>{coin.current_price}</h3>
-                    <h3>{coin.market_cap}</h3>
+                    <h3>{new Intl.NumberFormat().format(coin.current_price)}</h3>
+                    <h3>{new Intl.NumberFormat().format(coin.market_cap)}</h3>
                     <h3>{coin.price_change_percentage_24h}</h3>
                 </div>
             )
         })}
+        </div>
     </div>
   )
 }
