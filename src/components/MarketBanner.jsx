@@ -50,22 +50,28 @@ function MarketBanner() {
         <h2>Today's Cryptocurrency Prices</h2>
         <div className="heading">
           <div className="initial">
-            <p>#</p>
-            <h3>Coin</h3>
+            <h3>#</h3>
+            <h3>COIN</h3>
           </div>
-          <h3>Price</h3>
-          <h3>Market Cap</h3>
-          <h3>24H Change</h3>
+          <div className="other-heading">
+          <h3>PRICE</h3>
+          <h3>24H CHANGE</h3>
+          <h3>MARKET CAP</h3>
+          </div>
         </div>
         {coinData.map((coin, key) =>{
             return (
                 <div key={key} className='row'>
+                  <div className="identifier">
                     <img src={coin.image} alt={coin.name} />
                     <h2>{coin.name}</h2>
                     <h3>{coin.symbol}</h3>
-                    <h3>{new Intl.NumberFormat().format(coin.current_price)}</h3>
-                    <h3>{new Intl.NumberFormat().format(coin.market_cap)}</h3>
-                    <h3>{coin.price_change_percentage_24h}</h3>
+                    </div>
+                    <div className="other-heading">
+                    <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
+                    <h3 className={coin.price_change_percentage_24h > 1 ? "green" : "red"}>{coin.price_change_percentage_24h}</h3>
+                    <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
+                    </div>
                 </div>
             )
         })}
