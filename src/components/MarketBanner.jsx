@@ -47,9 +47,19 @@ function MarketBanner() {
         }
       </div>
       <div className="coin-base">
-        {coinData.map((coin) =>{
+        <h2>Today's Cryptocurrency Prices</h2>
+        <div className="heading">
+          <div className="initial">
+            <p>#</p>
+            <h3>Coin</h3>
+          </div>
+          <h3>Price</h3>
+          <h3>Market Cap</h3>
+          <h3>24H Change</h3>
+        </div>
+        {coinData.map((coin, key) =>{
             return (
-                <div>
+                <div key={key} className='row'>
                     <img src={coin.image} alt={coin.name} />
                     <h2>{coin.name}</h2>
                     <h3>{coin.symbol}</h3>

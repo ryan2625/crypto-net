@@ -81,7 +81,7 @@ function FirstBanner() {
 
       <div className="catch">
       <h1>
-        The World’s Leading Cryptocurrency Platform
+        THE WORLD'S LEADING <span>CRYPTOCURRENCY</span> PLATFORM
       </h1>
       <h2>
         Buy Bitcoin, Ethereum, and all your favourite crypto
