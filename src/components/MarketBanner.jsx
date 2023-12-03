@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/market-banner.scss"
-import { Pagination, Stack } from '@mui/material'
+import { Pagination } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-function MarketBanner() {
+function MarketBanner( {setId} ) {
 
   const [coinData, setCoinData] = useState([])
 
@@ -69,7 +70,7 @@ function MarketBanner() {
         </div>
         {coinData.map((coin, key) => {
           return (
-            <div key={key} className='row'>
+            <Link className='row-link row' key={key} to={"/coins/" + coin.name.toLowerCase()}>
               <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
               <div className="identifier">
                 <img src={coin.image} alt={coin.name} />
@@ -81,7 +82,7 @@ function MarketBanner() {
               <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
               <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{coin.price_change_percentage_24h.toString().substring(0, 4)}%</h3>
               <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
-            </div>
+            </Link>
           )
         })}
         <Pagination count={28} page={page} onChange={handleChange} color='primary' />

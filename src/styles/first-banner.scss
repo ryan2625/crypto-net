@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 .first-banner {
-  background: rgb(18,26,48);
+  background: rgb(18, 26, 48);
   background: linear-gradient(180deg, #0B1426 0%, #0b284d 100%);
   color: $white;
   text-align: center;
@@ -13,13 +13,13 @@
     list-style: none;
     text-align: left;
   }
-  
+
 }
 
-.gradient{
-  background: rgb(11,20,38);
-background: linear-gradient(0deg, rgba(11,20,38,1) 0%, rgba(11,40,77,1) 99%);
-height: 200px;
+.gradient {
+  background: rgb(11, 20, 38);
+  background: linear-gradient(0deg, rgba(11, 20, 38, 1) 0%, rgba(11, 40, 77, 1) 99%);
+  height: 200px;
 }
 
 .trending {
@@ -34,7 +34,7 @@ height: 200px;
   margin-bottom: 2rem;
   position: fixed;
   z-index: 999;
-  
+
 
   div {
     display: flex;
@@ -52,7 +52,7 @@ height: 200px;
   }
 }
 
-.catch{
+.catch {
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
@@ -62,14 +62,14 @@ height: 200px;
     font-size: calc(1.5vw + 30px);
     transform: scaleY(1.1);
 
-    span{
+    span {
       -webkit-background-clip: text;
-      background-image: linear-gradient(298deg, rgba(0,234,255,1) 0%, rgba(0,111,255,1) 99%, rgba(35,130,255,1) 100%);
+      background-image: linear-gradient(298deg, rgba(0, 234, 255, 1) 0%, rgba(0, 111, 255, 1) 99%, rgba(35, 130, 255, 1) 100%);
       color: transparent;
     }
   }
 
-  h2 { 
+  h2 {
     font-size: calc(.75vw + 20px);
   }
 
@@ -79,7 +79,7 @@ height: 200px;
     flex-direction: column;
 
     li {
-      margin: 2rem 3rem;
+      margin: 1rem 3rem;
       position: relative;
       width: fit-content;
       font-size: 20px;
@@ -90,7 +90,7 @@ height: 200px;
         position: absolute;
         left: -2rem;
         top: -2px;
-        
+
         svg {
           background-color: white;
           border-radius: 50%;
@@ -102,11 +102,10 @@ height: 200px;
 
 }
 
-.catch > * {
+.catch>* {
   margin-bottom: 2rem;
 }
 
-.hash{
+.hash {
   margin-inline-start: 1.45rem !important;
 }
-
