@@ -1,16 +1,18 @@
 @import "./variables.scss";
 
 .navbar { 
-    height: 90px;
+    height: 80px;
     background-color: $bg-deep;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-bottom: 1px solid rgba(151, 151, 151, 0.685);
+    position: fixed;
+    z-index: 999;
 
     img {
-        height: 50px;
+        height: 40px;
         width: auto;
     }
 

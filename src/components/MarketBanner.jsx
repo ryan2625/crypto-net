@@ -26,7 +26,9 @@ function MarketBanner() {
           for (let i = 0; i < 4; i++) {
             dummyCoins.push(data[i])
           }
-          setTopCoins(dummyCoins)
+          if (topCoins.length === 0) {
+            setTopCoins(dummyCoins)
+          }
         })
         .catch(error => console.error(error));
     }
@@ -56,8 +58,8 @@ function MarketBanner() {
       <div className="coin-base">
         <h2>Today's Cryptocurrency Prices</h2>
         <div className="heading">
-          <h3 className="first-head">#</h3>
-          <h3>COIN</h3>
+          <h3 className="first-head hash">#</h3>
+          <h3 className="first-head">COIN</h3>
           <h3>PRICE</h3>
           <h3>24H CHANGE</h3>
           <h3>MARKET CAP</h3>
