@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import MarketBanner  from './MarketBanner';
 
 function FirstBanner() {
 
@@ -54,6 +55,7 @@ function FirstBanner() {
 
 
   return (
+    <>
     <div className='first-banner'>
       <div className="trending">
         <div id="first">
@@ -102,6 +104,8 @@ function FirstBanner() {
       </ul>
       </div>
     </div>
+    <MarketBanner />
+    </>
   )
 }
 

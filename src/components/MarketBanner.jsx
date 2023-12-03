@@ -55,6 +55,9 @@ function MarketBanner() {
           })
         }
       </div>
+      <div className="gradient">
+        
+      </div>
       <div className="coin-base">
         <h2>Today's Cryptocurrency Prices</h2>
         <div className="heading">

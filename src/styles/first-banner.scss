@@ -2,7 +2,7 @@
 
 .first-banner {
   background: rgb(18,26,48);
-  background: linear-gradient(180deg, #0B1426 0%, rgb(11, 40, 77) 100%);
+  background: linear-gradient(180deg, #0B1426 0%, #0b284d 100%);
   color: $white;
   text-align: center;
   margin: 0 0 1rem 0;
@@ -14,6 +14,12 @@
     text-align: left;
   }
   
+}
+
+.gradient{
+  background: rgb(11,20,38);
+background: linear-gradient(0deg, rgba(11,20,38,1) 0%, rgba(11,40,77,1) 99%);
+height: 200px;
 }
 
 .trending {
