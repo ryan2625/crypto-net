@@ -97,6 +97,28 @@
     }
   }
 
+  .css-1oj2twp-MuiPagination-root{
+    margin: 2rem auto !important;
+}
+
+.css-wjh20t-MuiPagination-ul {
+
+    li {
+        button {
+            color: $white;
+        }
+
+        div {
+            color: $white;
+        }
+
+        &:active{
+            button {
+                color: $white;
+            }
+        }
+    }
+}
 
 
   .identifier{
@@ -145,25 +167,3 @@
     color: #D9475A;
 }
 
-.css-1oj2twp-MuiPagination-root{
-    margin: 2rem auto !important;
-}
-
-.css-wjh20t-MuiPagination-ul {
-
-    li {
-        button {
-            color: $white;
-        }
-
-        div {
-            color: $white;
-        }
-
-        &:active{
-            button {
-                color: $white;
-            }
-        }
-    }
-}
