@@ -3,7 +3,7 @@ import "../styles/first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MarketBanner  from './MarketBanner';
 
-function FirstBanner() {
+function FirstBanner({setId}) {
 
   const [marketData, setMarketData] = useState(
     {
@@ -42,7 +42,6 @@ function FirstBanner() {
     const res = await fetch("https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
       .then(response => response.json())
       .then(data => {
-        console.log("Data: " + data);
         setMarketData(data);
         setFormat(marketData.data.total_market_cap.usd, marketData.data.total_volume.usd)
       })
@@ -104,7 +103,7 @@ function FirstBanner() {
       </ul>
       </div>
     </div>
-    <MarketBanner />
+    <MarketBanner setId={setId} />
     </>
   )
 }

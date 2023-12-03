@@ -15,7 +15,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<FirstBanner setId={setId} />} />
-          <Route path="/coin/:id" element={<IndividualCoin id={id}/>} />
+          <Route path="/coins/:id" element={<IndividualCoin id={id}/>} />
         </Routes>
       </BrowserRouter>
     </div>
