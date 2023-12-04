@@ -1,6 +1,19 @@
 .join-banner{
+    background: radial-gradient(circle, rgba(8,4,60,1) 0%, rgba(11,20,38,1) 63%);
+    height: 200vh;
+    width: 100%;
+    position: relative;
+}
+
+.card {
+    position: sticky;
+    top: 55%;
+    left: 100%;
+    width: fit-content;
+    transform: translateX(300px);
 
     img {
-        height: 300px;
+        width: 480px;
+        border-radius: 10px;
     }
 }

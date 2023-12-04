@@ -2,16 +2,17 @@
 
 .first-banner {
   background: rgb(18, 26, 48);
-  background: linear-gradient(180deg, #0B1426 0%, #0b284d 100%);
+  background: linear-gradient(180deg, #0B1426 0%, #0b284d 90%);
   color: $white;
   text-align: center;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0 0;
   width: 100%;
   padding-top: 80px;
 
   ul {
     list-style: none;
     text-align: left;
+    margin-bottom: 0 !important;
   }
 
 }
