@@ -16,9 +16,7 @@ function JoinBanner() {
               console.log(yOffset)
 
               if (yOffset <= 500 && yOffset >= -400) {
-                setTimeout(() => {
-                     childScrollRef.current.classList.add('card-translation')
-                }, 200);
+                childScrollRef.current.classList.add('card-translation');
               } else {
                 childScrollRef.current.classList.remove('card-translation');
               }
@@ -37,6 +35,9 @@ function JoinBanner() {
         <div className="card" ref={childScrollRef}>
             <img src={image} alt="" />
         </div>
+    </div>
+    <div className="second-card">
+        
     </div>
     </div>
   )
