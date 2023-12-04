@@ -5,7 +5,7 @@ import MarketBanner  from './MarketBanner';
 
 function FirstBanner({setId}) {
 
-  const [marketData, setMarketData] = useState(
+  const [marketData, setMarketData] = useState( 
     {
       data : {
         markets: 0,
@@ -44,13 +44,21 @@ function FirstBanner({setId}) {
       .then(data => {
         setMarketData(data);
         setFormat(marketData.data.total_market_cap.usd, marketData.data.total_volume.usd)
+        localStorage.setItem("marketData", JSON.stringify(data));
+        console.log("THIS API IS BEING CALLED")
       })
       .catch(error => console.error(error));
     }
 
-    fetchData();
+     if (localStorage.getItem("marketData") === null){
+      fetchData();
+     } else {
+      var marketDataLocal = JSON.parse(localStorage.getItem("marketData"))
+      setMarketData(marketDataLocal);
+      setFormat(marketDataLocal.data.total_market_cap.usd, marketDataLocal.data.total_volume.usd)
+     }
     
-  }, [billion]);
+  }, []);
 
 
   return (

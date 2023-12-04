@@ -15,6 +15,8 @@ function MarketBanner( {setId} ) {
     setPage(value);
   };
 
+  //TODO create this code into a function  setCoinData varDummyCoins etc
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -22,7 +24,9 @@ function MarketBanner( {setId} ) {
         .then(response => response.json())
         .then(data => {
           setCoinData(data);
+          localStorage.setItem("coinData_" + page, JSON.stringify(data));
           var dummyCoins = []
+          console.log("THIS API IS BEING CALLED")
           for (let i = 0; i < 4; i++) {
             dummyCoins.push(data[i])
           }
@@ -32,7 +36,19 @@ function MarketBanner( {setId} ) {
         })
         .catch(error => console.error(error));
     }
+    if (localStorage.getItem("coinData_" + page) === null) {
     fetchData();
+    } else {
+      var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page))
+      setCoinData(coinDataLocal);
+      var dummyCoins = []
+      for (let i = 0; i < 4; i++) {
+        dummyCoins.push(coinDataLocal[i])
+      }
+      if (topCoins.length === 0) {
+        setTopCoins(dummyCoins)
+      }
+    }
   }, [page]);
 
   useEffect(() => {
@@ -43,10 +59,10 @@ function MarketBanner( {setId} ) {
     <div className='market-banner'>
       <div className="top-coins">
         {
-          topCoins.map((coin) => {
+          topCoins.map((coin, key) => {
             var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
             return (
-              <div>
+              <div key={key}>
                 <img src={coin.image} alt={coin.name} />
                 <h2>{coin.name} <span className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{truncate} %</span></h2>
                 <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
