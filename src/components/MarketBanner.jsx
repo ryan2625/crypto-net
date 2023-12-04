@@ -26,7 +26,6 @@ function MarketBanner( {setId} ) {
           setCoinData(data);
           localStorage.setItem("coinData_" + page, JSON.stringify(data));
           var dummyCoins = []
-          console.log("THIS API IS BEING CALLED")
           for (let i = 0; i < 4; i++) {
             dummyCoins.push(data[i])
           }

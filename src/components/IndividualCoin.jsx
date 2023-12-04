@@ -4,7 +4,6 @@ function IndividualCoin({ id }) {
 
   const [coinData, setCoinData] = useState()
 
-
   useEffect(() => {
 
     const fetchData = async () => {
@@ -12,35 +11,39 @@ function IndividualCoin({ id }) {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
         .then(response => response.json())
         .then(data => {
-          console.log("INDIVIDUAL COIN Data: " + data.description.cs);
+          console.log("API INDIVIDUALCOIN IS BEING CALLED");
           setCoinData(data);
+          localStorage.setItem("coinData_" + id, JSON.stringify(data));
         })
         .catch(error => console.error(error));
     }
 
-    fetchData();
-
+    if (localStorage.getItem("coinData_" + id) === null) {
+      fetchData();
+    } else {
+      setCoinData(JSON.parse(localStorage.getItem("coinData_" + id)));
+    }
   }, [id]);
 
 
   return (
     <div className='coin-description'>
+      { coinData&&
       <ul>
-        {/*
         <li>
-          {coinData.description.cs}
+          {coinData.description.cs || "loading"}
         </li>
         <li>
-          {coinData.id}
+          {coinData.id  || "loading"}
         </li>
         <li>
-          {coinData.symbol}
+          {coinData.symbol  || "loading"}
         </li>
         <li>
-          {coinData.description.ko}
+          {coinData.description.ko  || "loading"}
         </li>
-*/}
       </ul>
+}
 
     </div>
   )

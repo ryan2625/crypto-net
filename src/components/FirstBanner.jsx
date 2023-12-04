@@ -45,7 +45,6 @@ function FirstBanner({setId}) {
         setMarketData(data);
         setFormat(marketData.data.total_market_cap.usd, marketData.data.total_volume.usd)
         localStorage.setItem("marketData", JSON.stringify(data));
-        console.log("THIS API IS BEING CALLED")
       })
       .catch(error => console.error(error));
     }
