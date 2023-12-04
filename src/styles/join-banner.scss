@@ -1,8 +1,9 @@
+
 .join-banner{
-    background: radial-gradient(circle, rgba(63,0,115,1) 0%, rgba(11,20,38,1) 50%);
-    height: 180vh;
+    height: 130vh;
     width: 100%;
     position: relative;
+    z-index: 2;
 }
 
 .card {
@@ -17,13 +18,29 @@
         width: 480px;
         border-radius: 10px;
     }
+
+    &::after {
+        content: "asd";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200vw;
+        height: 55vh;
+        background: linear-gradient(0deg, #0b1426 0%, #003f5f 25%, #0b1426 86%);
+        z-index: -1;
+        transform: translateX(-50%);
+        overflow-y: hidden !important;
+    }
 }
 
+
 .card-translation{
-    transform: translateX(20px);
+    transform: translateX(100px);
     transition: all 0.75s ease-in-out;
 }
 
 .second-card{
     height: 100vh;
+    position: relative;
+    z-index: 2;
 }

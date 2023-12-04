@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import image from "../assests/cryptoVisa1.jpg"
+import image from "../assests/cryptoVisa2.png"
 import "../styles/join-banner.scss"
 
 function JoinBanner() {
@@ -15,7 +15,7 @@ function JoinBanner() {
               const yOffset = parentRect.top;
               console.log(yOffset)
 
-              if (yOffset <= 500 && yOffset >= -400) {
+              if (yOffset <= 500 && yOffset >= -550) {
                 childScrollRef.current.classList.add('card-translation');
               } else {
                 childScrollRef.current.classList.remove('card-translation');
@@ -35,9 +35,12 @@ function JoinBanner() {
         <div className="card" ref={childScrollRef}>
             <img src={image} alt="" />
         </div>
+        <div className="first-text">
+          asd
+        </div>
     </div>
     <div className="second-card">
-        
+
     </div>
     </div>
   )
