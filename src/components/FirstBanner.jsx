@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../styles/first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MarketBanner  from './MarketBanner';
+import JoinBanner from './JoinBanner';
 
 function FirstBanner({setId}) {
 
@@ -111,6 +112,7 @@ function FirstBanner({setId}) {
       </div>
     </div>
     <MarketBanner setId={setId} />
+    <JoinBanner />
     </>
   )
 }

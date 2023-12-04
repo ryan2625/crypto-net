@@ -28,7 +28,7 @@ function IndividualCoin({ id }) {
 
   return (
     <div className='coin-description'>
-      { coinData&&
+      { coinData &&
       <ul>
         <li>
           {coinData.description.cs || "loading"}
