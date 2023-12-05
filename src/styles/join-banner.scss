@@ -1,6 +1,5 @@
-
-.join-banner{
-    height: 130vh;
+.join-banner {
+    height: 200vh;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -34,13 +33,144 @@
 }
 
 
-.card-translation{
+.card-translation {
     transform: translateX(100px);
     transition: all 0.75s ease-in-out;
 }
 
-.second-card{
+.second-card {
     height: 100vh;
     position: relative;
     z-index: 2;
+}
+
+.first-text {
+    margin-top: 15rem;
+    position: relative;
+    z-index: 5;
+    color: white;
+    width: fit-content;
+    width: 50%;
+    display: grid;
+    place-items: center;
+    margin-left: 2rem;
+}
+
+.text-trans1 {
+    animation: text-trans1 .5s ease-in-out forwards;
+}
+
+.text-trans0 {
+    animation: text-trans0 .5s ease-in-out forwards;
+
+}
+
+@keyframes text-trans1 {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes text-trans0{
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+.main-text {
+    text-align: center;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 10rem;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(298deg, rgb(0, 234, 255) 0%, rgb(0, 111, 255) 99%, rgb(35, 130, 255) 100%);
+        color: transparent;
+        position: relative;
+        height: fit-content;
+        margin-bottom: 2rem;
+
+        &::after {
+            content: "per year paid in USDC";
+            color: white;
+            font-size: 1.25rem;
+            width: fit-content;
+            white-space: nowrap;
+            left: 50%;
+            transform: translateX(-45%);
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    span {
+        font-size: 1.25rem;
+        position: absolute;
+        bottom: 32px;
+        right: -35px;
+        color: #4194ec;
+    }
+}
+
+.main-text>* {
+    font-weight: 600;
+}
+
+.left>*,
+.right>* {
+    font-weight: 600;
+}
+
+.secondary-text {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.left {
+
+    h3 {
+        font-size: 1.5rem;
+        color: #4194ec;
+        margin-bottom: 1rem;
+
+        span {
+            font-size: 2.5rem;
+        }
+    }
+
+    h4 {
+        text-align: center;
+    }
+}
+
+.right {
+
+    h3 {
+        font-size: 1.5rem;
+        color: #4194ec;
+        margin-bottom: 1rem;
+
+        span {
+            font-size: 2.5rem;
+        }
+    }
+
+    h4 {
+        text-align: center;
+    }
 }
