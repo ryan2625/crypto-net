@@ -1,5 +1,5 @@
 .join-banner {
-    height: 200vh;
+    height: 250vh;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -38,12 +38,6 @@
     transition: all 0.75s ease-in-out;
 }
 
-.second-card {
-    height: 100vh;
-    position: relative;
-    z-index: 2;
-}
-
 .first-text {
     margin-top: 15rem;
     position: relative;
@@ -76,7 +70,7 @@
     }
 }
 
-@keyframes text-trans0{
+@keyframes text-trans0 {
     0% {
         opacity: 1;
     }
@@ -92,6 +86,7 @@
 
     h2 {
         font-size: 3rem;
+        letter-spacing: 3px;
     }
 
     h1 {
@@ -102,6 +97,7 @@
         position: relative;
         height: fit-content;
         margin-bottom: 3.5rem;
+        letter-spacing: 2px;
 
         &::after {
             content: "per year paid in USDC";
@@ -178,7 +174,79 @@
 }
 
 .translated {
-    transform: translateY(0px);
-    opacity: 1;
-    transition: all 0.5s ease-in-out;
+    transform: translateY(0px) !important;; 
+    opacity: 1 !important;
+    transition: all 0.5s ease-in-out !important;
+}
+
+.second-card {
+    width: 50%;
+    margin: 50vh 0 0 2rem;
+    transform: translateY(100px);
+    transition: all 0.7s ease-in-out;
+    opacity: 0;
+}
+
+.second-card>* {
+    color: white !important;
+    position: relative;
+    z-index: 2;
+}
+
+.earn {
+    text-align: center;
+    letter-spacing: 2px;
+
+    h1 {
+        font-size: calc(20px + 5vw);
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 150%;
+        margin: .75rem 0 2rem 0;
+        color: #A0A9BE;
+    }
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        img {
+            width: 200px;
+            margin: 0 auto 1rem auto;
+
+        }
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4194ec;
+        }
+
+        h2 {
+            font-size: calc(3rem + 3vw);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.75rem;
+            font-weight: 500;
+        }
+
+
+    }
+
+}
+
+.extra {
+    height: 100vh;
 }

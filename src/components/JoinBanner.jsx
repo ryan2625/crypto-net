@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import image from "../assests/cryptoVisa2.png"
+import image2 from "../assests/new-pay-modified.png"
+import image3 from "../assests/usdc.png"
 import "../styles/join-banner.scss"
 import { useInView } from 'react-intersection-observer';
 
@@ -18,7 +20,7 @@ function JoinBanner() {
         const parentRect = scrollRef.current.getBoundingClientRect();
         const yOffset = parentRect.top;
 
-        if (yOffset <= 500 && yOffset >= -550) {
+        if (yOffset <= 500 && yOffset >= -1350) {
           childScrollRef.current.classList.add('card-translation');
         } else {
           childScrollRef.current.classList.remove('card-translation');
@@ -40,6 +42,10 @@ function JoinBanner() {
     rootMargin: '-100px 0px'
   });
 
+  const { ref: earnBanner, inView: textView3 } = useInView({
+    rootMargin: '-300px 0px'
+  });
+
   const { ref: counter, inView: countView } = useInView({
     rootMargin: '-350px 0px',
     onChange: (inView, entry) => {
@@ -47,24 +53,24 @@ function JoinBanner() {
       const handleIncrease = () => {
         if (ensure < 260) {
           setTimeout(() => {
-            setVal((prev) => prev + 12)
-            ensure += 12
+            setVal((prev) => prev + 9)
+            ensure += 9
             handleIncrease()
-          }, 30)
+          }, 23)
         }
-        if (ensure < 270 && ensure > 263) {
+        if (ensure < 273 && ensure >= 261) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
-          }, 100)
+          }, 70)
         }
-        if (ensure < 272 && ensure > 269) {
+        if (ensure < 275 && ensure > 272) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
-          }, 300)
+          }, 220)
         }
       }
       setChecker(checker + 1)
@@ -97,9 +103,30 @@ function JoinBanner() {
             </div>
           </div>
         </div>
+        <div className={textView3 ? "translated second-card" : "second-card"} ref={earnBanner}>
+          <div className="earn">
+            <h1>Earn Plus</h1>
+            <h4>Enjoy a simpler reward structure, higher allocation limit, and greater perks
+            </h4>
+          </div>
+          <div className="icons">
+            <div>
+              <img src={image2} alt="" />
+              <h3>PYUSD</h3>
+              <h2>4%</h2>
+              <p>p.a.</p>
+            </div>
+            <div>
+              <img src={image3} alt="" />
+              <h3>USDC</h3>
+              <h2>5.5%</h2>
+              <p>p.a.</p>
+            </div>
+          </div>
       </div>
-      <div className="second-card">
-
+      <div className="extra">
+        asd
+      </div>
       </div>
     </div>
   )
