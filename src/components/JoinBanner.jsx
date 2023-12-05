@@ -36,6 +36,10 @@ function JoinBanner() {
     rootMargin: '-200px 0px'
   });
 
+  const { ref: rewardText, inView: textView2 } = useInView({
+    rootMargin: '-100px 0px'
+  });
+
   const { ref: counter, inView: countView } = useInView({
     rootMargin: '-350px 0px',
     onChange: (inView, entry) => {
@@ -60,11 +64,10 @@ function JoinBanner() {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
-          }, 250)
+          }, 300)
         }
       }
       setChecker(checker + 1)
-
       if (checker === 1) {
         handleIncrease()
       }
@@ -80,10 +83,10 @@ function JoinBanner() {
         </div>
         <div className="first-text" ref={wholeText}>
           <div className="main-text">
-            <h2 className={textView1 ? "text-trans1" : "text-trans0"} >Earn up to</h2>
+            <h2 className={textView1 ? "text-trans1" : "text-trans0"}>Earn up to</h2>
             <h1 ref={counter}>${val} <span>USD</span></h1>
           </div>
-          <div className="secondary-text">
+          <div className={textView2 ? "secondary-text  translated" : "secondary-text"} ref={rewardText}>
             <div className="left">
               <h3>UP TO <span>5.25%</span></h3>
               <h4>Optimised rewards</h4>

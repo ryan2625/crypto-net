@@ -62,7 +62,6 @@
 
 .text-trans0 {
     animation: text-trans0 .5s ease-in-out forwards;
-
 }
 
 @keyframes text-trans1 {
@@ -102,7 +101,7 @@
         color: transparent;
         position: relative;
         height: fit-content;
-        margin-bottom: 2rem;
+        margin-bottom: 3.5rem;
 
         &::after {
             content: "per year paid in USDC";
@@ -111,17 +110,17 @@
             width: fit-content;
             white-space: nowrap;
             left: 50%;
-            transform: translateX(-45%);
+            transform: translateX(-50%);
             position: absolute;
-            bottom: 0;
+            bottom: -20px;
         }
     }
 
     span {
         font-size: 1.25rem;
         position: absolute;
-        bottom: 32px;
-        right: -35px;
+        bottom: 34px;
+        right: -38px;
         color: #4194ec;
     }
 }
@@ -139,6 +138,9 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s ease-in-out;
 }
 
 .left {
@@ -173,4 +175,10 @@
     h4 {
         text-align: center;
     }
+}
+
+.translated {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
 }
