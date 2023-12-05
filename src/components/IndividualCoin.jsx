@@ -27,24 +27,23 @@ function IndividualCoin({ id }) {
 
 
   return (
-    <div className='coin-description'>
-      { coinData &&
-      <ul>
-        <li>
-          {coinData.description.cs || "loading"}
-        </li>
-        <li>
-          {coinData.id  || "loading"}
-        </li>
-        <li>
-          {coinData.symbol  || "loading"}
-        </li>
-        <li>
-          {coinData.description.ko  || "loading"}
-        </li>
-      </ul>
-}
-
+    <div className="individual-page">
+      <div className='coin-description'>
+        <div className="intro-coin">
+          <img src={coinData.image.large} alt="" />
+          <h1>{coinData.name} <span>{coinData.symbol}</span></h1>
+          <h2>Rank: {coinData.coingecko_rank}</h2>
+          <h3>Genesis Date: {coinData.genesis_date}</h3>
+          <h4>Hashing Algorithm: {coinData.hashing_algorithm}</h4>
+        </div>
+        {coinData &&
+          <ul>
+            <li>
+              {coinData.description.cs || "loading"}
+            </li>
+          </ul>
+        }
+      </div>
     </div>
   )
 }
