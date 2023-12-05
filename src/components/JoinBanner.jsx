@@ -58,14 +58,14 @@ function JoinBanner() {
             handleIncrease()
           }, 23)
         }
-        if (ensure < 273 && ensure >= 261) {
+        if (ensure < 272 && ensure >= 261) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
           }, 70)
         }
-        if (ensure < 275 && ensure > 272) {
+        if (ensure < 275 && ensure > 271) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
@@ -103,7 +103,8 @@ function JoinBanner() {
             </div>
           </div>
         </div>
-        <div className={textView3 ? "translated second-card" : "second-card"} ref={earnBanner}>
+        <div ref={earnBanner}>
+        <div className={textView3 ? "translated second-card" : "second-card"}>
           <div className="earn">
             <h1>Earn Plus</h1>
             <h4>Enjoy a simpler reward structure, higher allocation limit, and greater perks
@@ -122,6 +123,7 @@ function JoinBanner() {
               <h2>5.5%</h2>
               <p>p.a.</p>
             </div>
+          </div>
           </div>
       </div>
       <div className="extra">
