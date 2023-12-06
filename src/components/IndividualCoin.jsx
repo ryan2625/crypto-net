@@ -26,6 +26,11 @@ function IndividualCoin({ id }) {
     }
   }, [id]);
 
+  const decodeHtmlEntities = (html) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
+  };
+
 
   return (
     <div className="individual-page">
@@ -38,9 +43,10 @@ function IndividualCoin({ id }) {
           <h4>Hashing Algorithm: {coinData?.hashing_algorithm || "Data not available"}</h4>
         </div>
         {coinData &&
-          <p>
-            {coinData?.description?.cs || "Data not available"}
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: coinData?.description?.cs
+            ? decodeHtmlEntities(coinData.description.cs)
+            : "Data not available"
+         }} />
         }
       </div>
     </div>
