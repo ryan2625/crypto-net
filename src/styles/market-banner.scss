@@ -79,7 +79,8 @@
 
   .api-table{
     width: 100%;
-    min-height: 700px;
+    height: 700px;
+    position: relative;
   }
 
   .row{
@@ -103,13 +104,20 @@
         font-weight: 400;
     }
 
+    h2{
+        white-space: nowrap;
+    }
+
     &:hover{
         background-color: #ffffff35
     }
   }
 
   .css-1oj2twp-MuiPagination-root{
-    margin: 2rem auto !important;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .css-wjh20t-MuiPagination-ul {

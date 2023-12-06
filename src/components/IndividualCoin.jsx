@@ -51,7 +51,7 @@ function IndividualCoin({ id }) {
         </div>
         {coinData &&
           <p dangerouslySetInnerHTML={{
-            __html: coinData?.description?.cs || "Data not available"
+            __html: coinData?.description?.en || "Data not available"
           }} />
         }
       </div>
