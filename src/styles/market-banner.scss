@@ -77,6 +77,11 @@
     margin-left: 2rem;
   }
 
+  .api-table{
+    width: 100%;
+    min-height: 670px;
+  }
+
   .row{
     border-bottom: 1px solid $white;
     background-color: $bg-light;
@@ -86,6 +91,7 @@
     width: 100%;
     text-align: right;
     padding: .5rem;
+    box-sizing: border-box;
 
     img {
         width: 40px;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../styles/market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 function MarketBanner( {setId} ) {
 
@@ -10,6 +11,8 @@ function MarketBanner( {setId} ) {
   const [topCoins, setTopCoins] = useState([])
 
   const [page, setPage] = useState(1);
+
+  const location = useLocation()
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -48,11 +51,17 @@ function MarketBanner( {setId} ) {
         setTopCoins(dummyCoins)
       }
     }
+
+    checkSource()
+  
   }, [page]);
 
-  useEffect(() => {
-
-  }, [])
+  function checkSource() {
+    if (location.state === "coin") {
+      document.getElementById("scroller").scrollIntoView();
+      location.state = ""
+    }
+  }
 
   return (
     <div className='market-banner'>
@@ -70,7 +79,7 @@ function MarketBanner( {setId} ) {
           })
         }
       </div>
-      <div className="gradient">
+      <div className="gradient" id="scroller">
         
       </div>
       <div className="coin-base">
@@ -82,6 +91,7 @@ function MarketBanner( {setId} ) {
           <h3>24H CHANGE</h3>
           <h3>MARKET CAP</h3>
         </div>
+        <div className='api-table'>
         {coinData.map((coin, key) => {
           return (
             <Link className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
@@ -99,6 +109,7 @@ function MarketBanner( {setId} ) {
             </Link>
           )
         })}
+        </div>
         <Pagination count={25} page={page} onChange={handleChange} color='primary' />
       </div>
     </div>

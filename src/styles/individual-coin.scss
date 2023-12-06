@@ -5,13 +5,20 @@
 }
 
 .coin-description{
-    color: white;
+    color: rgb(241, 241, 241);
     width: 75%;
     margin: 0 auto 0 auto;
 
     p {
         padding-bottom: 15rem;
         text-indent: 5rem;
+        font-size: 1.25rem;
+
+        a {
+            color: rgb(171, 254, 255);
+            text-decoration: underline;
+        
+        }
     }
 }
 
@@ -74,4 +81,21 @@
 
 .intro-coin > *{
     font-weight: 500;
+}
+
+.back-btn{
+    position: fixed;
+    top: 10rem;
+    left: 10rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    transform: scale(3.0);
+    z-index: 99;
+
+    a{
+        color: #ffffff;
+        cursor: pointer;
+        display: block;
+        height: 24px;
+    }
 }

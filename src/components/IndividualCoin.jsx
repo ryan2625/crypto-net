@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/individual-coin.scss"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from 'react-router-dom';
 import image from "../assests/loading.png"
 function IndividualCoin({ id }) {
 
@@ -26,14 +28,13 @@ function IndividualCoin({ id }) {
     }
   }, [id]);
 
-  const decodeHtmlEntities = (html) => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || "";
-  };
-
-
   return (
     <div className="individual-page">
+      <div className="back-btn">
+        <Link to="/" state="coin">
+          <ArrowBackIcon />
+        </Link>
+      </div>
       <div className='coin-description'>
         <div className="intro-coin">
           <img src={coinData?.image?.large || { image }} alt="" />
@@ -43,9 +44,7 @@ function IndividualCoin({ id }) {
           <h4>Hashing Algorithm: {coinData?.hashing_algorithm || "Data not available"}</h4>
         </div>
         {coinData &&
-          <p dangerouslySetInnerHTML={{ __html: coinData?.description?.cs
-            ? decodeHtmlEntities(coinData.description.cs)
-            : "Data not available"
+          <p dangerouslySetInnerHTML={{ __html: coinData?.description?.cs || "Data not available"
          }} />
         }
       </div>

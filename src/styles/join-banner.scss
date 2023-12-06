@@ -11,7 +11,7 @@
     left: 100%;
     width: fit-content;
     transform: translateX(300px);
-    transition: all 0.75s ease-in-out;
+    transition: all 1s ease-in-out;
 
     img {
         width: 480px;
@@ -34,8 +34,8 @@
 
 
 .card-translation {
-    transform: translateX(100px);
-    transition: all 0.75s ease-in-out;
+    transform: translateX(-5vw);
+    transition: all 1s ease-in-out;
 }
 
 .first-text {
