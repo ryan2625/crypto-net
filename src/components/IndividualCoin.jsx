@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/individual-coin.scss"
+import image from "../assests/loading.png"
 function IndividualCoin({ id }) {
 
   const [coinData, setCoinData] = useState()
@@ -30,18 +31,16 @@ function IndividualCoin({ id }) {
     <div className="individual-page">
       <div className='coin-description'>
         <div className="intro-coin">
-          <img src={coinData.image.large} alt="" />
-          <h1>{coinData.name} <span>{coinData.symbol}</span></h1>
-          <h2>Rank: {coinData.coingecko_rank}</h2>
-          <h3>Genesis Date: {coinData.genesis_date}</h3>
-          <h4>Hashing Algorithm: {coinData.hashing_algorithm}</h4>
+          <img src={coinData?.image?.large || { image }} alt="" />
+          <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
+          <h2>Rank: #{coinData?.coingecko_rank || "Data not available"}</h2>
+          <h3>Genesis Date: {coinData?.genesis_date || "Data not available"}</h3>
+          <h4>Hashing Algorithm: {coinData?.hashing_algorithm || "Data not available"}</h4>
         </div>
         {coinData &&
-          <ul>
-            <li>
-              {coinData.description.cs || "loading"}
-            </li>
-          </ul>
+          <p>
+            {coinData?.description?.cs || "Data not available"}
+          </p>
         }
       </div>
     </div>
