@@ -56,7 +56,7 @@ function JoinBanner() {
             setVal((prev) => prev + 9)
             ensure += 9
             handleIncrease()
-          }, 23)
+          }, 27)
         }
         if (ensure < 271 && ensure >= 261) {
           setTimeout(() => {
@@ -70,7 +70,7 @@ function JoinBanner() {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
-          }, 220)
+          }, 230)
         }
       }
       setChecker(checker + 1)

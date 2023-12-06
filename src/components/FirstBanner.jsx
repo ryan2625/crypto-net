@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import "../styles/first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MarketBanner from './MarketBanner';
 import JoinBanner from './JoinBanner';
 
 function FirstBanner({ setId }) {
+
+  const home = useRef(null);
+
+  const price = useRef(null);
+
+  const rewards = useRef(null);
 
   const [marketData, setMarketData] = useState(
     {
@@ -18,13 +24,11 @@ function FirstBanner({ setId }) {
         total_volume: {
           usd: 0
         },
-
       }
     }
   )
 
   useEffect(() => {
-
     const fetchData = async () => {
       const res = await fetch("https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
         .then(response => response.json())
@@ -68,9 +72,9 @@ function FirstBanner({ setId }) {
           <div>
             <h4>Market Volume: </h4>
             <p>{new Intl.NumberFormat('en-US', {
-      notation: 'compact',
-      compactDisplay: 'short',
-    }).format(marketData.data.total_volume.usd)} USD</p>
+              notation: 'compact',
+              compactDisplay: 'short',
+            }).format(marketData.data.total_volume.usd)} USD</p>
           </div>
           <div>
             <h4>Markets: </h4>
@@ -79,7 +83,7 @@ function FirstBanner({ setId }) {
         </div>
 
         <div className="catch">
-          <h1>
+          <h1 ref={home}>
             THE WORLD'S LEADING <span>CRYPTOCURRENCY</span> PLATFORM
           </h1>
           <h2>

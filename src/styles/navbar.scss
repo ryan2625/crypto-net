@@ -12,9 +12,26 @@
     z-index: 999;
     top: 0;
 
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    max-width: 1000px;
+
     img {
         height: 40px;
         width: auto;
     }
 
+    ul{
+        color: white;
+        list-style: none;
+        display: flex;
+        gap: 4rem;
+        font-size: 1.2rem;
+        font-weight: 200;
+    }
 }

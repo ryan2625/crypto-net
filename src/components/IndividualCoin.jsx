@@ -39,13 +39,20 @@ function IndividualCoin({ id }) {
         <div className="intro-coin">
           <img src={coinData?.image?.large || { image }} alt="" />
           <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
-          <h2>Rank: #{coinData?.coingecko_rank || "Data not available"}</h2>
+          <h2>CoinGecko™ &nbsp; Rank:&nbsp; #{coinData?.coingecko_rank || "Data not available"}</h2>
+          <div className="rates">
+          <h3>
+            Market Rate: ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd || "Data not available")}
+          </h3>
+          <h3>24H Change: <span className={coinData?.market_data?.price_change_percentage_24h > 0 ? "green" : "red"}>{coinData?.market_data?.price_change_percentage_24h}%</span></h3>
+          </div>
           <h3>Genesis Date: {coinData?.genesis_date || "Data not available"}</h3>
           <h4>Hashing Algorithm: {coinData?.hashing_algorithm || "Data not available"}</h4>
         </div>
         {coinData &&
-          <p dangerouslySetInnerHTML={{ __html: coinData?.description?.cs || "Data not available"
-         }} />
+          <p dangerouslySetInnerHTML={{
+            __html: coinData?.description?.cs || "Data not available"
+          }} />
         }
       </div>
     </div>
