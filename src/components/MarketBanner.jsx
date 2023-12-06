@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "../styles/market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+
+
 
 function MarketBanner( {setId} ) {
 
@@ -13,6 +15,9 @@ function MarketBanner( {setId} ) {
   const [page, setPage] = useState(1);
 
   const location = useLocation()
+
+  const navigate = useNavigate()
+
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -59,7 +64,7 @@ function MarketBanner( {setId} ) {
   function checkSource() {
     if (location.state === "coin") {
       document.getElementById("scroller").scrollIntoView();
-      location.state = ""
+      navigate('/', { state: null });
     }
   }
 
