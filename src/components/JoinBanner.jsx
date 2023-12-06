@@ -58,14 +58,14 @@ function JoinBanner() {
             handleIncrease()
           }, 23)
         }
-        if (ensure < 272 && ensure >= 261) {
+        if (ensure < 271 && ensure >= 261) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
           }, 70)
         }
-        if (ensure < 275 && ensure > 271) {
+        if (ensure < 275 && ensure > 270) {
           setTimeout(() => {
             setVal((prev) => prev + 1)
             ensure += 1
