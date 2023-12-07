@@ -4,6 +4,7 @@ import image2 from "../assests/new-pay-modified.png"
 import image3 from "../assests/usdc.png"
 import "../styles/join-banner.scss"
 import { useInView } from 'react-intersection-observer';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function JoinBanner() {
 
@@ -133,6 +134,9 @@ function JoinBanner() {
                   <h2>5.5%</h2>
                   <p>p.a.</p>
                 </div>
+              </div>
+              <div id="earning-button">
+              <button>Start Earning Today</button>
               </div>
             </div>
           </div>

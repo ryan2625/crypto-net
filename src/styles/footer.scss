@@ -10,7 +10,6 @@
 .image-store {
     display: flex;
     gap: 1rem;
-
     img {
         height: 45px;
     }
@@ -20,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2rem;
+    align-items: center;
 }
 
 .legal {
