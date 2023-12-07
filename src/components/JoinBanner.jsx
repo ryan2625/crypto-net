@@ -21,7 +21,7 @@ function JoinBanner() {
         const parentRect = scrollRef.current.getBoundingClientRect();
         const yOffset = parentRect.top;
 
-        if (yOffset <= 500 && yOffset >= -1350) {
+        if (yOffset <= 500 && yOffset >= -1550) {
           childScrollRef.current.classList.add('card-translation');
         } else {
           childScrollRef.current.classList.remove('card-translation');
@@ -88,10 +88,11 @@ function JoinBanner() {
 
   return (
     <>
-    <div  ref={rewards}>
-      <h1 className={textView4 ? 'text-trans1 rewards-h1' : "text-trans0 rewards-h1"}>
-        Our Rewards Program
-      </h1>
+      <div id="reward-intro" ref={rewards} >
+        <p id="rewards"></p>
+        <h1 className={textView4 ? 'text-trans1 rewards-h1' : "text-trans0 rewards-h1"}>
+          Our Rewards Program
+        </h1>
       </div>
       <div className="total-banner">
         <div className='join-banner' ref={scrollRef}>
@@ -136,7 +137,8 @@ function JoinBanner() {
                 </div>
               </div>
               <div id="earning-button">
-              <button>Start Earning Today</button>
+                <button>Start Earning Today           <ArrowForwardIcon id="arrow" />
+                </button>
               </div>
             </div>
           </div>

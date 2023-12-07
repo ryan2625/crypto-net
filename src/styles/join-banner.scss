@@ -1,17 +1,18 @@
 .join-banner {
-    height: 250vh;
     width: 100%;
     position: relative;
     z-index: 2;
+    margin-bottom: 20rem;
 }
 
 .card {
     position: sticky;
-    top: 55%;
+    top: 50%;
     left: 100%;
     width: fit-content;
     transform: translateX(300px);
     transition: all 1s ease-in-out;
+
 
     img {
         width: 480px;
@@ -24,8 +25,8 @@
         top: 0;
         left: 0;
         width: 250vw;
-        height: 55vh;
-        background: linear-gradient(0deg, #003f5f 25%, #0b1426 86%);
+        height: 625px;
+        background: linear-gradient(0deg, #003f5f 25%, #0b1426 95%);
         z-index: -1;
         transform: translateX(-50%);
         overflow-y: hidden !important;
@@ -184,6 +185,7 @@
 .second-card {
     width: 50%;
     margin: 50vh 0 0 2rem;
+    padding-bottom: 20rem;
     transform: translateY(100px);
     transition: all 0.7s ease-in-out;
     opacity: 0;
@@ -282,9 +284,26 @@
         width: 400px;
         transition: all .5s ease-in-out;
         cursor: pointer;
+        position: relative;
 
         &:hover{
             background-color: rgba(87, 87, 87, 0.395)
         }
     }
 }
+
+#reward-intro{
+    position: relative;
+}
+
+#arrow{
+    position: absolute;
+    transform: translate(10px, 3px) scale(1.35);
+    
+}
+
+#rewards{
+    position: absolute;
+    top: -140px;
+}
+

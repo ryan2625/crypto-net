@@ -63,7 +63,10 @@ function MarketBanner( {setId} ) {
 
   function checkSource() {
     if (location.state === "coin") {
-      document.getElementById("scroller").scrollIntoView();
+      const html = document.querySelector('html')
+      html.style.scrollBehavior = "auto"
+      document.getElementById("scroller").scrollIntoView()
+      html.style.scrollBehavior = ""
       navigate('/', { state: null });
     }
   }
@@ -87,7 +90,7 @@ function MarketBanner( {setId} ) {
       <div className="gradient" id="scroller">
         
       </div>
-      <div className="coin-base">
+      <div className="coin-base" id="prices">
         <h2>Today's Cryptocurrency Prices</h2>
         <div className="heading">
           <h3 className="first-head hash">#</h3>

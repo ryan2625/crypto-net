@@ -3,7 +3,7 @@ import "../styles/first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
-function FirstBanner({ setId }) {
+function FirstBanner({ homeRef }) {
 
   const home = useRef(null);
 
@@ -47,10 +47,9 @@ function FirstBanner({ setId }) {
 
   }, []);
 
-
   return (
     <>
-      <div className='first-banner'>
+      <div className='first-banner' id="home">
         <div className="trending">
           <div id="first">
             <h4>Active Coins: </h4>
