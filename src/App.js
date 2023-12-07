@@ -1,9 +1,9 @@
 import './App.scss';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import FirstBanner from './components/FirstBanner';
-import IndividualCoin from './components/IndividualCoin';
-import Navbar from './components/Navbar';
+import IndividualCoin from './Pages/IndividualCoin';
+import Main from './Pages/MainPage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="hello">
       <BrowserRouter>
-      <Navbar />
         <Routes>
-          <Route path="/" element={<FirstBanner setId={setId} />} />
+          <Route path="/" element={<Main setId={setId} />} />
           <Route path="/coins/:id" element={<IndividualCoin id={id}/>} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

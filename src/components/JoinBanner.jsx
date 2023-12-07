@@ -46,6 +46,10 @@ function JoinBanner() {
     rootMargin: '-300px 0px'
   });
 
+  const { ref: rewards, inView: textView4 } = useInView({
+    rootMargin: '-100px 0px'
+  })
+
   const { ref: counter, inView: countView } = useInView({
     rootMargin: '-350px 0px',
     onChange: (inView, entry) => {
@@ -82,56 +86,61 @@ function JoinBanner() {
 
 
   return (
-    <div className="total-banner">
-      <div className='join-banner' ref={scrollRef}>
-        <div className="card" ref={childScrollRef}>
-          <img src={image} alt="" />
+    <>
+    <div  ref={rewards}>
+      <h1 className={textView4 ? 'text-trans1 rewards-h1' : "text-trans0 rewards-h1"}>
+        Our Rewards Program
+      </h1>
+      </div>
+      <div className="total-banner">
+        <div className='join-banner' ref={scrollRef}>
+          <div className="card" ref={childScrollRef}>
+            <img src={image} alt="" />
+          </div>
+          <div className="first-text" ref={wholeText}>
+            <div className="main-text">
+              <h2 className={textView1 ? "text-trans1" : "text-trans0"}>Earn up to</h2>
+              <h1 ref={counter}>${val} <span>USD</span></h1>
+            </div>
+            <div className={textView2 ? "secondary-text  translated" : "secondary-text"} ref={rewardText}>
+              <div className="left">
+                <h3>UP TO <span>5.25%</span></h3>
+                <h4>Optimised rewards</h4>
+              </div>
+              <div className="right">
+                <h3>UP TO <span>$5.05</span></h3>
+                <h4>Rewards paid weekly</h4>
+              </div>
+            </div>
+          </div>
+          <div ref={earnBanner}>
+            <div className={textView3 ? "translated second-card" : "second-card"}>
+              <div className="earn">
+                <h1>Earn Plus</h1>
+                <h4>Enjoy a simpler reward structure, higher allocation limit, and greater perks
+                </h4>
+              </div>
+              <div className="icons">
+                <div>
+                  <img src={image2} alt="" />
+                  <h3>PYUSD</h3>
+                  <h2>4%</h2>
+                  <p>p.a.</p>
+                </div>
+                <div>
+                  <img src={image3} alt="" />
+                  <h3>USDC</h3>
+                  <h2>5.5%</h2>
+                  <p>p.a.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="first-text" ref={wholeText}>
-          <div className="main-text">
-            <h2 className={textView1 ? "text-trans1" : "text-trans0"}>Earn up to</h2>
-            <h1 ref={counter}>${val} <span>USD</span></h1>
-          </div>
-          <div className={textView2 ? "secondary-text  translated" : "secondary-text"} ref={rewardText}>
-            <div className="left">
-              <h3>UP TO <span>5.25%</span></h3>
-              <h4>Optimised rewards</h4>
-            </div>
-            <div className="right">
-              <h3>UP TO <span>$5.05</span></h3>
-              <h4>Rewards paid weekly</h4>
-            </div>
-          </div>
-        </div>
-        <div ref={earnBanner}>
-        <div className={textView3 ? "translated second-card" : "second-card"}>
-          <div className="earn">
-            <h1>Earn Plus</h1>
-            <h4>Enjoy a simpler reward structure, higher allocation limit, and greater perks
-            </h4>
-          </div>
-          <div className="icons">
-            <div>
-              <img src={image2} alt="" />
-              <h3>PYUSD</h3>
-              <h2>4%</h2>
-              <p>p.a.</p>
-            </div>
-            <div>
-              <img src={image3} alt="" />
-              <h3>USDC</h3>
-              <h2>5.5%</h2>
-              <p>p.a.</p>
-            </div>
-          </div>
-          </div>
       </div>
-      <div className="extra">
-        asd
-      </div>
-      </div>
-    </div>
+    </>
   )
+
 }
 
 export default JoinBanner

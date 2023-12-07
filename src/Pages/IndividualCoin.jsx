@@ -26,6 +26,7 @@ function IndividualCoin({ id }) {
     } else {
       setCoinData(JSON.parse(localStorage.getItem("coinData_" + id)));
     }
+    window.scrollTo(0, 0)
   }, [id]);
 
   return (
