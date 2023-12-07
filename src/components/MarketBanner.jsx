@@ -117,7 +117,9 @@ function MarketBanner( {setId} ) {
             </Link>
           )
         })}
+        <div className="pag">
         <Pagination count={25} page={page} onChange={handleChange} color='primary' />
+        </div>
         </div>
       </div>
     </div>

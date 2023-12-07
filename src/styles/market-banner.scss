@@ -114,14 +114,13 @@
     }
   }
 
-  .css-1oj2twp-MuiPagination-root{
+  .pag{
+
+    nav{
     position: absolute !important;
     bottom: 0 !important;
     right: 50% !important;
     transform: translateX(50%) !important;
-}
-
-.css-wjh20t-MuiPagination-ul {
 
     li {
         button {
@@ -138,8 +137,8 @@
             }
         }
     }
+    }
 }
-
 
   .identifier{
     display: flex;
