@@ -115,26 +115,26 @@
   }
 
   .css-1oj2twp-MuiPagination-root{
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
 }
 
 .css-wjh20t-MuiPagination-ul {
 
     li {
         button {
-            color: $white;
+            color: $white !important;
         }
 
         div {
-            color: $white;
+            color: $white !important;
         }
 
         &:active{
             button {
-                color: $white;
+                color: $white !important;
             }
         }
     }
