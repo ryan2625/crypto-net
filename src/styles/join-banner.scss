@@ -328,7 +328,7 @@
         backdrop-filter: blur(5px);
         border-radius: 20px;
         background-color:  rgba(1, 1, 1, 0.7);
-        padding: 2rem 4rem;
+        padding: 2rem 0;
         align-self: center;
 
     }
@@ -356,10 +356,6 @@
 }
 
 @media (max-width: 600px){
-
-    .first-text{
-        padding: 2rem 2rem;
-    }
 
     .main-text{
 
