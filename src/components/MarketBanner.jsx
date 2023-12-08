@@ -91,7 +91,7 @@ function MarketBanner({ setId }) {
 
       </div>
       <div className="coin-base" id="prices">
-        <h2>Today's Cryptocurrency Prices</h2>
+        <h2 id="todays-prices">Today's Cryptocurrency Prices</h2>
         <div className="heading">
           <h3 className="first-head hash">#</h3>
           <h3 className="first-head">COIN</h3>
@@ -111,16 +111,16 @@ function MarketBanner({ setId }) {
                     <h3>{coin.symbol.toUpperCase()}</h3>
                   </div>
                 </div>
-                <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
+                <h3 className='market-capper'>${new Intl.NumberFormat().format(coin.current_price)}</h3>
                 <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{coin.price_change_percentage_24h.toString().substring(0, 4)}%</h3>
                 <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
               </Link>
             )
           })}
+                  </div>
           <div className="pag">
             <Pagination count={15} page={page} onChange={handleChange} color='primary' />
           </div>
-        </div>
       </div>
     </div>
   )
