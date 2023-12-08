@@ -2,18 +2,29 @@
     width: 100%;
     position: relative;
     z-index: 2;
-    margin-bottom: 20rem;
+    height: 2500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 40vh;
 }
 
-.card {
+.card-container{
+    width: 100%;
+    overflow-x: hidden;
     position: sticky;
     top: 50%;
     left: 100%;
+}
+
+.card {
+    margin-left: auto;
     width: fit-content;
     transform: translateX(300px);
     transition: all 1s ease-in-out;
-
-
+    overflow-y: visible;
+    height: 625px;
+    
     img {
         width: 480px;
         border-radius: 10px;
@@ -40,7 +51,7 @@
 }
 
 .first-text {
-    margin-top: 17vh;
+    margin-top: -700px;
     position: relative;
     z-index: 5;
     color: white;
@@ -184,11 +195,11 @@
 
 .second-card {
     width: 50%;
-    margin: 50vh 0 0 2rem;
-    padding-bottom: 20rem;
+    margin: 0 0 0 2rem;
     transform: translateY(100px);
     transition: all 0.7s ease-in-out;
     opacity: 0;
+    box-sizing: border-box;
 }
 
 .second-card>* {
@@ -313,12 +324,13 @@
     }
 
     .first-text{
-        width: 75%;
+        width:100%;
         backdrop-filter: blur(5px);
         border-radius: 20px;
         background-color:  rgba(1, 1, 1, 0.7);
         padding: 2rem 4rem;
-        margin: 10rem auto 0 auto;
+        align-self: center;
+
     }
 
     .left, .right{
@@ -334,8 +346,8 @@
     }
 
     .second-card{
-        width: 75%;
-        margin: 50vh auto 20rem auto;
+        width:100%;
+        margin: 0 auto;
         backdrop-filter: blur(5px);
         border-radius: 20px;
         background-color: rgba(1, 1, 1, 0.7);
@@ -347,7 +359,6 @@
 
     .first-text{
         padding: 2rem 2rem;
-        width: 90%;
     }
 
     .main-text{
@@ -368,7 +379,6 @@
     }
 
     .second-card{
-        width: 100%;
         padding: 0;
     }
 
