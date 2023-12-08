@@ -117,11 +117,11 @@
   .pag{
 
     nav{
-    position: absolute !important;
-    bottom: 0 !important;
-    right: 50% !important;
-    transform: translateX(50%) !important;
 
+        ul{
+            justify-content: center;
+        }
+    
     li {
         button {
             color: $white !important;

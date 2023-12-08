@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 
 
-function MarketBanner( {setId} ) {
+function MarketBanner({ setId }) {
 
   const [coinData, setCoinData] = useState([])
 
@@ -44,7 +44,7 @@ function MarketBanner( {setId} ) {
         .catch(error => console.error(error));
     }
     if (localStorage.getItem("coinData_" + page) === null) {
-    fetchData();
+      fetchData();
     } else {
       var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page))
       setCoinData(coinDataLocal);
@@ -58,7 +58,7 @@ function MarketBanner( {setId} ) {
     }
 
     checkSource()
-  
+
   }, [page]);
 
   function checkSource() {
@@ -88,7 +88,7 @@ function MarketBanner( {setId} ) {
         }
       </div>
       <div className="gradient" id="scroller">
-        
+
       </div>
       <div className="coin-base" id="prices">
         <h2>Today's Cryptocurrency Prices</h2>
@@ -100,26 +100,26 @@ function MarketBanner( {setId} ) {
           <h3>MARKET CAP</h3>
         </div>
         <div className='api-table'>
-        {coinData.map((coin, key) => {
-          return (
-            <Link className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
-              <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
-              <div className="identifier">
-                <img src={coin.image} alt={coin.name} />
-                <div>
-                  <h2>{coin.name}</h2>
-                  <h3>{coin.symbol.toUpperCase()}</h3>
+          {coinData.map((coin, key) => {
+            return (
+              <Link className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
+                <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
+                <div className="identifier">
+                  <img src={coin.image} alt={coin.name} />
+                  <div>
+                    <h2>{coin.name}</h2>
+                    <h3>{coin.symbol.toUpperCase()}</h3>
+                  </div>
                 </div>
-              </div>
-              <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
-              <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{coin.price_change_percentage_24h.toString().substring(0, 4)}%</h3>
-              <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
-            </Link>
-          )
-        })}
-        <div className="pag">
-        <Pagination count={25} page={page} onChange={handleChange} color='primary' />
-        </div>
+                <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
+                <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{coin.price_change_percentage_24h.toString().substring(0, 4)}%</h3>
+                <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
+              </Link>
+            )
+          })}
+          <div className="pag">
+            <Pagination count={15} page={page} onChange={handleChange} color='primary' />
+          </div>
         </div>
       </div>
     </div>
