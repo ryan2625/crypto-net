@@ -67,14 +67,14 @@ function FirstBanner({ homeRef }) {
             <h4>24H Change:</h4>
             <p className={marketData.data.market_cap_change_percentage_24h_usd > 1 ? "green" : "red"}>{marketData.data.market_cap_change_percentage_24h_usd.toString().substring(0, 4)} %</p>
           </div>
-          <div>
+          <div className='optional'>
             <h4>Market Volume: </h4>
             <p>{new Intl.NumberFormat('en-US', {
               notation: 'compact',
               compactDisplay: 'short',
             }).format(marketData.data.total_volume.usd)} USD</p>
           </div>
-          <div>
+          <div className='optional'>
             <h4>Markets: </h4>
             <p>{marketData.data.markets}</p>
           </div>

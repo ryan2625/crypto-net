@@ -214,6 +214,13 @@
     .heading{
     display: none;
     }
+}
 
-
+@media(max-width: 750px){
+    .top-coins{
+        flex-wrap: wrap;
+        div{
+            flex-basis: 50%;
+        }
+    }
 }

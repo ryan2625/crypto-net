@@ -368,7 +368,8 @@
     }
 
     .second-card{
-        width: 90%;
+        width: 100%;
+        padding: 0;
     }
 
     #earning-button{
@@ -378,6 +379,8 @@
         button{
             font-size: 1rem;
             white-space: nowrap;
+            width: 200px;
+            padding: 1rem 0;
         }
     }
 
