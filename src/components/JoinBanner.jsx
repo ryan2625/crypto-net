@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import image from "../assests/cryptoVisa2.png"
+import image from "../assests/cryptoVisa2.webp"
 import image2 from "../assests/new-pay-modified.png"
 import image3 from "../assests/usdc.png"
 import "../styles/join-banner.scss"
