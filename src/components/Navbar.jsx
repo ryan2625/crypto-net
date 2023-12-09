@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="nav-container">
-        <img src={image} alt="" />
+        <img src={image} alt="" onClick={() => window.scrollTo(0,0)}/>
         <ul>
           <li>
             <a href="#home">
@@ -31,7 +31,7 @@ function Navbar() {
       </div>
 
       <div className="nav-container-mobile">
-        <img src={image} alt="" />
+        <img src={image} alt="" onClick={() => window.scrollTo(0,0)}/>
         <li id="menu-icon" onClick={() => setOpen(!open)}>
           <MenuIcon />
         </li>
