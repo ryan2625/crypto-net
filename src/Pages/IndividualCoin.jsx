@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "../styles/individual-coin.scss"
+import "./individual-coin.css"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import image from "../assests/loading.png"
@@ -14,7 +14,6 @@ function IndividualCoin({ id }) {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
         .then(response => response.json())
         .then(data => {
-          console.log("API INDIVIDUALCOIN IS BEING CALLED");
           setCoinData(data);
           localStorage.setItem("coinData_" + id, JSON.stringify(data));
         })
