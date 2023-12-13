@@ -1,7 +1,8 @@
 @import "./variables.scss";
+@import "./mobile1.scss";
 
 .market-banner{
-    background-color: rgb(11, 40, 77);
+    background-color: $bg-mid;
     scroll-behavior: smooth;
 }
 
@@ -190,38 +191,4 @@
     text-decoration: none;
     color: $white;
     width: 100%;
-}
-
-@media(max-width: 960px){
-
-    .coin-base{
-        padding: 0;
-
-        h2{
-            margin: 1rem auto;
-        }
-    }
-    .api-table{
-        height: 720px;
-        width: 850px;
-        margin: 0 auto;
-        overflow-x: scroll !important;
-    }
-
-    .row{
-        width: 850px;
-    }
-
-    .heading{
-    display: none;
-    }
-}
-
-@media(max-width: 750px){
-    .top-coins{
-        flex-wrap: wrap;
-        div{
-            flex-basis: 50%;
-        }
-    }
 }

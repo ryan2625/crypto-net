@@ -5,7 +5,29 @@ import { Link } from 'react-router-dom';
 import image from "../assests/loading.png"
 function IndividualCoin({ id }) {
 
-  const [coinData, setCoinData] = useState()
+  const [coinData, setCoinData] = useState(
+    {
+      data: {
+        image: {
+          large: ""
+        },
+        name: "",
+        symbol: "",
+        coingecko_rank: "",
+        market_data: {
+          current_price: {
+            usd: ""
+          },
+          price_change_percentage_24h: ""
+        },
+        genesis_date: "",
+        hashing_algorithm: "",
+        description: {
+          en: ""
+        }
+      }
+    }
+  )
 
   useEffect(() => {
 

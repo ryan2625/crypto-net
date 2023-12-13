@@ -1,0 +1,35 @@
+
+@media(max-width: 600px){
+    .catch{
+      width: 95%;
+  
+      h1{
+        font-size: 1.75rem;
+      }
+  
+      h2{
+        font-size: 1.25rem;
+      }
+    }
+  
+  }
+  
+  @media(max-width:800px){
+    .trending{
+      justify-content: center;
+      div{
+        flex-direction: column;
+  
+  
+        h4{
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  
+  @media(max-width: 620px){
+    .optional{
+      display: none !important;
+    }
+  }

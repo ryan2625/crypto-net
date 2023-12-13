@@ -1,0 +1,33 @@
+
+@media (max-width: 600px){
+    .links {
+        display: flex;
+        padding: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        div {
+            width: fit-content;
+            margin-bottom: 3rem;
+            flex: 0 0 50%;
+
+            ul{
+                width: fit-content;
+                margin: 0 auto;
+                align-items: center;
+
+            }
+        }
+    }
+
+    .copyright{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .legal{
+        padding: .75rem;
+        margin-top: 2rem;
+    }
+
+}

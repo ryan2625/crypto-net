@@ -1,9 +1,12 @@
+@import "../../styles/variables.scss";
+@import "./mobile2.scss";
+
 .footer {
     position: relative;
     z-index: 9999999;
     width: 100%;
     color: rgb(182, 182, 182);
-    background-color: #141d35;
+    background-color: $bg-main;
     border-top: 1px solid rgb(124, 124, 124);
 }
 
@@ -51,7 +54,7 @@
             }
 
             &:first-child {
-                color: white;
+                color: $white;
                 margin-bottom: 1rem;
                 cursor: auto;
 
@@ -66,41 +69,8 @@
 }
 
 .divider{
-    background-color:rgb(124, 124, 124);
+    background-color:$dimmed-white;
     width: 100%;
     height: 1px;
     margin: 2rem 0 2rem 0;
-}
-
-@media (max-width: 600px){
-    .links {
-        display: flex;
-        padding: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        
-        div {
-            width: fit-content;
-            margin-bottom: 3rem;
-            flex: 0 0 50%;
-
-            ul{
-                width: fit-content;
-                margin: 0 auto;
-                align-items: center;
-
-            }
-        }
-    }
-
-    .copyright{
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .legal{
-        padding: .75rem;
-        margin-top: 2rem;
-    }
-
 }

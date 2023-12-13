@@ -1,0 +1,24 @@
+@media(max-width: 750px){
+    .coin-description{
+        width: 90%;
+    }
+
+    .back-btn{
+        top: 3rem;
+        left: 3rem;
+    }
+
+    .intro-coin{
+
+        img{
+            width: 200px;
+        }
+    }
+
+    .coin-description{
+
+        p{
+            font-size: 1.1rem;
+        }
+    }
+}

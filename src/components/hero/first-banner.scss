@@ -1,10 +1,12 @@
-@import "variables.scss";
+@import "../../styles/variables.scss";
+@import "./mobile3.scss";
+
 
 .first-banner {
   background: rgb(18, 26, 48);
-  background: linear-gradient(180deg, #0B1426 0%, #0b284d 90%);
+  background: linear-gradient(180deg, $bg-deep 0%, $bg-mid 90%);
   color: $white;
-  text-align: center;
+  text-align: center; 
   margin: 0 0 0 0;
   width: 100%;
   padding-top: 70px;
@@ -19,7 +21,7 @@
 
 .gradient {
   background: rgb(11, 20, 38);
-  background: linear-gradient(0deg, rgba(11, 20, 38, 1) 0%, rgba(11, 40, 77, 1) 99%);
+  background: linear-gradient(0deg, $bg-deep 0%, $bg-mid 99%);
   height: 150px;
 }
 
@@ -66,7 +68,7 @@
     font-weight: 500;
     span {
       -webkit-background-clip: text;
-      background-image: linear-gradient(298deg, rgba(0, 234, 255, 1) 0%, rgba(0, 111, 255, 1) 99%, rgba(35, 130, 255, 1) 100%);
+      background-image: $text-gradient;
       color: transparent;
     }
   }
