@@ -102,7 +102,7 @@
     }
 
     h1 {
-        font-size: calc(7rem + 4vw);
+        font-size: calc(12rem);
         -webkit-background-clip: text;
         background-image: linear-gradient(298deg, rgb(0, 234, 255) 0%, rgb(0, 111, 255) 99%, rgb(35, 130, 255) 100%);
         color: transparent;
@@ -127,7 +127,7 @@
     span {
         font-size: 1.25rem;
         position: absolute;
-        bottom: 34px;
+        bottom: 40px;
         right: -40px;
         color: #4194ec;
     }
