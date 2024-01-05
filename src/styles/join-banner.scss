@@ -234,6 +234,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        width: 50%;
 
         img {
             width: 150px;
@@ -282,13 +283,14 @@
 #earning-button{
     width: 100%;
     display: flex;
+    justify-content: center;
     
     button{
         background-color: transparent;
         padding: 1.5rem 5rem;
+        margin: 3rem 0;
         border-radius: 50px;
         border: 1px solid white;
-        margin: 2rem auto;
         font-size: 1.5rem;
         color: white;
         text-align: center;
@@ -364,7 +366,7 @@
             font-size: 6rem;
 
             span{
-                right: -15px;
+                right: -20px;
                 bottom: 20px;
             }
 

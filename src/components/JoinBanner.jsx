@@ -97,9 +97,9 @@ function JoinBanner() {
 
       <div className='join-banner' ref={scrollRef}>
         <div className="card-container">
-        <div className="card" ref={childScrollRef}>
-          <img src={image} alt="" />
-        </div>
+          <div className="card" ref={childScrollRef}>
+            <img src={image} alt="" />
+          </div>
         </div>
         <div className="first-text" ref={wholeText}>
           <div className="main-text">
