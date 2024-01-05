@@ -51,7 +51,7 @@
                 position: absolute;
                 bottom: -5px;
                 left: 0;
-                transition: .5s all ease-in-out;
+                transition: .3s all ease-in-out;
             }
     
             &:hover{
@@ -60,7 +60,7 @@
                 &::after{
                     content: "";
                     width: 100%;
-                    transition: .5s all ease-in-out;
+                    transition: .3s all ease-in-out;
                 }
             }
         }
