@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .market-banner{
     background-color: $bg-mid;
@@ -57,14 +58,12 @@
   }
   
   .heading{
-    background-color: $bg-main;
+    @include table-grid($bg-main);
     height: 10px;
     border-bottom: 1px solid rgba(151, 151, 151, 0.685);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    display: grid;
     width: 100% !important;
     text-align: right;
-    grid-template-columns: 100px 150px 1fr 1fr 1.25fr;
     padding: 1rem;
     place-content: center;
     
@@ -85,11 +84,9 @@
   }
 
   .row{
+    @include table-grid($bg-light);
     border-bottom: 1px solid $white;
-    background-color: $bg-light;
     border-bottom: 1px solid rgba(151, 151, 151, 0.685);
-    display: grid;
-    grid-template-columns: 50px 200px 1fr 1fr 1.25fr;
     width: 100%;
     text-align: right;
     padding: .5rem;
