@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./individual-coin.css"
+import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import image from "../assests/loading.png"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "../styles/market-banner.scss"
+import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom'

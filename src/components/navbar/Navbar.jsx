@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import "../styles/navbar.scss"
-import image from "../assests/crypto-logo-official.png"
+import "./navbar.scss"
+import image from "../../assests/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 
 function Navbar() {
