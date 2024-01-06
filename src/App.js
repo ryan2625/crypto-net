@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import IndividualCoin from './Pages/IndividualCoin';
 import Main from './Pages/MainPage';
-import Footer from './components/Footer';
+import Footer from "./components/footer/Footer"
 
 function App() {
 

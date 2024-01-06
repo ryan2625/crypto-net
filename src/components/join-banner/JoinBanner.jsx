@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react'
-import image from "../assests/cryptoVisa2.webp"
-import image2 from "../assests/new-pay-modified.png"
-import image3 from "../assests/usdc.png"
-import "../styles/join-banner.scss"
+import image from "../../assests/cryptoVisa2.webp"
+import image2 from "../../assests/new-pay-modified.png"
+import image3 from "../../assests/usdc.png"
+import "./join-banner.scss"
 import { useInView } from 'react-intersection-observer';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 

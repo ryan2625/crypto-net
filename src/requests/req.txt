@@ -1,9 +1,0 @@
-https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1
-
-API return 100 top coins
-
-/coins/{id}
-
-EX /coins/{id}
-
-This will display data about the crypto currency

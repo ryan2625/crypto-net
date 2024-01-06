@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import "../styles/first-banner.scss"
+import "./first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 

@@ -1,7 +1,7 @@
-@import "./variables.scss";
+@import "../../styles/variables.scss";
 
 .market-banner{
-    background-color: rgb(11, 40, 77);
+    background-color: $bg-mid;
     scroll-behavior: smooth;
 }
 
@@ -191,6 +191,7 @@
     color: $white;
     width: 100%;
 }
+
 
 @media(max-width: 960px){
 

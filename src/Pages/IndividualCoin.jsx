@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import "../styles/individual-coin.scss"
+import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import image from "../assests/loading.png"
 function IndividualCoin({ id }) {
 
-  const [coinData, setCoinData] = useState()
+  const [coinData, setCoinData] = useState(
+    {
+      data: {
+        image: {
+          large: ""
+        },
+        name: "",
+        symbol: "",
+        coingecko_rank: "",
+        market_data: {
+          current_price: {
+            usd: ""
+          },
+          price_change_percentage_24h: ""
+        },
+        genesis_date: "",
+        hashing_algorithm: "",
+        description: {
+          en: ""
+        }
+      }
+    }
+  )
 
   useEffect(() => {
 
@@ -14,7 +36,6 @@ function IndividualCoin({ id }) {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
         .then(response => response.json())
         .then(data => {
-          console.log("API INDIVIDUALCOIN IS BEING CALLED");
           setCoinData(data);
           localStorage.setItem("coinData_" + id, JSON.stringify(data));
         })

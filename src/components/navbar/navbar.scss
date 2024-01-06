@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "../../styles/variables.scss";
 
 .navbar { 
     height: 70px;
@@ -31,7 +31,7 @@
     }
 
     ul{
-        color: white;
+        color: $white;
         list-style: none;
         display: flex;
         gap: 4rem;
@@ -46,7 +46,7 @@
             &::after{
                 content: "";
                 width: 0%;
-                background:  linear-gradient(298deg, rgb(0, 234, 255) 0%, rgb(0, 111, 255) 99%, rgb(35, 130, 255) 100%);
+                background: $text-gradient;
                 height: 2px;
                 position: absolute;
                 bottom: -5px;
@@ -71,6 +71,7 @@
     display: none;
 }
 
+
 @media(max-width: 900px){
     .nav-container{
         display: none;
@@ -89,7 +90,7 @@
         }
 
         li{
-            color: white;
+            color: $white;
             list-style: none;
             transform: scale(2);
             cursor: pointer;
@@ -102,7 +103,7 @@
         position: fixed;
         width: 100%;
         height: 220px;
-        background: #0B1426;
+        background: $bg-deep;
         left: 0;
         z-index: 999;
         align-items: center;
@@ -115,7 +116,7 @@
             width: fit-content; 
             margin-top: 1.5rem;
             a{
-                color: rgb(255, 255, 255);
+                color: $white;
                 text-decoration: none;
             }
         }
