@@ -1,20 +1,17 @@
 const express = require('express');
+const { addCrypto,
+    getPortfolio,
+    deleteCrypto
+} = require('../controller/portfolioController');
 
 const router = express.Router();
 
-
 //Get all cryptos in portfolio 
 //Possible fields : name, symbol, price, quantity, total, portfolio value, date etc
-router.get("/", (req, res) =>{
-    res.json({mssg: "GET ALL CRYPTO"})
-})
+router.get("/", getPortfolio)
 
+router.post("/", addCrypto)
 
-//Get single crypto in portfolio,
-//This will have more fields than the table of getting ALL cryptos
-router.get(":/id", (res, req) =>{
-    res.json({mssg: "GET ONE CRYPTO"})
-})
-
+router.delete("/:id", deleteCrypto)
 
 module.exports = router;
