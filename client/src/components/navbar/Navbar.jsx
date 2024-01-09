@@ -17,7 +17,7 @@ function Navbar() {
     ele.removeAttribute("id")
     if (count % 2 === 0) {
       ele.setAttribute("id", "press")
-    } else { 
+    } else {
       ele.setAttribute("id", "unpress")
     }
     setCount(count + 1)
@@ -45,25 +45,23 @@ function Navbar() {
             </a>
           </li>
           <li id="profile-li" onClick={() => setClicked(!liClicked)}>
-            <a href="#" onClick={handlePfpClick}>
-              <AccountBoxIcon className='acc-press'/>
+            <a href="#blank" onClick={handlePfpClick}>
+              <AccountBoxIcon className='acc-press' />
             </a>
-            {
-              liClicked ?
-                <ul>
-                  <li>
-                    <Link to="/login">
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/portfolio">
-                      My Portfolio
-                    </Link>
-                  </li>
-                </ul>
-                : null
-            }
+            <ul className={
+              liClicked ? "account-container" : "account-container-hide"
+            }>
+              <li>
+                <Link to="/login">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link to="/portfolio">
+                  My Portfolio
+                </Link>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

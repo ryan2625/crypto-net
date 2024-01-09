@@ -70,6 +70,18 @@
     display: none;
 }
 
+.account-container {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) !important;
+    transition: .3s all ease-in-out;
+}
+
+.account-container-hide {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.7) !important;
+    transition: .3s all ease-in-out;
+}
+
 #profile-li {
     position: relative;
     
@@ -85,9 +97,8 @@
         position: absolute;
         background-color: $darker-grey;
         left: 50%;
-        top: 50px;
-        transform: translateX(-50%);
-        width: 200px;
+        top: 50px; 
+        width: 135px;
         display: flex;
         flex-direction: column;
         gap: 0;
@@ -143,18 +154,18 @@
 }
 
 #press{
-    animation: pressdown .25s ease-in-out forwards !important;
+    animation: pressdown .20s ease-in-out forwards !important;
 }
 
 #unpress{
-    animation: pressup .25s ease-in-out forwards;
+    animation: pressup .20s ease-in-out forwards;
 }
 
 @keyframes pressup{
     0%{
-        transform: translateY(5px);
+        transform: translateY(6px);
     }
-    70%{
+    60%{
         transform: translateY(10px);
     }
     100%{
@@ -166,11 +177,11 @@
     0%{
         transform: translateY(0px);
     }
-    70%{
+    60%{
         transform: translateY(10px);
     }
     100%{
-        transform: translateY(5px);
+        transform: translateY(6px);
     }
 }
 
