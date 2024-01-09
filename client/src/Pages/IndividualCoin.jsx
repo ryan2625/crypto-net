@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
-import image from "../assests/loading.png"
+import image from "../assets/loading.png"
 function IndividualCoin({ id }) {
 
   const [coinData, setCoinData] = useState(

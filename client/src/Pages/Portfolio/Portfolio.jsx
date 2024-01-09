@@ -1,8 +1,11 @@
 import React from 'react'
+import "./portfolio.scss"
 
 function Portfolio() {
   return (
-    <div>THIS IS YOUR PORTFOLIO DUDE....</div>
+    <section className='portfolio-display'>
+      <h1>Portfolio</h1>
+    </section>
   )
 }
 

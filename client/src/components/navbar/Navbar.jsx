@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./navbar.scss"
 import { Link } from "react-router-dom";
-import image from "../../assests/crypto-logo-official.png"
+import image from "../../assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
@@ -11,6 +11,25 @@ function Navbar() {
   const [liClicked, setClicked] = useState(false)
   const [pfpClick, setPfp] = useState(true)
   const [count, setCount] = useState(0)
+
+  let liRef = useRef()
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (!(liRef.current.contains(e.target))) {
+        setClicked(false)
+        let ele = document.getElementsByClassName("acc-press")[0]
+        if (ele.id === "press") {
+          ele.removeAttribute("id")
+          ele.setAttribute("id", "unpress")
+          setCount(2)
+        }
+      } 
+    }
+
+    document.addEventListener("mousedown", handler)
+  })
+
   function handlePfpClick() {
     setPfp(!pfpClick)
     let ele = document.getElementsByClassName("acc-press")[0]
@@ -44,7 +63,7 @@ function Navbar() {
               Rewards
             </a>
           </li>
-          <li id="profile-li" onClick={() => setClicked(!liClicked)}>
+          <li id="profile-li" onClick={() => setClicked(!liClicked)} ref={liRef}>
             <a href="#blank" onClick={handlePfpClick}>
               <AccountBoxIcon className='acc-press' />
             </a>

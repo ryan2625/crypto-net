@@ -1,7 +1,7 @@
 import React from 'react'
 import "./footer.scss"
-import image from "../../assests/appleStore.svg"
-import image2 from "../../assests/playStore.svg"
+import image from "../../assets/appleStore.svg"
+import image2 from "../../assets/playStore.svg"
 
 function Footer() {
     return (
