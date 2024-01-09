@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import "./navbar.scss"
+import { Link } from "react-router-dom";
 import image from "../../assests/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 function Navbar() {
 
@@ -10,7 +12,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="nav-container">
-        <img src={image} alt="" onClick={() => window.scrollTo(0,0)}/>
+        <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
         <ul>
           <li>
             <a href="#home">
@@ -27,11 +29,16 @@ function Navbar() {
               Rewards
             </a>
           </li>
+          <li>
+            <Link to="/login">
+              <AccountBoxIcon />
+            </Link>
+          </li>
         </ul>
       </div>
 
       <div className="nav-container-mobile">
-        <img src={image} alt="" onClick={() => window.scrollTo(0,0)}/>
+        <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
         <li id="menu-icon" onClick={() => setOpen(!open)}>
           <MenuIcon />
         </li>
@@ -49,6 +56,11 @@ function Navbar() {
           <li>
             <a href="#rewards" onClick={() => setOpen(!open)}>
               Rewards
+            </a>
+          </li>
+          <li>
+            <a href="#" onClick={() => setOpen(!open)}>
+              <AccountBoxIcon />
             </a>
           </li>
         </ul>
