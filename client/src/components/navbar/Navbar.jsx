@@ -9,6 +9,12 @@ function Navbar() {
 
   const [open, setOpen] = useState(false)
   const [liClicked, setClicked] = useState(false)
+  const [pfpClick, setPfp] = useState(false)
+
+  function handlePfpClick() {
+    setPfp(!pfpClick)
+    setClicked(!liClicked)
+  }
 
   return (
     <div className="navbar">
@@ -31,8 +37,8 @@ function Navbar() {
             </a>
           </li>
           <li id="profile-li" onClick={() => setClicked(!liClicked)}>
-            <a href="#" onClick={() => setOpen(!open)}>
-              <AccountBoxIcon />
+            <a href="#" onClick={handlePfpClick}>
+              <AccountBoxIcon  id={pfpClick ? "unpress" : "press"}/>
             </a>
             {
               liClicked ?
