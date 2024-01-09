@@ -8,6 +8,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 function Navbar() {
 
   const [open, setOpen] = useState(false)
+  const [liClicked, setClicked] = useState(false)
 
   return (
     <div className="navbar">
@@ -29,10 +30,26 @@ function Navbar() {
               Rewards
             </a>
           </li>
-          <li>
-            <Link to="/login">
+          <li id="profile-li" onClick={() => setClicked(!liClicked)}>
+            <a href="#" onClick={() => setOpen(!open)}>
               <AccountBoxIcon />
-            </Link>
+            </a>
+            {
+              liClicked ?
+                <ul>
+                  <li>
+                    <Link to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/portfolio">
+                      My Portfolio
+                    </Link>
+                  </li>
+                </ul>
+                : null
+            }
           </li>
         </ul>
       </div>

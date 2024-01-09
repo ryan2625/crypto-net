@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import IndividualCoin from './Pages/IndividualCoin';
 import Main from './Pages/MainPage';
-import Login from './Pages/Login';
+import Login from './Pages/Login/Login';
+import Portfolio from './Pages/Portfolio/Portfolio';
 import Footer from "./components/footer/Footer"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Main setId={setId} />} />
           <Route path="/coins/:id" element={<IndividualCoin id={id}/>} />
           <Route path="/login" element={<Login />}/>
+          <Route path="/portfolio" element={<Portfolio />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
