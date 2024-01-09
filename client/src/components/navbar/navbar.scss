@@ -143,11 +143,11 @@
 }
 
 #press{
-    animation: pressup .25s ease-in-out forwards;
+    animation: pressdown .25s ease-in-out forwards !important;
 }
 
 #unpress{
-    animation: pressdown .25s ease-in-out forwards;
+    animation: pressup .25s ease-in-out forwards;
 }
 
 @keyframes pressup{

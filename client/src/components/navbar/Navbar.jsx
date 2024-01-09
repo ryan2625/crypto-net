@@ -9,10 +9,18 @@ function Navbar() {
 
   const [open, setOpen] = useState(false)
   const [liClicked, setClicked] = useState(false)
-  const [pfpClick, setPfp] = useState(false)
-
+  const [pfpClick, setPfp] = useState(true)
+  const [count, setCount] = useState(0)
   function handlePfpClick() {
     setPfp(!pfpClick)
+    let ele = document.getElementsByClassName("acc-press")[0]
+    ele.removeAttribute("id")
+    if (count % 2 === 0) {
+      ele.setAttribute("id", "press")
+    } else { 
+      ele.setAttribute("id", "unpress")
+    }
+    setCount(count + 1)
     setClicked(!liClicked)
   }
 
@@ -38,7 +46,7 @@ function Navbar() {
           </li>
           <li id="profile-li" onClick={() => setClicked(!liClicked)}>
             <a href="#" onClick={handlePfpClick}>
-              <AccountBoxIcon  id={pfpClick ? "unpress" : "press"}/>
+              <AccountBoxIcon className='acc-press'/>
             </a>
             {
               liClicked ?
