@@ -72,6 +72,7 @@
 
 .account-container {
     opacity: 1;
+    pointer-events: auto;
     transform: translateX(-50%) scale(1);
     transition: .3s all ease-in-out;
 }
@@ -79,7 +80,23 @@
 .account-container-hide {
     opacity: 0;
     transform: translateX(-50%) scale(0.7);
+    animation: pointer .1s forwards;
     transition: .3s all ease-in-out;
+    
+}
+
+@keyframes pointer {
+    0% {
+        pointer-events: auto;
+    }
+
+    99%{
+        pointer-events: auto;
+    }
+
+    100% {
+        pointer-events: none;
+    }
 }
 
 #profile-li {

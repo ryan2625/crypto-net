@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import "./first-banner.scss"
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; 
 
 
 function FirstBanner({ homeRef }) {

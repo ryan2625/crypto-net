@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import "./trending.scss"
+import Marquee from '../../components/marquee/Marquee';
 
 function Trending({ setId }) {
 
@@ -35,6 +36,7 @@ function Trending({ setId }) {
     return (
         <>
             <Navbar sourced={false} />
+            <Marquee data={nfts}/>
             <section className='portfolio-display'>
                 <h1 id="first-h1" style={{ textAlign: "center", marginBottom: '4rem' }}>Gain insight through the latest trending coins of the <span>crypto-verse</span></h1>
                 <h1>Trending NFTs</h1>
@@ -84,7 +86,7 @@ function Trending({ setId }) {
                                 trending.map((coin, key) => {
                                     return (
                                         <Link state="trending"
-                                        className='row-link row' key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}>
+                                            className='row-link row' key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}>
                                             <h3 className='first-head'>{coin.item.score + 1}</h3>
                                             <div className="identifier">
                                                 <img src={coin.item.small} alt={coin.item.name} />
