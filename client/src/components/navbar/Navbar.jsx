@@ -15,6 +15,8 @@ function Navbar() {
   let liRef = useRef()
 
   useEffect(() => {
+    liRef.current = document.getElementsByClassName("acc-press")[0];
+    console.log(liRef.current)
     let handler = (e) => {
       if (!(liRef.current.contains(e.target))) {
         setClicked(false)
@@ -26,9 +28,11 @@ function Navbar() {
         }
       } 
     }
-
     document.addEventListener("mousedown", handler)
-  })
+    return () => {
+      document.removeEventListener("mousedown", handler)
+    }
+  }, [])
 
   function handlePfpClick() {
     setPfp(!pfpClick)
