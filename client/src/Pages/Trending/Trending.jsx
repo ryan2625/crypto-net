@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
 import "./trending.scss"
 
 function Trending({ setId }) {
@@ -18,7 +19,7 @@ function Trending({ setId }) {
         const fetchData = async () => {
             const res = await fetch("https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn").then(response => response.json()).then(data => {
                 setNFTs(data.nfts)
-                setTrending(data.coins)
+                setTrending(data.coins.splice(0, 10))
                 console.log(data)
             })
         }
@@ -26,11 +27,12 @@ function Trending({ setId }) {
     }, [])
 
     return (
+        <>
+        <Navbar sourced={false}/>
         <section className='portfolio-display'>
-            <Link to="/">Return to home</Link>
             <h1>Gain insight through the latest trending coins of crypto-verse</h1>
             <h1>Trending NFTs</h1>
-            <p>Trending NFTs based on the highest trading volume in the last 24 hours.</p>
+            <p className='off-white'>Trending NFTs based on the highest trading volume in the last 24 hours.</p>
             <div className="trending-nfts">
                 <div className="nft-header">
                     <h3>Coin</h3>
@@ -58,8 +60,8 @@ function Trending({ setId }) {
             </div>
             <div className="trending-main">
                 <h1>Top Trending Coins</h1>
-                <p>The 15 most searched coins in the last 24 hours.</p>
-                <div className="coin-base">
+                <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
+                <div className="coin-base" style={{padding: 0}}>
                     <div className="heading">
                         <h3 className="first-head hash">RANK &#160; </h3>
                         <h3 className="first-head">&#160; COIN</h3>
@@ -91,6 +93,7 @@ function Trending({ setId }) {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

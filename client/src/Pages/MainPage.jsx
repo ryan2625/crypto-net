@@ -7,7 +7,7 @@ import Navbar from "../components/navbar/Navbar";
 function Main({setId}) {
     return (
         <>
-            <Navbar />
+            <Navbar sourced={true}/>
             <FirstBanner />
             <MarketBanner setId={setId} />
             <JoinBanner />

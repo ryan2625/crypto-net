@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
 import "./portfolio.scss"
 
 function Portfolio({ setId }) {
@@ -18,8 +19,9 @@ function Portfolio({ setId }) {
   }, [])
 
   return (
+    <>
+    <Navbar sourced={false} />
     <section className='portfolio-display'>
-      <Link to="/">Return to home</Link>
       <h1>Welcome to your portfolio</h1>
       <h2>Here you can explore trending coins and add them to your watchlist.</h2>
       <div className="your-watchlist">
@@ -27,6 +29,7 @@ function Portfolio({ setId }) {
         asd
       </div>
     </section>
+    </>
   )
 }
 

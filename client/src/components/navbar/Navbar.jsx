@@ -5,7 +5,7 @@ import image from "../../assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
-function Navbar() {
+function Navbar({ sourced }) {
 
   const [open, setOpen] = useState(false)
   const [liClicked, setClicked] = useState(false)
@@ -26,7 +26,7 @@ function Navbar() {
           ele.setAttribute("id", "unpress")
           setCount(2)
         }
-      } 
+      }
     }
     document.addEventListener("mousedown", handler)
     return () => {
@@ -50,23 +50,27 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="nav-container">
-        <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
+        <Link to="/">
+          <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
+        </Link>
         <ul>
-          <li>
-            <a href="#home">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#prices">
-              Prices
-            </a>
-          </li>
-          <li>
-            <a href="#rewards">
-              Rewards
-            </a>
-          </li>
+          {sourced ? <>
+            <li>
+              <a href="#home">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#prices">
+                Prices
+              </a>
+            </li>
+            <li>
+              <a href="#rewards">
+                Rewards
+              </a>
+            </li>
+          </> : null}
           <li id="profile-li" onClick={() => setClicked(!liClicked)} ref={liRef}>
             <a href="#blank" onClick={handlePfpClick}>
               <AccountBoxIcon className='acc-press' />
@@ -74,6 +78,11 @@ function Navbar() {
             <ul className={
               liClicked ? "account-container" : "account-container-hide"
             }>
+              <li>
+                <Link to="/">
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link to="/login">
                   Login

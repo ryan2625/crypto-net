@@ -20,7 +20,7 @@ function App() {
           <Route path="/coins/:id" element={<IndividualCoin id={id}/>} />
           <Route path="/login" element={<Login />}/>
           <Route path="/portfolio" element={<Portfolio setId={setId} />}/>
-          <Route path="/trending" element={<Trending />}/>
+          <Route path="/trending" element={<Trending setId={setId} />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

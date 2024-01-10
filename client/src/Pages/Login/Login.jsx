@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from '../../components/navbar/Navbar';
 import "./login.scss"
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -27,8 +28,8 @@ function Login() {
 
   return (
     <>
+    <Navbar sourced={false}/>
       <section className='login'>
-      <Link to="/">Return to home</Link>
         <div className="login-container">
           <nav>
             <Tabs

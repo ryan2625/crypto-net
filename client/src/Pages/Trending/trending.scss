@@ -1,7 +1,11 @@
 @import "../../styles/variables.scss";
 
+.return-home{
+
+}
+
 .portfolio-display {
-    color: $dimmed-text-white;
+    color:  $white;
     padding: 4rem;
 
     h1 {
@@ -28,7 +32,16 @@
     grid-template-columns: 200px 1fr 1fr 1fr;
     box-sizing: border-box;
     border: 2px solid $visible-grey;
+
+    p{
+        height: fit-content;
+        margin: auto 0;
+    }
 }   
+
+.off-white{
+    color: $dimmed-text-white;
+}
 
 .updated-identifier {
     margin-left: 0;
@@ -42,6 +55,12 @@
 }
 
 .trending-nfts{
-    margin-top: 2rem;
+    margin: 1rem 0 3rem 0;
     background-color: $darker-grey;
+}
+
+.trending-main{
+    p{
+        margin-bottom: 1rem;
+    }
 }
