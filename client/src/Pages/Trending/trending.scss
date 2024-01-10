@@ -7,9 +7,10 @@
 .portfolio-display {
     color:  $white;
     padding: 4rem;
+    margin-top: 5rem;
 
     h1 {
-        font-size: 40px;
+        font-size: calc(2vw + 25px)
     }
 
 }
@@ -39,8 +40,17 @@
     }
 }   
 
+.p-container{
+    height: fit-content;
+    margin: auto 0;
+}
+
 .off-white{
     color: $dimmed-text-white;
+}
+
+.off-white2{
+    color: rgb(185, 243, 255);
 }
 
 .updated-identifier {
@@ -62,5 +72,13 @@
 .trending-main{
     p{
         margin-bottom: 1rem;
+    }
+}
+
+#first-h1{
+    span{
+        -webkit-background-clip: text;
+        background-image: $text-gradient;
+        color: transparent;
     }
 }

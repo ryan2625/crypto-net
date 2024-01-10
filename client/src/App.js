@@ -1,7 +1,7 @@
 import './App.scss';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import IndividualCoin from './Pages/IndividualCoin';
+import IndividualCoin from './Pages/Coin-Data/IndividualCoin';
 import Main from './Pages/MainPage';
 import Login from './Pages/Login/Login';
 import Portfolio from './Pages/Portfolio/Portfolio';

@@ -19,25 +19,31 @@ function Trending({ setId }) {
         const fetchData = async () => {
             const res = await fetch("https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn").then(response => response.json()).then(data => {
                 setNFTs(data.nfts)
-                setTrending(data.coins.splice(0, 10))
-                console.log(data)
+                setTrending(data.coins.slice(0, 10))
+                localStorage.setItem("trending", JSON.stringify(data.coins.slice(0, 10)))
+                localStorage.setItem("nfts", JSON.stringify(data.nfts))
             })
         }
+        if (localStorage.getItem("trending") === null) {
         fetchData()
+        } else {
+            setTrending(JSON.parse(localStorage.getItem("trending")))
+            setNFTs(JSON.parse(localStorage.getItem("nfts")))
+        }
     }, [])
 
     return (
         <>
         <Navbar sourced={false}/>
         <section className='portfolio-display'>
-            <h1>Gain insight through the latest trending coins of crypto-verse</h1>
+            <h1 id="first-h1" style={{textAlign : "center", marginBottom: '4rem'}}>Gain insight through the latest trending coins of the <span>crypto-verse</span></h1>
             <h1>Trending NFTs</h1>
             <p className='off-white'>Trending NFTs based on the highest trading volume in the last 24 hours.</p>
             <div className="trending-nfts">
                 <div className="nft-header">
-                    <h3>Coin</h3>
-                    <h3>24H Change</h3>
-                    <h3>Avg Price</h3>
+                    <h3>COIN</h3>
+                    <h3>24H CHANGE</h3>
+                    <h3>AVG PRICE</h3>
                     <h3>7D</h3>
                 </div>
                 {
@@ -52,7 +58,10 @@ function Trending({ setId }) {
                                     </div> 
                                 </div>
                                 <p className={nft.floor_price_24h_percentage_change> 0 ? "green" : "red"}>{nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%</p>
+                                <div className='p-container'>
                                 <p>{nft.data.h24_average_sale_price}</p>
+                                <p className='off-white2'>{nft.data.floor_price}</p>
+                                </div>
                                 <img src={nft.data.sparkline} alt="" />
                             </div>
                         )

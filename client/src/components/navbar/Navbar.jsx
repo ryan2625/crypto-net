@@ -16,7 +16,6 @@ function Navbar({ sourced }) {
 
   useEffect(() => {
     liRef.current = document.getElementsByClassName("acc-press")[0];
-    console.log(liRef.current)
     let handler = (e) => {
       if (!(liRef.current.contains(e.target))) {
         setClicked(false)
