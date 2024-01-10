@@ -1,0 +1,47 @@
+@import "../../styles/variables.scss";
+
+.portfolio-display {
+    color: $dimmed-text-white;
+    padding: 4rem;
+
+    h1 {
+        font-size: 40px;
+    }
+
+}
+
+.nft-header {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    padding: 1rem;
+
+    h3 {
+        font-size: 17px;
+        font-weight: 400;
+        margin: 0;
+    }
+}
+
+.nft-row {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    box-sizing: border-box;
+    border: 2px solid $visible-grey;
+}   
+
+.updated-identifier {
+    margin-left: 0;
+
+    div {
+        p {
+            width: 100%;
+            text-align: left;
+        }
+    }
+}
+
+.trending-nfts{
+    margin-top: 2rem;
+    background-color: $darker-grey;
+}

@@ -33,6 +33,10 @@ function JoinBanner() {
 
     window.addEventListener('scroll', handleScroll);
 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
   }, []);
 
   const { ref: wholeText, inView: textView1 } = useInView({

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import "./login.scss"
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -13,9 +14,21 @@ function Login() {
     setTabOpen(!tabOpen)
   };
 
+  useEffect(() => {
+    const html = document.querySelector('html')
+    html.style.scrollBehavior = "auto"
+    window.scrollTo({
+      top: 0,
+      behavior: "auto"
+    })
+    html.style.scrollBehavior = ''
+  }, [])
+  
+
   return (
     <>
       <section className='login'>
+      <Link to="/">Return to home</Link>
         <div className="login-container">
           <nav>
             <Tabs

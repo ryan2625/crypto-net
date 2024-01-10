@@ -80,6 +80,11 @@ function Navbar() {
                 </Link>
               </li>
               <li>
+                <Link to="/trending">
+                  Trending
+                </Link>
+              </li>
+              <li>
                 <Link to="/portfolio">
                   My Portfolio
                 </Link>
