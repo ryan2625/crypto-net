@@ -102,7 +102,8 @@ function MarketBanner({ setId }) {
         <div className='api-table'>
           {coinData.map((coin, key) => {
             return (
-              <Link className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
+              <Link state="main" 
+              className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
                 <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                 <div className="identifier">
                   <img src={coin.image} alt={coin.name} />

@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import image from "../../assets/loading.png"
 function IndividualCoin({ id }) {
 
   //SETUP USESTATE DUMMY DATA PROPERLY INSTEAD OF
   //DATA NOT AVAILABLE!!
+
+  const location = useLocation()
+
+  const [navigation, setNavigation] = useState("/")
 
   const [coinData, setCoinData] = useState(
     {
@@ -57,12 +61,19 @@ function IndividualCoin({ id }) {
       behavior: "auto"
     })
     html.style.scrollBehavior = ''
+    checkSource()
   }, [id]);
+
+  function checkSource(){
+    if (location.state === "trending") {
+      setNavigation("/trending")
+    }
+  }
 
   return (
     <div className="individual-page">
       <div className="back-btn">
-        <Link to="/" state="coin">
+        <Link to={navigation} state="coin">
           <ArrowBackIcon />
         </Link>
       </div>
