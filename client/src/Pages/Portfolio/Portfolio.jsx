@@ -39,7 +39,9 @@ function Portfolio({ setId }) {
       headers: {
         "Content-Type": "application/json"
       }
-    })} catch (err) {
+    })
+    setPortfolioData(portfolioData.filter(coin => coin.name !== deleter))
+    } catch (err) {
       console.log(err)
     }
   }
