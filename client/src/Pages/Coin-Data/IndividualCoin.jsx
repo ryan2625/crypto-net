@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import CheckIcon from '@mui/icons-material/Check';
 import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useLocation } from 'react-router-dom';
@@ -10,7 +11,13 @@ function IndividualCoin({ id }) {
 
   const location = useLocation()
 
+  const confirmation = useRef(null)
+
+  const confirmation2 = useRef(null)
+
   const [navigation, setNavigation] = useState("/")
+
+  const [added, setAdded] = useState(false)
 
   const [coinData, setCoinData] = useState(
     {
@@ -82,16 +89,31 @@ function IndividualCoin({ id }) {
     const json = await res.json()
 
     if (!res.ok){
-      console.log("Error adding to portfolio")
+      confirmation2.current.className = "confirmation"
+      setTimeout(() => {
+        confirmation2.current.className = "confirmation confirmation-show"
+      }, 50)
     }
 
     if (res.ok) {
-      console.log("Added to portfolio")
+      confirmation.current.className = "confirmation"
+      setTimeout(() => {
+        confirmation.current.className = "confirmation confirmation-show"
+      }, 50)
+      setAdded(!added)
     }
   }
 
   return (
     <div className="individual-page">
+      <div className="confirmation" ref={confirmation}>
+        <h4>Added to Portfolio</h4><span><CheckIcon /></span>
+      </div>
+      <div className="confirmation"       
+      style={{backgroundColor: "red"}} 
+      ref={confirmation2}>
+        <h4>Oops! Duplicate Coin!</h4><span><CheckIcon style={{visibility:"hidden"}} /></span>
+      </div>
       <div className="back-btn">
         <Link to={navigation} state="coin">
           <ArrowBackIcon />

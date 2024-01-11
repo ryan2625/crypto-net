@@ -137,6 +137,56 @@
     }
 }
 
+.confirmation {
+    position: fixed;
+    top: 15%;
+    right: 0%;
+    width: 240px;
+    height: 50px;
+    z-index: 9;
+    display: flex;
+    gap: .75rem;
+    background-color: $bg-deep;
+    border-radius: 10px;
+    align-items: center;
+    transform: translateX(245px);
+    border: 2px solid $white;
+    text-wrap: nowrap;
+}
+
+.confirmation>h4 {
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    margin-left: .75rem;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.confirmation>span {
+    margin-top: 3px;
+    display: block;
+    color: rgb(255, 255, 255);
+}
+
+.confirmation-show {
+    transform: translateX(245px);
+    animation: sliding 2s ease-in-out;
+}
+
+@keyframes sliding {
+
+    0%,
+    100% {
+        transform: translateX(245px);
+    }
+
+    25%,
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+
 @media(max-width: 750px){
     .coin-description{
         width: 90%;
