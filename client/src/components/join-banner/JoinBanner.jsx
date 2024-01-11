@@ -40,7 +40,7 @@ function JoinBanner() {
   }, []);
 
   const { ref: wholeText, inView: textView1 } = useInView({
-    rootMargin: '150px 0px'
+    rootMargin: '-100px 0px'
   });
 
   const { ref: rewardText, inView: textView2 } = useInView({
