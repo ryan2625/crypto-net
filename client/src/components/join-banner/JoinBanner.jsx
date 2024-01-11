@@ -79,7 +79,7 @@ function JoinBanner() {
             setVal((prev) => prev + 1)
             ensure += 1
             handleIncrease()
-          }, 230)
+          }, 260)
         }
       }
       setChecker(checker + 1)
