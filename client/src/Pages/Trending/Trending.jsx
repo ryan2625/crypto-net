@@ -56,8 +56,8 @@ function Trending({ setId }) {
                                     <div className='identifier updated-identifier'>
                                         <img src={nft.thumb} alt="" />
                                         <div>
-                                            <h3>{nft.name}</h3>
-                                            <p>{nft.symbol}</p>
+                                            <h3>{nft.name.toString().slice(0,13)}</h3>
+                                            <p>{nft.symbol.toString().slice(0,13)}</p>
                                         </div>
                                     </div>
                                     <p className={nft.floor_price_24h_percentage_change > 0 ? "green" : "red"}>{nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%</p>

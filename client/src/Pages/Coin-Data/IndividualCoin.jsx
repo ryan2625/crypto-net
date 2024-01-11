@@ -70,6 +70,26 @@ function IndividualCoin({ id }) {
     }
   }
 
+  async function addToPortfolio(){
+    console.log(JSON.stringify(id))
+    const res = await fetch("/api/portfolio", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({name: id})
+    })
+    const json = await res.json()
+
+    if (!res.ok){
+      console.log("Error adding to portfolio")
+    }
+
+    if (res.ok) {
+      console.log("Added to portfolio")
+    }
+  }
+
   return (
     <div className="individual-page">
       <div className="back-btn">
@@ -81,7 +101,8 @@ function IndividualCoin({ id }) {
         <div className="intro-coin">
           <img src={coinData?.image?.large || { image }} alt="" />
           <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
-          <h2>CoinGecko™ &nbsp; Rank:&nbsp; #{coinData?.coingecko_rank || "Data not available"}</h2>
+          <h2></h2>
+          <button className='add-p' onClick={addToPortfolio}>ADD TO WATCHLIST</button>
           <div className="rates">
             <h3>
               Market Rate: ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd || "Data not available")}

@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .individual-page{
     background: linear-gradient(90deg, rgba(11,20,38,1) 0%, rgba(29,86,119,1) 100%);
     height: 100%;
@@ -5,7 +7,7 @@
 }
 
 .coin-description{
-    color: rgb(241, 241, 241);
+    color: $white;
     width: 75%;
     margin: 0 auto 0 auto;
 
@@ -113,6 +115,26 @@
     gap: 2rem;
     margin: 2rem;
     font-size: 1.25rem;
+}
+
+.add-p{
+    width: 200px;
+    margin: 0 auto;
+    padding: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    background-color: $text-blue;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+
+    &:hover{
+       color: $text-blue;
+       background-color: rgb(255, 255, 255);
+       transition: .3s all ease-in-out;
+    }
 }
 
 @media(max-width: 750px){

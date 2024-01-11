@@ -5,10 +5,22 @@ import "./portfolio.scss"
 
 function Portfolio({ setId }) {
 
-  const [trending, setTrending] = useState([])
-  const [nfts, setNFTs] = useState([])
+  const [portfolioData, setPortfolioData] = useState([])
+  
 
   useEffect(() => {
+    const fetchData = async () =>{
+      try{
+      const res = await fetch("/api/portfolio").then(
+        response => response.json().then(data => {
+          console.log(data)
+          setPortfolioData(data.portfolio)
+        })
+      )
+      } catch (err) {
+        console.log(err)
+      }
+    }
     const html = document.querySelector('html')
     html.style.scrollBehavior = "auto"
     window.scrollTo({
@@ -16,7 +28,21 @@ function Portfolio({ setId }) {
       behavior: "auto"
     })
     html.style.scrollBehavior = ''
+
+    fetchData()
   }, [])
+
+  async function deleteCoin(deleter){
+    try{
+    const res = await fetch(`/api/portfolio/${deleter}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })} catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
@@ -27,6 +53,18 @@ function Portfolio({ setId }) {
       <div className="your-watchlist">
         <h1>Your Watchlist</h1>
         asd
+        {
+          portfolioData.map((coin, key) => {
+            return(
+              <div className="coin-row" key={key}>
+                <div className="coin">
+                  <h1>{coin.name}</h1>
+                  <button onClick={() =>deleteCoin(coin.name)}>DELETE</button>
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
     </section>
     </>

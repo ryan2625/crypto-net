@@ -27,13 +27,10 @@ const addCrypto = async (req, res) => {
 
 const deleteCrypto = async (req, res) => {
     const { id } = req.params
-
-    if (!Mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: "No such coin in portfolio" })
-    }
-    const portfolio = await Portfolio.findOneAndDelete({ _id: id })
+    
+    const portfolio = await Portfolio.findOneAndDelete({ name : id })
     if (!portfolio) {
-        return res.status(404).json({ error: "No such coin in portfolio" })
+        return res.status(404).json({ error: "No such coin in portfolio of id:" + id })
     }
     res.status(200).json({ portfolio })
 }

@@ -27,9 +27,9 @@ function Navbar({ sourced }) {
         }
       }
     }
-    document.addEventListener("mousedown", handler)
+    document.addEventListener("mouseup", handler)
     return () => {
-      document.removeEventListener("mousedown", handler)
+      document.removeEventListener("mouseup", handler)
     }
   }, [])
 
@@ -83,13 +83,13 @@ function Navbar({ sourced }) {
                 </Link>
               </li>
               <li>
-                <Link to="/login">
-                  Login
+                <Link to="/trending">
+                  Trending
                 </Link>
               </li>
               <li>
-                <Link to="/trending">
-                  Trending
+                <Link to="/login">
+                  Login
                 </Link>
               </li>
               <li>
