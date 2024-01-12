@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./navbar.scss"
 import { Link } from "react-router-dom";
+import { useLogout } from '../../hooks/useLogout'
+import { useAuthContext } from '../../hooks/useAuthContext'
 import image from "../../assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+
+
 
 function Navbar({ sourced }) {
 
@@ -11,6 +15,8 @@ function Navbar({ sourced }) {
   const [liClicked, setClicked] = useState(false)
   const [pfpClick, setPfp] = useState(true)
   const [count, setCount] = useState(0)
+  const { logout } = useLogout()
+  const { user } = useAuthContext()
 
   let liRef = useRef()
 
@@ -44,6 +50,10 @@ function Navbar({ sourced }) {
     }
     setCount(count + 1)
     setClicked(!liClicked)
+  }
+
+  function handleLogout() {
+    logout()
   }
 
   return (
@@ -88,15 +98,32 @@ function Navbar({ sourced }) {
                 </Link>
               </li>
               <li>
-                <Link to="/login">
-                  Login
-                </Link>
-              </li>
-              <li>
                 <Link to="/portfolio">
                   My Portfolio
                 </Link>
               </li>
+              <li>
+                <button onClick={ handleLogout }>
+                  Logout
+                </button>
+              </li>
+              {
+                user && (
+                  <li>
+                  {user ? user.email : null}
+                </li>
+                )
+              }
+              {
+                !user && (
+                  <li>
+                  <Link to="/login">
+                    Login
+                  </Link>
+                </li>
+                )
+              }
+
             </ul>
           </li>
         </ul>

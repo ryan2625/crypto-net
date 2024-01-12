@@ -13,7 +13,6 @@ function Portfolio({ setId }) {
       try{
       const res = await fetch("/api/portfolio").then(
         response => response.json().then(data => {
-          console.log(data)
           setPortfolioData(data.portfolio)
         })
       )
