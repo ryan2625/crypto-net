@@ -78,6 +78,8 @@ function IndividualCoin({ id }) {
   function checkSource() {
     if (location.state === "trending") {
       setNavigation("/trending")
+    } else if (location.state === "portfolio") {
+      setNavigation("/portfolio")
     }
   }
 
@@ -90,14 +92,18 @@ function IndividualCoin({ id }) {
       }, 50)
       return
     }
-
     const res = await fetch("/api/portfolio", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${user.token}`
       },
-      body: JSON.stringify({ name: id, })
+      body: JSON.stringify({
+        name: id,
+        link: coinData.name,
+        image: coinData.image.large,
+        marketRate: coinData.market_data.current_price.usd
+      })
     })
     const json = await res.json()
 

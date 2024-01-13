@@ -57,9 +57,13 @@
     margin-left: 0;
 
     div {
+        h3{
+            color: $white !important;
+        }
         p {
             width: 100%;
             text-align: left;
+            color: $dimmed-text-white;
         }
     }
 }
@@ -80,5 +84,22 @@
         -webkit-background-clip: text;
         background-image: $text-gradient;
         color: transparent;
+    }
+}
+
+@media (max-width: 730px){
+    .optional-display{
+        display: none;
+    }
+
+    .nft-header{
+        grid-template-columns: 1fr 1fr;
+    }
+    .nft-row{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-display{
+        padding: .5rem;
     }
 }

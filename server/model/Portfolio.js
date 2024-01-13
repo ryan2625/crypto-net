@@ -5,6 +5,18 @@ const portfolioSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    image: {
+        type: String,
+        required: true,
+    },
+    link: {
+        type: String,
+        required: true,
+    },
+    marketRate: {
+        type: String,
+        required: true,
+    },
     user_id: {
         type: String,
         required: true,

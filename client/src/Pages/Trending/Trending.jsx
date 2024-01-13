@@ -43,11 +43,11 @@ function Trending({ setId }) {
                 <p className='off-white'>Trending NFTs based on the highest trading volume in the last 24 hours.</p>
                 <div className="trending-nfts">
                     <div className="nft-header">
-                        <h3>COIN</h3>
+                        <h3 >COIN</h3>
                         <h3>24H CHANGE</h3>
-                        <h3>AVG/
+                        <h3 className='optional-display'>AVG/
                             <span className='off-white2'>FLOOR</span> PRICE</h3>
-                        <h3>7D</h3>
+                        <h3 className='optional-display'>7D</h3>
                     </div>
                     {
                         nfts.map((nft, key) => {
@@ -61,11 +61,11 @@ function Trending({ setId }) {
                                         </div>
                                     </div>
                                     <p className={nft.floor_price_24h_percentage_change > 0 ? "green" : "red"}>{nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%</p>
-                                    <div className='p-container'>
+                                    <div className='optional-display p-container'>
                                         <p>{nft.data.h24_average_sale_price}</p>
-                                        <p className='off-white2'>{nft.data.floor_price}</p>
+                                        <p className='optional-display off-white2'>{nft.data.floor_price}</p>
                                     </div>
-                                    <img src={nft.data.sparkline} alt="" />
+                                    <img className="optional-display" src={nft.data.sparkline} alt="" />
                                 </div>
                             )
                         })}

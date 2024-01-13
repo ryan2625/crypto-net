@@ -12,7 +12,7 @@
     box-sizing: border-box;
     max-width: 450px;
     width: 100%;
-    min-height: 650px;
+    min-height: 715px;
     background-color: $visible-grey;
     border-radius: 20px;
 }
@@ -21,10 +21,18 @@
     color: #4194ec !important;
 }
 
+.error-logging{
+    border: 3px solid red;
+    border-radius: 10px;
+    padding: .75rem 0;
+    background-color: rgb(255, 111, 111);
+    text-align: center;
+}
+
 .auth{
 
     * {
-        margin-top: 1.5rem;
+        margin-top: 1.2rem;
     }
 
     p {
@@ -53,6 +61,8 @@
             border-radius: 5px;
             cursor: pointer;
             border: 2px solid $dimmed-white;
+            width: 75%;
+            margin-left: auto;
         }
 
         label{
@@ -72,4 +82,53 @@
             margin-top: .5rem;
         }
     }
+}
+
+.returner {
+    padding: 1rem 0;
+    width: 25%;
+    background-color: $bg-light;
+    border: 2px solid $dimmed-white;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    a{
+        position: relative;
+        color: $white;
+
+        text-decoration: none;
+
+        *{
+            position: absolute;
+        }
+    }
+}
+
+.house{
+    position: absolute;
+    margin: 0 !important;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.west{
+    position: absolute;
+    margin: 0 !important;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+}
+
+.auth-buttons{
+    margin-top: 2rem;
+    background-color: $bg-light;
+    border: none;
+    padding: 1rem 0;
+    color: $white;
+    cursor: pointer;
+    border: 2px solid $dimmed-white;
+    width: 75%;
+    margin-left: auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

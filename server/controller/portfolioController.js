@@ -15,14 +15,14 @@ const getPortfolio = async (req, res) => {
 
 //Add crypto to portfolio
 const addCrypto = async (req, res) => {
-    const { name } = req.body;
+    const { name, image, link, marketRate } = req.body;
     try {
         const user_id = req.user._id;
         const existingPortfolio = await Portfolio.find({ name: name, user_id: user_id });
         if (existingPortfolio.length > 0) {
             return res.status(400).json({ error: "error" });
         }
-        const portfolio = await Portfolio.create({ name, user_id });
+        const portfolio = await Portfolio.create({ name, image, link, marketRate, user_id });
         res.status(200).json({ portfolio });
     } catch (error) {
         res.status(500).json({ error: "Error adding coin to portfolio" });

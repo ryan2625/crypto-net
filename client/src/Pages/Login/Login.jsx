@@ -4,6 +4,8 @@ import { useSignup } from '../../hooks/useSignup'
 import { useLogin } from '../../hooks/useLogin'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import CheckIcon from '@mui/icons-material/Check';
+import HouseIcon from '@mui/icons-material/House';
+import WestIcon from '@mui/icons-material/West';
 import Navbar from '../../components/navbar/Navbar';
 import "./login.scss"
 import Tabs from '@mui/material/Tabs';
@@ -19,7 +21,6 @@ function Login() {
   const { user } = useAuthContext()
   const { signUp, error, setError } = useSignup()
   const { login, error2, setError2 } = useLogin()
-  const confirmation = useRef(null)
   const confirmation2 = useRef(null)
 
   const handleChange = (event, newValue) => {
@@ -93,9 +94,8 @@ function Login() {
           </nav>
           {tabOpen ?
             <div className="auth login-body">
-
               <h2>
-                Login to track your favorite coins easily.
+                Login to track your favorite coins and view the latest trends on crypto-verse.
               </h2>
               <p>
                 By continuing, you agree to the crypto-verse User Agreement and Privacy Policy. No part of the content that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose.
@@ -114,9 +114,23 @@ function Login() {
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password} />
-                <button>Login</button>
               </form>
-              {error2}
+              <div className="buttons-login">
+              <button className="returner">
+                  <Link to="/"> &nbsp;
+                    <HouseIcon className='house' />
+                    <WestIcon className='west' />
+                  </Link>
+                </button>
+                <button className='auth-buttons'
+                onClick={handleSubmitLogin}>
+                  Login
+                </button>
+              </div>
+              {error2 &&
+                <div className="error-logging">
+                  {error2}
+                </div>}
             </div>
             :
             <div className="auth signup-body">
@@ -139,16 +153,30 @@ function Login() {
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password} />
-                <button>Signup</button>
               </form>
-              {error}
+              <div className="buttons-login">
+              <button className="returner">
+                  <Link to="/"> &nbsp;
+                    <HouseIcon className='house' />
+                    <WestIcon className='west' />
+                  </Link>
+                </button>
+                <button className='auth-buttons'
+                onClick={handleSubmitSignup}>
+                  Signup
+                </button>
+              </div>
+              {error &&
+                <div className="error-logging">
+                  {error}
+                </div>}
             </div>
           }
           <div className="confirmation" ref={confirmation2}>
             <h4>Login Success!</h4><span><CheckIcon /></span>
           </div>
         </div>
-      </section>
+      </section >
     </>
   )
 }

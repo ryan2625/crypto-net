@@ -1,0 +1,46 @@
+@import "../../styles/variables.scss";
+
+.your-watchlist{
+    display: flex;
+    flex-wrap: wrap;
+    h1{
+        width: 100%;
+    }
+}
+
+.portfolio-view{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
+    a{
+        text-decoration: none;
+        color: $white;
+    }
+}
+
+.portfolio-view-name{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    h3{
+        text-align: center;
+    }
+
+    img{
+        width: 150px;
+    }
+}
+
+.market-portfolio{
+    text-align: center;
+    margin: .5rem 0;
+}
+
+.portfolio-delete{
+    padding: .25rem;
+    color: $white;
+    background-color: $bg-light2;
+    border: none;
+    border-radius: 5px;
+}
