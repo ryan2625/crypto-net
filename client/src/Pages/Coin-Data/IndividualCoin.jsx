@@ -75,14 +75,13 @@ function IndividualCoin({ id }) {
     checkSource()
   }, [id]);
 
-  function checkSource(){
+  function checkSource() {
     if (location.state === "trending") {
       setNavigation("/trending")
     }
   }
 
-
-  async function addToPortfolio(){
+  async function addToPortfolio() {
     if (!user) {
       setError("User not logged in")
       confirmation2.current.className = "confirmation"
@@ -96,13 +95,13 @@ function IndividualCoin({ id }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${user.token}`
+        "Authorization": `Bearer ${user.token}`
       },
-      body: JSON.stringify({name: id, })
+      body: JSON.stringify({ name: id, })
     })
     const json = await res.json()
 
-    if (!res.ok){
+    if (!res.ok) {
       setError("Oops! Duplicate Coin!")
       confirmation2.current.className = "confirmation"
       setTimeout(() => {
@@ -124,10 +123,10 @@ function IndividualCoin({ id }) {
       <div className="confirmation" ref={confirmation}>
         <h4>Added to Portfolio</h4><span><CheckIcon /></span>
       </div>
-      <div className="confirmation"       
-      style={{backgroundColor: "red"}} 
-      ref={confirmation2}>
-        <h4>{Error}</h4><span><CheckIcon style={{visibility:"hidden"}} /></span>
+      <div className="confirmation"
+        style={{ backgroundColor: "red" }}
+        ref={confirmation2}>
+        <h4>{Error}</h4><span><CheckIcon style={{ visibility: "hidden" }} /></span>
       </div>
       <div className="back-btn">
         <Link to={navigation} state="coin">

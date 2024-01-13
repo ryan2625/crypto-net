@@ -54,6 +54,7 @@ function Navbar({ sourced }) {
 
   function handleLogout() {
     logout()
+    
   }
 
   return (
@@ -103,24 +104,19 @@ function Navbar({ sourced }) {
                 </Link>
               </li>
               <li>
-                <button onClick={ handleLogout }>
-                  Logout
-                </button>
+                {user && (
+                  <button onClick={handleLogout}>
+                    Logout
+                  </button>
+                )}
               </li>
-              {
-                user && (
-                  <li>
-                  {user ? user.email : null}
-                </li>
-                )
-              }
               {
                 !user && (
                   <li>
-                  <Link to="/login">
-                    Login
-                  </Link>
-                </li>
+                    <Link to="/login">
+                      Login
+                    </Link>
+                  </li>
                 )
               }
             </ul>
@@ -129,7 +125,7 @@ function Navbar({ sourced }) {
       </div>
 
       <div className="nav-container-mobile">
-      <Link to="/">
+        <Link to="/">
           <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
         </Link>
         <li id="menu-icon" onClick={() => setOpen(!open)}>
@@ -152,24 +148,19 @@ function Navbar({ sourced }) {
                 </Link>
               </li>
               <li>
-                <button onClick={ handleLogout }>
-                  Logout
-                </button>
+                {user && (
+                  <button onClick={handleLogout}>
+                    Logout
+                  </button>
+                )}
               </li>
-              {
-                user && (
-                  <li>
-                  {user ? user.email : null}
-                </li>
-                )
-              }
               {
                 !user && (
                   <li>
-                  <Link to="/login">
-                    Login
-                  </Link>
-                </li>
+                    <Link to="/login">
+                      Login
+                    </Link>
+                  </li>
                 )
               }
         </ul>

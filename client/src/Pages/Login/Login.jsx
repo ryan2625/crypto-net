@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSignup } from '../../hooks/useSignup'
 import { useLogin } from '../../hooks/useLogin'
+import { useAuthContext } from '../../hooks/useAuthContext'
+import CheckIcon from '@mui/icons-material/Check';
 import Navbar from '../../components/navbar/Navbar';
 import "./login.scss"
 import Tabs from '@mui/material/Tabs';
@@ -13,13 +15,36 @@ function Login() {
   const [tabOpen, setTabOpen] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { signUp, error, isLoading } = useSignup()
-  const { login, error2, isLoading2 } = useLogin()
+  const [pageOpen, setPageOpen] = useState(false)
+  const { user } = useAuthContext()
+  const { signUp, error, setError } = useSignup()
+  const { login, error2, setError2 } = useLogin()
+  const confirmation = useRef(null)
+  const confirmation2 = useRef(null)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setTabOpen(!tabOpen)
+    if (newValue === "one") {
+      setError2("")
+    } else {
+      setError("")
+    }
+    setEmail("")
+    setPassword("")
   };
+
+  useEffect(() => {
+    if (user && pageOpen) {
+      confirmation2.current.className = "confirmation";
+      setTimeout(() => {
+        confirmation2.current.className = "confirmation confirmation-show";
+      }, 50);
+    }
+    setTimeout(() => {
+      setPageOpen(true)
+    }, 750)
+  }, [user])
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault()
@@ -27,9 +52,10 @@ function Login() {
   }
 
   const handleSubmitSignup = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     await signUp(email, password)
-  }
+  };
+
 
   useEffect(() => {
     const html = document.querySelector('html')
@@ -90,6 +116,7 @@ function Login() {
                   value={password} />
                 <button>Login</button>
               </form>
+              {error2}
             </div>
             :
             <div className="auth signup-body">
@@ -101,23 +128,25 @@ function Login() {
               </p>
               <form onSubmit={handleSubmitSignup}>
                 <label htmlFor='Signup-Email'>Email</label>
-                <input type="text" 
-                placeholder="Email" 
-                id="Signup-Email" 
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}/>
+                <input type="text"
+                  placeholder="Email"
+                  id="Signup-Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email} />
                 <label htmlFor="Signup-Password">Password</label>
-                <input type="password" 
-                id="Signup-Password" 
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password} />
+                <input type="password"
+                  id="Signup-Password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password} />
                 <button>Signup</button>
               </form>
+              {error}
             </div>
           }
-          ERROR: {error && <p>{error}</p>}
-          ERROR: {error2 && <p>{error2}</p>}
+          <div className="confirmation" ref={confirmation2}>
+            <h4>Login Success!</h4><span><CheckIcon /></span>
+          </div>
         </div>
       </section>
     </>

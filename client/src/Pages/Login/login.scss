@@ -1,15 +1,18 @@
 @import "../../styles/variables";
 .login{
     color: $white;
+    min-height: 80vh;
+    background-image: url("../../assets/backg.webp");
+    display: flex;
 }
 
 .login-container{
-    margin: 5rem auto;
+    margin: 101px auto 31px auto;
     padding: 2rem;
     box-sizing: border-box;
     max-width: 450px;
     width: 100%;
-    min-height: 500px;
+    min-height: 650px;
     background-color: $visible-grey;
     border-radius: 20px;
 }
@@ -48,6 +51,8 @@
             padding: 1rem 0;
             color: $white;
             border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid $dimmed-white;
         }
 
         label{
