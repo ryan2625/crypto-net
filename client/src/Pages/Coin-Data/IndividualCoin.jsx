@@ -3,6 +3,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuthContext } from '../../hooks/useAuthContext'
 import image from "../../assets/loading.png"
 function IndividualCoin({ id }) {
 
@@ -18,6 +19,10 @@ function IndividualCoin({ id }) {
   const [navigation, setNavigation] = useState("/")
 
   const [added, setAdded] = useState(false)
+
+  const { user } = useAuthContext()
+
+  const [Error, setError] = useState("")
 
   const [coinData, setCoinData] = useState(
     {
@@ -44,7 +49,6 @@ function IndividualCoin({ id }) {
   )
 
   useEffect(() => {
-
     const fetchData = async () => {
       console.log("COIND ID : " + id)
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
@@ -77,18 +81,29 @@ function IndividualCoin({ id }) {
     }
   }
 
+
   async function addToPortfolio(){
-    console.log(JSON.stringify(id))
+    if (!user) {
+      setError("User not logged in")
+      confirmation2.current.className = "confirmation"
+      setTimeout(() => {
+        confirmation2.current.className = "confirmation confirmation-show"
+      }, 50)
+      return
+    }
+
     const res = await fetch("/api/portfolio", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization" : `Bearer ${user.token}`
       },
       body: JSON.stringify({name: id})
     })
     const json = await res.json()
 
     if (!res.ok){
+      setError("Oops! Duplicate Coin!")
       confirmation2.current.className = "confirmation"
       setTimeout(() => {
         confirmation2.current.className = "confirmation confirmation-show"
@@ -112,7 +127,7 @@ function IndividualCoin({ id }) {
       <div className="confirmation"       
       style={{backgroundColor: "red"}} 
       ref={confirmation2}>
-        <h4>Oops! Duplicate Coin!</h4><span><CheckIcon style={{visibility:"hidden"}} /></span>
+        <h4>{Error}</h4><span><CheckIcon style={{visibility:"hidden"}} /></span>
       </div>
       <div className="back-btn">
         <Link to={navigation} state="coin">

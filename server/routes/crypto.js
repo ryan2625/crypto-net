@@ -4,7 +4,11 @@ const { addCrypto,
     deleteCrypto
 } = require('../controller/portfolioController');
 
+const requireAuth = require('../middleware/requireAuth');
+
 const router = express.Router();
+
+router.use(requireAuth);
 
 //Get all cryptos in portfolio 
 //Possible fields : name, symbol, price, quantity, total, portfolio value, date etc

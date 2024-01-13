@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../hooks/useAuthContext'
 import Navbar from '../../components/navbar/Navbar';
 import "./portfolio.scss"
 
 function Portfolio({ setId }) {
 
   const [portfolioData, setPortfolioData] = useState([])
+  const { user } = useAuthContext()
   
 
   useEffect(() => {
     const fetchData = async () =>{
       try{
-      const res = await fetch("/api/portfolio").then(
+      const res = await fetch("/api/portfolio", {
+      headers: {
+        "Authorization" : `Bearer ${user.token}`
+      }
+    }).then(
         response => response.json().then(data => {
           setPortfolioData(data.portfolio)
         })
@@ -29,14 +35,15 @@ function Portfolio({ setId }) {
     html.style.scrollBehavior = ''
 
     fetchData()
-  }, [])
+  }, [user])
 
   async function deleteCoin(deleter){
     try{
     const res = await fetch(`/api/portfolio/${deleter}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization" : `Bearer ${user.token}`
       }
     })
     setPortfolioData(portfolioData.filter(coin => coin.name !== deleter))
@@ -54,7 +61,7 @@ function Portfolio({ setId }) {
       <div className="your-watchlist">
         <h1>Your Watchlist</h1>
         asd
-        {
+        { portfolioData &&
           portfolioData.map((coin, key) => {
             return(
               <div className="coin-row" key={key}>
