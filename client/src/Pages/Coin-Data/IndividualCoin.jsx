@@ -98,7 +98,7 @@ function IndividualCoin({ id }) {
         "Content-Type": "application/json",
         "Authorization" : `Bearer ${user.token}`
       },
-      body: JSON.stringify({name: id})
+      body: JSON.stringify({name: id, })
     })
     const json = await res.json()
 

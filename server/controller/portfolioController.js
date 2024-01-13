@@ -3,8 +3,9 @@ const Mongoose = require('mongoose');
 
 //Get all crypto
 const getPortfolio = async (req, res) => {
+    const user_id = req.user._id;
     try {
-        const portfolio = await Portfolio.find()
+        const portfolio = await Portfolio.find({ user_id})
         res.status(200).json({ portfolio })
     } catch (error) {
         res.status(400).json({ mssg: "Error fetching portfolio" })
@@ -15,12 +16,13 @@ const getPortfolio = async (req, res) => {
 //Add crypto to portfolio
 const addCrypto = async (req, res) => {
     const { name } = req.body;
+    const user_id = req.user._id;
     try {
         const existingPortfolio = await Portfolio.findOne({ name });
         if (existingPortfolio) {
             return res.status(400).json({ error: "Coin already exists in the portfolio" });
         }
-        const portfolio = await Portfolio.create({ name });
+        const portfolio = await Portfolio.create({ name, user_id });
         res.status(200).json({ portfolio });
     } catch (error) {
         res.status(500).json({ error: "Error adding coin to portfolio" });
