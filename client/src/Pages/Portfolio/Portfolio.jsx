@@ -12,7 +12,7 @@ function Portfolio({ setId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/portfolio", {
+        const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio/", {
           headers: {
             "Authorization": `Bearer ${user.token}`
           }
