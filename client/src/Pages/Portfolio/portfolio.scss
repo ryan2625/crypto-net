@@ -1,10 +1,41 @@
 @import "../../styles/variables.scss";
 
+.portfolio-container{
+    box-sizing: border-box;
+    background: linear-gradient(90deg, rgba(11,20,38,1) 0%, rgba(11,40,77,1) 100%);
+}
+
+.portfolio-display-container{
+    min-height: 75vh;
+    padding: 9rem 4rem 4rem 4rem;
+    color: $white;
+
+    h1{
+        font-size: calc(2vw + 25px);
+        text-align: center;
+        text-decoration: underline;
+    }
+}
+
 .your-watchlist{
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    position: relative;
     h1{
+        height: fit-content;
         width: 100%;
+        text-align: center;
+    }
+}
+
+.hover-portfolio{
+    transition: .3s ease-in-out all;
+    padding: 1rem;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.27);
+        transition: .3s ease-in-out all;
     }
 }
 
@@ -29,6 +60,8 @@
 
     img{
         width: 150px;
+        aspect-ratio: 1/1;
+        margin: 0 auto;
     }
 }
 
@@ -43,4 +76,21 @@
     background-color: $bg-light2;
     border: none;
     border-radius: 5px;
+}
+
+.portfolio-loader{
+    position: absolute;
+    left: 50%;
+    top: 10rem;
+    transform: translateX(-50%);
+}
+
+#marginer{
+    margin-bottom: 5rem;
+    text-align: center;
+    color: $dimmed-white;
+}
+
+#revert-underline{
+    text-decoration: none;
 }

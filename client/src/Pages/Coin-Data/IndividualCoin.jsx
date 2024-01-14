@@ -4,7 +4,7 @@ import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext'
-import image from "../../assets/loading.png"
+import image from "../../assets/gif-loader.gif"
 function IndividualCoin({ id }) {
 
   //SETUP USESTATE DUMMY DATA PROPERLY INSTEAD OF
@@ -32,7 +32,6 @@ function IndividualCoin({ id }) {
         },
         name: "",
         symbol: "",
-        coingecko_rank: "",
         market_data: {
           current_price: {
             usd: ""
@@ -141,7 +140,7 @@ function IndividualCoin({ id }) {
       </div>
       <div className='coin-description'>
         <div className="intro-coin">
-          <img src={coinData?.image?.large || { image }} alt="" />
+          <img src={coinData?.image?.large ||  image } alt="" />
           <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
           <h2></h2>
           <button className='add-p' onClick={addToPortfolio}>ADD TO WATCHLIST</button>

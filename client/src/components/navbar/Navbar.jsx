@@ -54,7 +54,7 @@ function Navbar({ sourced }) {
 
   function handleLogout() {
     logout()
-    
+
   }
 
   return (
@@ -99,9 +99,11 @@ function Navbar({ sourced }) {
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio">
-                  My Portfolio
-                </Link>
+                {user &&
+                  <Link to="/portfolio">
+                    My Portfolio
+                  </Link>
+                }
               </li>
               <li>
                 {user && (
@@ -132,37 +134,39 @@ function Navbar({ sourced }) {
           <MenuIcon />
         </li>
         <ul className={open ? " shown mobile-ul" : "mobile-ul"}>
-        <li>
-                <Link to="/">
-                  Home
+          <li>
+            <Link to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/trending">
+              Trending
+            </Link>
+          </li>
+          <li>
+            {user &&
+              <Link to="/portfolio">
+                My Portfolio
+              </Link>
+            }
+          </li>
+          <li>
+            {user && (
+              <button onClick={handleLogout}>
+                Logout
+              </button>
+            )}
+          </li>
+          {
+            !user && (
+              <li>
+                <Link to="/login">
+                  Login
                 </Link>
               </li>
-              <li>
-                <Link to="/trending">
-                  Trending
-                </Link>
-              </li>
-              <li>
-                <Link to="/portfolio">
-                  My Portfolio
-                </Link>
-              </li>
-              <li>
-                {user && (
-                  <button onClick={handleLogout}>
-                    Logout
-                  </button>
-                )}
-              </li>
-              {
-                !user && (
-                  <li>
-                    <Link to="/login">
-                      Login
-                    </Link>
-                  </li>
-                )
-              }
+            )
+          }
         </ul>
       </div>
     </div>

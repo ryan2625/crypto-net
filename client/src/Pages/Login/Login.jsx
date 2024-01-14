@@ -15,8 +15,8 @@ import Tab from '@mui/material/Tab';
 function Login() {
   const [value, setValue] = useState('one');
   const [tabOpen, setTabOpen] = useState(true)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('test@test.com')
+  const [password, setPassword] = useState('Test1234@')
   const [pageOpen, setPageOpen] = useState(false)
   const { user } = useAuthContext()
   const { signUp, error, setError } = useSignup()
@@ -101,13 +101,13 @@ function Login() {
                 By continuing, you agree to the crypto-verse User Agreement and Privacy Policy. No part of the content that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose.
               </p>
               <form onSubmit={handleSubmitLogin}>
-                <label htmlFor="Login-Email">Email</label>
+                <label htmlFor="Login-Email">Demo Email: test@test.com</label>
                 <input type="text"
                   id="Login-Email"
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email} />
-                <label htmlFor="Login-Password">Password</label>
+                <label htmlFor="Login-Password">Demo Password: Test1234@</label>
                 <input
                   type="password"
                   id="Login-Password"

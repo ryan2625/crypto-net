@@ -56,6 +56,10 @@
 .updated-identifier {
     margin-left: 0;
 
+    img{
+        aspect-ratio: 1/1;
+    }
+
     div {
         h3{
             color: $white !important;
