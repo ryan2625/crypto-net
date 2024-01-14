@@ -91,7 +91,7 @@ function IndividualCoin({ id }) {
       }, 50)
       return
     }
-    const res = await fetch("/api/portfolio", {
+    const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
