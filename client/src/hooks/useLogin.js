@@ -8,7 +8,7 @@ export const useLogin = () => {
     const login = async (email, password) => {
         setError2(null);
 
-        const res = await fetch("https://crypto-endpoint.cyclic.app/api/user/login", {
+        const res = await fetch("/api/user/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, password})

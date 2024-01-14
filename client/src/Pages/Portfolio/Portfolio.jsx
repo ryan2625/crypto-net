@@ -12,7 +12,7 @@ function Portfolio({ setId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio/", {
+        const res = await fetch("/api/portfolio/", {
           headers: {
             "Authorization": `Bearer ${user.token}`
           }
@@ -38,7 +38,7 @@ function Portfolio({ setId }) {
 
   async function deleteCoin(deleter) {
     try {
-      const res = await fetch(`https://crypto-endpoint.cyclic.app/api/portfolio/${deleter}`, {
+      const res = await fetch(`/api/portfolio/${deleter}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
