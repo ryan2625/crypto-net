@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require("cors");
 const express = require('express');
 const cryptoRoutes = require("./routes/crypto");
 const userRoutes = require("./routes/user");
@@ -9,10 +10,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-    console.log(req.path, req.method);
-    next()
-})
+
+app.use(cors());
 
 app.use("/api/portfolio", cryptoRoutes)
 app.use("/api/user", userRoutes)
