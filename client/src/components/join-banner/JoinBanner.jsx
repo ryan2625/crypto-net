@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
 import image from "../../assets/cryptoVisa2.webp"
 import image2 from "../../assets/new-pay-modified.png"
 import image3 from "../../assets/usdc.png"
@@ -143,8 +144,8 @@ function JoinBanner() {
               </div>
             </div>
             <div id="earning-button">
-              <button>Start Earning Today           <ArrowForwardIcon id="arrow" />
-              </button>
+              <Link to="/trending">Start Earning Today <ArrowForwardIcon id="arrow" />
+              </Link>
             </div>
           </div>
         </div>
