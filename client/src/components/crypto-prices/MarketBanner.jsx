@@ -72,6 +72,7 @@ function MarketBanner({ setId }) {
   }
 
   return (
+    <>
     <div className='market-banner'>
       <div className="top-coins">
         {
@@ -119,11 +120,12 @@ function MarketBanner({ setId }) {
             )
           })}
         </div>
-        <div className="pag">
-          <Pagination count={15} page={page} onChange={handleChange} color='primary' />
-        </div>
       </div>
     </div>
+    <div className="pag">
+          <Pagination count={15} page={page} onChange={handleChange} color='primary' />
+        </div>
+    </>
   )
 }
 
