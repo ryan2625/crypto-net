@@ -1,7 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import "./marquee.scss"
 
-function Marquee({data: nfts}) {
+function Marquee({data: nftsData}) {
+
+    const [nfts, setDataNFT] = useState(null)
+
+    useEffect(() =>{
+        if (localStorage.getItem("nfts") === null) {
+            setDataNFT(nftsData)
+        } else {
+            setDataNFT(JSON.parse(localStorage.getItem("nfts")))
+        }
+    }, [nftsData])
 
   return (
 <section className='enable-animation'>

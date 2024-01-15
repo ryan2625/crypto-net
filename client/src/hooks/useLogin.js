@@ -3,10 +3,12 @@ import { useState } from "react";
 
 export const useLogin = () => {
     const [error2, setError2] = useState(null);
+    const [loading2, setIsLoading2] = useState(false);
     const { dispatch } = useAuthContext();
 
     const login = async (email, password) => {
         setError2(null);
+        setIsLoading2(true);
 
         const res = await fetch("https://crypto-endpoint.cyclic.app/api/user/login", {
             method: "POST",
@@ -18,14 +20,16 @@ export const useLogin = () => {
 
         if (!res.ok) {
             setError2(json.err);
+            setIsLoading2(false);
         }
 
         if (res.ok) {
             localStorage.setItem("user" , JSON.stringify(json));
             dispatch({type: "LOGIN",  payload: json})
+            setIsLoading2(false);
         }
 
     }
 
-    return { login, error2, setError2}
+    return { login, error2, setError2, loading2}
 }

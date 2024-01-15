@@ -19,8 +19,8 @@ function Login() {
   const [password, setPassword] = useState('Test1234@')
   const [pageOpen, setPageOpen] = useState(false)
   const { user } = useAuthContext()
-  const { signUp, error, setError } = useSignup()
-  const { login, error2, setError2 } = useLogin()
+  const { signUp, error, setError, loading } = useSignup()
+  const { login, error2, setError2, loading2 } = useLogin()
   const confirmation2 = useRef(null)
 
   const handleChange = (event, newValue) => {
@@ -122,8 +122,9 @@ function Login() {
                     <WestIcon className='west' />
                   </Link>
                 </button>
-                <button className='auth-buttons'
-                onClick={handleSubmitLogin}>
+                <button className={loading2 ? 'loading-phase auth-buttons' : "auth-buttons"}
+                onClick={handleSubmitLogin}
+                disabled={loading2}>
                   Login
                 </button>
               </div>
@@ -161,8 +162,9 @@ function Login() {
                     <WestIcon className='west' />
                   </Link>
                 </button>
-                <button className='auth-buttons'
-                onClick={handleSubmitSignup}>
+                <button className={loading ? 'loading-phase auth-buttons' : "auth-buttons"}
+                onClick={handleSubmitSignup}
+                disabled={loading}>
                   Signup
                 </button>
               </div>

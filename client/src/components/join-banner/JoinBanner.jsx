@@ -102,7 +102,7 @@ function JoinBanner() {
       <div className='join-banner' ref={scrollRef}>
         <div className="card-container">
           <div className="card" ref={childScrollRef}>
-            <img src={image} alt="" />
+            <img src={image} alt="" loading='lazy' />
           </div>
         </div>
         <div className="first-text" ref={wholeText}>

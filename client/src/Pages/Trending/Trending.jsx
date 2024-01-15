@@ -74,6 +74,7 @@ function Trending({ setId }) {
                     <h1>Top Trending Coins</h1>
                     <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
                     <div className="coin-base" style={{ padding: 0 }}>
+                        <div className="api-table">
                         <div className="heading">
                             <h3 className="first-head hash">RANK &#160; </h3>
                             <h3 className="first-head">&#160; COIN</h3>
@@ -81,7 +82,6 @@ function Trending({ setId }) {
                             <h3>24H CHANGE</h3>
                             <h3>MARKET RANK</h3>
                         </div>
-                        <div className="api-table">
                             {
                                 trending.map((coin, key) => {
                                     return (
@@ -89,7 +89,7 @@ function Trending({ setId }) {
                                             className='row-link row' key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}>
                                             <h3 className='first-head'>{coin.item.score + 1}</h3>
                                             <div className="identifier">
-                                                <img src={coin.item.small} alt={coin.item.name} />
+                                                <img src={coin.item.small} alt={coin.item.name} loading='lazy' />
                                                 <div>
                                                     <h2>{coin.item.name}</h2>
                                                     <h3>{coin.item.symbol.toUpperCase()}</h3>

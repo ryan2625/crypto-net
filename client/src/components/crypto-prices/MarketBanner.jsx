@@ -79,7 +79,7 @@ function MarketBanner({ setId }) {
             var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
             return (
               <div key={key}>
-                <img src={coin.image} alt={coin.name} />
+                <img src={coin.image} alt={coin.name} loading='lazy' />
                 <h2>{coin.name} <span className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{truncate} %</span></h2>
                 <h3>${new Intl.NumberFormat().format(coin.current_price)}</h3>
               </div>
@@ -92,18 +92,18 @@ function MarketBanner({ setId }) {
       </div>
       <div className="coin-base" id="prices">
         <h2 id="todays-prices">Today's Cryptocurrency Prices</h2>
-        <div className="heading">
-          <h3 className="first-head hash">#</h3>
-          <h3 className="first-head">COIN</h3>
-          <h3>PRICE</h3>
-          <h3>24H CHANGE</h3>
-          <h3>MARKET CAP</h3>
-        </div>
         <div className='api-table'>
+          <div className="heading">
+            <h3 className="first-head hash">#</h3>
+            <h3 className="first-head">COIN</h3>
+            <h3>PRICE</h3>
+            <h3>24H CHANGE</h3>
+            <h3>MARKET CAP</h3>
+          </div>
           {coinData.map((coin, key) => {
             return (
-              <Link state="main" 
-              className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
+              <Link state="main"
+                className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
                 <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                 <div className="identifier">
                   <img src={coin.image} alt={coin.name} />
@@ -118,10 +118,10 @@ function MarketBanner({ setId }) {
               </Link>
             )
           })}
-                  </div>
-          <div className="pag">
-            <Pagination count={15} page={page} onChange={handleChange} color='primary' />
-          </div>
+        </div>
+        <div className="pag">
+          <Pagination count={15} page={page} onChange={handleChange} color='primary' />
+        </div>
       </div>
     </div>
   )

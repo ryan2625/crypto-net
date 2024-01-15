@@ -72,7 +72,7 @@ function IndividualCoin({ id }) {
     })
     html.style.scrollBehavior = ''
     checkSource()
-  }, [id]);
+  }, [id, coinData?.data?.image]);
 
   function checkSource() {
     if (location.state === "trending") {

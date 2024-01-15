@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: 200px 1fr 1fr 1fr;
     padding: 1rem;
-
+    border: 2px solid $visible-grey;
     h3 {
         font-size: 17px;
         font-weight: 400;
@@ -75,6 +75,7 @@
 .trending-nfts{
     margin: 1rem 0 3rem 0;
     background-color: $darker-grey;
+    min-height: 600px;
 }
 
 .trending-main{

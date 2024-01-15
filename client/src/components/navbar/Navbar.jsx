@@ -52,16 +52,30 @@ function Navbar({ sourced }) {
     setClicked(!liClicked)
   }
 
-  function handleLogout() {
-    logout()
+  function scrollTop(){
+    const html = document.querySelector('html')
+    html.style.scrollBehavior = "auto"
+    window.scrollTo({
+      top: 0,
+      behavior: "auto"
+    })
+    html.style.scrollBehavior = ''
+  }
 
+  function handleLogout() {
+    scrollTop()
+    logout()
+  }
+
+  function handleLogoClick() {
+    scrollTop()
   }
 
   return (
     <div className="navbar">
       <div className="nav-container">
         <Link to="/">
-          <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
+          <img src={image} alt="" onClick={handleLogoClick} />
         </Link>
         <ul>
           {sourced ? <>
@@ -89,7 +103,7 @@ function Navbar({ sourced }) {
               liClicked ? "account-container" : "account-container-hide"
             }>
               <li>
-                <Link to="/">
+                <Link to="/" onClick={handleLogoClick}>
                   Home
                 </Link>
               </li>
@@ -107,9 +121,9 @@ function Navbar({ sourced }) {
               </li>
               <li>
                 {user && (
-                  <button onClick={handleLogout}>
+                  <Link to="/" onClick={handleLogout}>
                     Logout
-                  </button>
+                  </Link>
                 )}
               </li>
               {
@@ -128,7 +142,7 @@ function Navbar({ sourced }) {
 
       <div className="nav-container-mobile">
         <Link to="/">
-          <img src={image} alt="" onClick={() => window.scrollTo(0, 0)} />
+          <img src={image} alt="" onClick={handleLogoClick} />
         </Link>
         <li id="menu-icon" onClick={() => setOpen(!open)}>
           <MenuIcon />
@@ -153,15 +167,15 @@ function Navbar({ sourced }) {
           </li>
           <li>
             {user && (
-              <button onClick={handleLogout}>
+              <Link to="/" onClick={handleLogout}>
                 Logout
-              </button>
+              </Link>
             )}
           </li>
           {
             !user && (
               <li>
-                <Link to="/login">
+                <Link to="/login" onClick={handleLogoClick}>
                   Login
                 </Link>
               </li>

@@ -21,7 +21,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    align-items: flex-start;
+    justify-content: center;
     position: relative;
     h1{
         height: fit-content;
@@ -42,7 +42,6 @@
 .portfolio-view{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
     
     a{
         text-decoration: none;
