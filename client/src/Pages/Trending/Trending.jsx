@@ -65,7 +65,7 @@ function Trending({ setId }) {
                                         <p>{nft.data.h24_average_sale_price}</p>
                                         <p className='optional-display off-white2'>{nft.data.floor_price}</p>
                                     </div>
-                                    <img className="optional-display" src={nft.data.sparkline} alt="" />
+                                    <img className="optional-display sparkline" src={nft.data.sparkline} alt="" />
                                 </div>
                             )
                         })}
