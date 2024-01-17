@@ -61,9 +61,7 @@ function Portfolio({ setId }) {
           <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav">home</Link> or trending page!</p>
           <div className="your-watchlist">
             {portfolioData.length === 0 ? (
-              <div className="portfolio-loader">
-                <img src={image} alt="" />
-              </div>
+              <div className="loader-new"></div>
             ) : (
               <>
                 <h1 id="revert-underline">Your Watchlist</h1>

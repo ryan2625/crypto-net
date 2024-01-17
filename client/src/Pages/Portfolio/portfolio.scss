@@ -1,76 +1,78 @@
 @import "../../styles/variables.scss";
 
-.portfolio-container{
+.portfolio-container {
     box-sizing: border-box;
-    background: linear-gradient(90deg, rgba(11,20,38,1) 0%, rgba(11,40,77,1) 100%);
+    background: linear-gradient(90deg, rgba(11, 20, 38, 1) 0%, rgba(11, 40, 77, 1) 100%);
 }
 
-.portfolio-display-container{
+.portfolio-display-container {
     min-height: 75vh;
     padding: 9rem 4rem 4rem 4rem;
     color: $white;
 
-    h1{
+    h1 {
         font-size: calc(2vw + 25px);
         text-align: center;
-        text-decoration: underline;
     }
 }
 
-.your-watchlist{
+.your-watchlist {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     position: relative;
-    h1{
+
+    h1 {
         height: fit-content;
         width: 100%;
         text-align: center;
     }
 }
 
-.hover-portfolio{
+.hover-portfolio {
     transition: .3s ease-in-out all;
     padding: 1rem;
-    &:hover{
+
+    &:hover {
         background-color: rgba(255, 255, 255, 0.27);
         transition: .3s ease-in-out all;
     }
 }
 
-.portfolio-view{
+.portfolio-view {
     display: flex;
     flex-direction: column;
-    
-    a{
+
+    a {
         text-decoration: none;
         color: $white;
     }
 }
 
-.portfolio-view-name{
+.portfolio-view-name {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    h3{
+
+    h3 {
         text-align: center;
     }
 
-    img{
+    img {
         width: 150px;
         aspect-ratio: 1/1;
         margin: 0 auto;
     }
 }
 
-.market-portfolio{
+.market-portfolio {
     text-align: center;
     margin: .5rem 0;
 }
 
-.portfolio-delete{
-    padding: .5rem ;
+.portfolio-delete {
+    padding: .5rem;
     color: $white;
     background-color: $bg-light2;
     border: none;
@@ -78,30 +80,94 @@
     cursor: pointer;
 }
 
-.portfolio-loader{
-    position: absolute;
-    left: 50%;
-    top: 10rem;
-    transform: translateX(-50%);
-}
-
-.marginer{
+.marginer {
     text-align: center;
     color: $dimmed-white;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
-.marginer2{
+.marginer2 {
     text-align: center;
     color: $dimmed-white;
     margin-bottom: 5rem;
 
-    a{
+    a {
         text-decoration: underline;
         color: $white;
+        font-size: 20px;
     }
 }
 
-#revert-underline{
+/* HTML: <div class="loader"></div> */
+.loader-new {
+    position: absolute;
+    left: 50%;
+    top: 10rem;
+    transform: translateX(-50%) scale(2.5);
+    width: 40px;
+    aspect-ratio: 1;
+    --c: linear-gradient(#ffffff 0 0);
+    --r1: radial-gradient(farthest-side at bottom, #ffffff 93%, #ffffff00);
+    --r2: radial-gradient(farthest-side at top, #ffffff 93%, #ffffff00);
+    background:
+        var(--c), var(--r1), var(--r2),
+        var(--c), var(--r1), var(--r2),
+        var(--c), var(--r1), var(--r2);
+    background-repeat: no-repeat;
+    animation: l2 1s infinite alternate;
+}
+
+@keyframes l2 {
+
+    0%,
+    25% {
+        background-size: 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+        background-position: 0 50%, 0 calc(50% - 2px), 0 calc(50% + 2px), 50% 50%, 50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+    }
+
+    50% {
+        background-size: 8px 100%, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+        background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+    }
+
+    75% {
+        background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+        background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(0% - 2px), 50% calc(100% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+    }
+
+    95%,
+    100% {
+        background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px, 8px 4px;
+        background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(0% - 2px), 50% calc(100% + 2px), 100% 50%, 100% calc(0% - 2px), 100% calc(100% + 2px);
+    }
+}
+
+#revert-underline {
     text-decoration: none;
+}
+
+@media (max-width: 900px){
+    .portfolio-display-container {
+        padding: 9rem 1rem 1rem 1rem;
+    }
+
+    .portfolio-view-name{
+        img{
+            width: 75px;
+        }
+
+        h3{
+            font-size: 14px;
+        }
+    }
+
+    .market-portfolio{
+        h3{
+            font-size: 13px;
+        }
+    }
+
+    .hover-portfolio{
+        padding: .3rem;
+    }
 }
