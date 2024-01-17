@@ -171,3 +171,9 @@
         padding: .3rem;
     }
 }
+
+@media (max-width: 500px) {
+    .portfolio-display-container {
+        min-height: 100vh;
+    }
+}
