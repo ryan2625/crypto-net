@@ -68,6 +68,13 @@ function MarketBanner({ setId }) {
       document.getElementById("scroller").scrollIntoView()
       html.style.scrollBehavior = ""
       navigate('/', { state: null });
+    } 
+    if (location.state === "portfolio-nav") {
+      const html = document.querySelector('html')
+      html.style.scrollBehavior = "auto"
+      document.getElementById("prices").scrollIntoView()
+      html.style.scrollBehavior = ""
+      navigate('/', { state: null });
     }
   }
 

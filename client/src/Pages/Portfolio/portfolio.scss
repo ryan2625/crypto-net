@@ -85,10 +85,21 @@
     transform: translateX(-50%);
 }
 
-#marginer{
-    margin-bottom: 5rem;
+.marginer{
     text-align: center;
     color: $dimmed-white;
+    margin-bottom: 1rem;
+}
+
+.marginer2{
+    text-align: center;
+    color: $dimmed-white;
+    margin-bottom: 5rem;
+
+    a{
+        text-decoration: underline;
+        color: $white;
+    }
 }
 
 #revert-underline{

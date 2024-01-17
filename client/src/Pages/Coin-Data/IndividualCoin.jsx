@@ -49,7 +49,6 @@ function IndividualCoin({ id }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("COIND ID : " + id)
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
         .then(response => response.json())
         .then(data => {

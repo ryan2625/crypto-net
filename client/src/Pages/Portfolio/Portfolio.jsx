@@ -57,7 +57,8 @@ function Portfolio({ setId }) {
       <section className='portfolio-container'>
         <div className='portfolio-display-container'>
           <h1>Welcome to your portfolio</h1>
-          <h2 id="marginer">Here you can explore trending coins and add them to your watchlist.</h2>
+          <h2 className="marginer">Here you can explore trending coins and add them to your watchlist.</h2>
+          <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav">home</Link> or trending page!</p>
           <div className="your-watchlist">
             {portfolioData.length === 0 ? (
               <div className="portfolio-loader">
