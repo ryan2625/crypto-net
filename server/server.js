@@ -1,3 +1,5 @@
+// To see the documentation for the backend to this app, visit https://github.com/ryan2625Backup/crypto-api/tree/backend-test/server. The code here is NOT hosted on the live app due to the nature of the hosting service cyclic.sh.
+
 require('dotenv').config();
 const cors = require("cors");
 const express = require('express');
