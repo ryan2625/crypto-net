@@ -1,11 +1,10 @@
 const Portfolio = require('../model/Portfolio');
-const Mongoose = require('mongoose');
 
 //Get all crypto
 const getPortfolio = async (req, res) => {
     try {
         const user_id = req.user._id;
-        const portfolio = await Portfolio.find({ user_id})
+        const portfolio = await Portfolio.find({ user_id })
         res.status(200).json({ portfolio })
     } catch (error) {
         res.status(400).json({ mssg: "Error fetching portfolio" })
@@ -33,7 +32,7 @@ const addCrypto = async (req, res) => {
 
 const deleteCrypto = async (req, res) => {
     const { id } = req.params
-    const portfolio = await Portfolio.findOneAndDelete({ name : id })
+    const portfolio = await Portfolio.findOneAndDelete({ name: id })
     if (!portfolio) {
         return res.status(404).json({ error: "No such coin in portfolio of id:" + id })
     }

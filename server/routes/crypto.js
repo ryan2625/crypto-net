@@ -1,9 +1,15 @@
 const express = require('express');
-const cors = require("cors");
 const { addCrypto,
     getPortfolio,
     deleteCrypto
 } = require('../controller/portfolioController');
+
+/**
+ * @file crypto.js
+ * Define methods for handling requests to the /api/portfolio route. This includes a get request to retrieve the user's 
+ * portfolio, a post request to add a crypto to the user's portfolio, and a delete request to remove a crypto from the 
+ * user's portfolio.
+ */
 
 const requireAuth = require('../middleware/requireAuth');
 
@@ -11,8 +17,6 @@ const router = express.Router();
 
 router.use(requireAuth);
 
-//Get all cryptos in portfolio 
-//Possible fields : name, symbol, price, quantity, total, portfolio value, date etc
 router.get("/", getPortfolio)
 
 router.post("/", addCrypto)

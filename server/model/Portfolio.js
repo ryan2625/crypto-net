@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+/**
+ * @file Portfolio.js
+ * This file defines our user portfolio model that will allow us to store the user's portfolio in our MongoDB database.
+ */
+
 const portfolioSchema = new mongoose.Schema({
     name: {
         type: String,

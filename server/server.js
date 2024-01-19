@@ -1,10 +1,16 @@
-// To see the documentation for the backend to this app, visit https://github.com/ryan2625Backup/crypto-api/tree/backend-test/server. The code here is NOT hosted on the live app due to the nature of the hosting service cyclic.sh.
-
 require('dotenv').config();
-const cors = require("cors");
+const cors = require('cors');
 const express = require('express');
 const cryptoRoutes = require("./routes/crypto");
 const userRoutes = require("./routes/user");
+
+/**
+ * @file server.js
+ * 
+ * Here we initialize our express app and connect to our MongoDB database, where the connection string is stored
+ * in a hidden dotenv file. We also mount our routes to the app and use the express.json() middleware to parse
+ * incoming requests with JSON payloads as well as cors() to allow cross-origin requests.
+ */
 
 const mongoose = require('mongoose');
 
@@ -12,8 +18,11 @@ const app = express();
 
 app.use(express.json());
 
-
 app.use(cors());
+
+app.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "true");
+});
 
 app.use("/api/portfolio", cryptoRoutes)
 app.use("/api/user", userRoutes)
