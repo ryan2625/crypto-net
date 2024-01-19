@@ -11,7 +11,7 @@ The app is still undergoing updates, focusing on improvements in accessibility, 
 The frontend of this app is hosted on [vercel](https://vercel.com/) and the backend is hosted on [cyclic.sh](https://www.cyclic.sh/)
 
 Home Page:
-![Home Page](./home-page.jpg)
+<img src="./home-page.jpg" alt="Home Page" style="width:100%;">
 
 Trending Page:
 ![Trending Page](./crypto-3.png)
