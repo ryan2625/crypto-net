@@ -146,28 +146,39 @@
     text-decoration: none;
 }
 
-@media (max-width: 900px){
+#user-display {
+    position: fixed;
+    top: 4rem;
+    color: $white;
+    padding: 1rem;
+    background-color: $bg-light2;
+    z-index: 999;
+    border-radius: 10px;
+    left: -10px;
+}
+
+@media (max-width: 900px) {
     .portfolio-display-container {
         padding: 9rem 1rem 1rem 1rem;
     }
 
-    .portfolio-view-name{
-        img{
+    .portfolio-view-name {
+        img {
             width: 75px;
         }
 
-        h3{
+        h3 {
             font-size: 14px;
         }
     }
 
-    .market-portfolio{
-        h3{
+    .market-portfolio {
+        h3 {
             font-size: 13px;
         }
     }
 
-    .hover-portfolio{
+    .hover-portfolio {
         padding: .3rem;
     }
 }

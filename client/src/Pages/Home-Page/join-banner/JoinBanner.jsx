@@ -1,19 +1,34 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
-import image from "../../assets/cryptoVisa2.webp"
-import image2 from "../../assets/new-pay-modified.png"
-import image3 from "../../assets/usdc.png"
+import image from "../../../assets/cryptoVisa2.webp"
+import image2 from "../../../assets/new-pay-modified.png"
+import image3 from "../../../assets/usdc.png"
 import "./join-banner.scss"
 import { useInView } from 'react-intersection-observer';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
+/**
+ * @component JoinBanner
+ * This Banner holds the hypothetical rewards for the crypto website. 
+ */
+
 function JoinBanner() {
 
+  //ScrollRef and childScrollRef are used to translate the card image when the user scrolls down the page. Child ref
+  //targets the card image while scrollRef targets the parent div.
   const scrollRef = useRef(null)
   const childScrollRef = useRef(null)
-
+  //Checker is used to ensure that the counter only runs once, right when the user scrolls it into view. Without this
+  //value, the counter would run on the first render and then again when the user scrolls it into view.
   const [checker, setChecker] = useState(0)
+  //Val is used to display the amount of earnings. It counts up from 0 to 275 in a non linear fashion.
   const [val, setVal] = useState(0)
+
+  /**
+   * useEffect hook that handles the card animation and uses the boundingClientRect to determine what offset the card should
+   * reach before it animates. We could not use something like window.scrollY as that only determines the offset from top of
+   * the document, whereas getBoundingClientRect() determines the offset of the element relative to the viewport.
+   */
 
   useEffect(() => {
 
@@ -29,16 +44,17 @@ function JoinBanner() {
         }
       }
     };
-
     handleScroll()
 
     window.addEventListener('scroll', handleScroll);
-
+    //Clean up event listeners when component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
 
   }, []);
+
+  //All of the refs used to animate the text into view, where rootMargin is the offset from the bottom of the screen.
 
   const { ref: wholeText, inView: textView1 } = useInView({
     rootMargin: '-100px 0px'
@@ -55,6 +71,9 @@ function JoinBanner() {
   const { ref: rewards, inView: textView4 } = useInView({
     rootMargin: '-100px 0px'
   })
+
+  //Incrementally increase the earnings counter when the user scrolls it into view. Multiple setTimeouts are used to
+  //create a non linear increase in the counter.
 
   const { ref: counter, inView: countView } = useInView({
     rootMargin: '-350px 0px',

@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./first-banner.scss"
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'; 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+/**
+ * @component FirstBanner
+ * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them 
+ * right below the navbar.
+ */
 
 
-function FirstBanner({ homeRef }) {
-
-  const home = useRef(null);
-
-  const price = useRef(null);
-
-  const rewards = useRef(null);
+function FirstBanner() {
 
   const [marketData, setMarketData] = useState(
     {
@@ -81,7 +81,7 @@ function FirstBanner({ homeRef }) {
         </div>
 
         <div className="catch">
-          <h1 ref={home}>
+          <h1>
             THE WORLD'S LEADING <span>CRYPTOCURRENCY</span> PLATFORM
           </h1>
           <h2>

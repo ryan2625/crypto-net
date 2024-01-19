@@ -1,24 +1,43 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./navbar.scss"
 import { Link } from "react-router-dom";
-import { useLogout } from '../../hooks/useLogout'
-import { useAuthContext } from '../../hooks/useAuthContext'
-import image from "../../assets/crypto-logo-official.png"
+import { useLogout } from '../../../hooks/useLogout'
+import { useAuthContext } from '../../../hooks/useAuthContext'
+import image from "../../../assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
-
+/**
+ * @component Navbar
+ * This component is present on every page besides the individual coin page. It is used to navigate the site and allows 
+ * the user to login and logout.
+ * 
+ * @param {boolean} sourced : Used to determine if the navbar is being used on the home page or not. Will display different
+ * links based on this prop.
+ * @returns 
+ */
 
 function Navbar({ sourced }) {
 
+  //open is used to determine if the mobile menu is open or not.
   const [open, setOpen] = useState(false)
+  //liClicked is used to determine if the account menu is open or not.
   const [liClicked, setClicked] = useState(false)
+  //pfpClick is used to determine if the account icon is open or not. Determines animation of the icon.
   const [pfpClick, setPfp] = useState(true)
+  //Determines which animation to use for the account icon.
   const [count, setCount] = useState(0)
   const { logout } = useLogout()
   const { user } = useAuthContext()
 
   let liRef = useRef()
+
+  /**
+   * useEffect hook that handles the closing of the account menu when the user clicks outside of the menu via the event 
+   * listener. This is done by checking if the ref contains the target of the click. If it does not, then the menu is 
+   * closed. setCount here is used to ensure the animation of the account button is correct, as there have been issues 
+   * with the animation not working properly.
+   */
 
   useEffect(() => {
     liRef.current = document.getElementsByClassName("acc-press")[0];
@@ -52,7 +71,7 @@ function Navbar({ sourced }) {
     setClicked(!liClicked)
   }
 
-  function scrollTop(){
+  function scrollTop() {
     const html = document.querySelector('html')
     html.style.scrollBehavior = "auto"
     window.scrollTo({

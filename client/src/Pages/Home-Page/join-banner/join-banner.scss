@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .join-banner {
     width: 100%;
@@ -11,7 +11,7 @@
     gap: 40vh;
 }
 
-.card-container{
+.card-container {
     width: 100%;
     overflow-x: hidden;
     position: sticky;
@@ -26,7 +26,7 @@
     transition: all 1s ease-in-out;
     overflow-y: visible;
     height: 625px;
-    
+
     img {
         width: 480px;
         border-radius: 10px;
@@ -190,7 +190,8 @@
 }
 
 .translated {
-    transform: translateY(0px) !important;; 
+    transform: translateY(0px) !important;
+    ;
     opacity: 1 !important;
     transition: all 0.5s ease-in-out !important;
 }
@@ -247,7 +248,7 @@
         h3 {
             font-size: 2rem;
             font-weight: 600;
-            
+
         }
 
         h2 {
@@ -270,7 +271,7 @@
     height: 100vh;
 }
 
-.rewards-h1{
+.rewards-h1 {
     margin: 5rem 0 10rem 0;
     text-align: center;
     font-weight: 600;
@@ -282,12 +283,12 @@
     opacity: 0;
 }
 
-#earning-button{
+#earning-button {
     width: 100%;
     display: flex;
     justify-content: center;
-    
-    a{
+
+    a {
         background-color: transparent;
         padding: 1.5rem 5rem;
         margin: 3rem 0;
@@ -301,58 +302,59 @@
         cursor: pointer;
         position: relative;
 
-        &:hover{
+        &:hover {
             background-color: rgba(87, 87, 87, 0.395)
         }
     }
 }
 
-#reward-intro{
+#reward-intro {
     position: relative;
 }
 
-#arrow{
+#arrow {
     position: absolute;
     transform: translate(10px, 3px) scale(1.35);
 }
 
-#rewards{
+#rewards {
     position: absolute;
     top: -140px;
 }
 
 
 
-@media (max-width: 1000px){
+@media (max-width: 1000px) {
 
-    .card-translation{
+    .card-translation {
         transform: translateX(150px);
     }
 
-    .first-text{
-        width:100%;
+    .first-text {
+        width: 100%;
         backdrop-filter: blur(5px);
         border-radius: 20px;
-        background-color:  rgba(1, 1, 1, 0.7);
+        background-color: rgba(1, 1, 1, 0.7);
         padding: 2rem 0;
         align-self: center;
         margin-left: 0;
     }
 
-    .left, .right{
-        
-        h3{
+    .left,
+    .right {
+
+        h3 {
             font-size: 1rem;
             text-align: center;
 
-            span{
+            span {
                 font-size: 2rem;
             }
         }
     }
 
-    .second-card{
-        width:100%;
+    .second-card {
+        width: 100%;
         margin: 0 auto;
         backdrop-filter: blur(5px);
         border-radius: 20px;
@@ -361,34 +363,34 @@
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
 
-    .main-text{
+    .main-text {
 
-        h1{
+        h1 {
 
             font-size: 6rem;
 
-            span{
+            span {
                 right: -20px;
                 bottom: 20px;
             }
 
-            &::after{
+            &::after {
                 bottom: -35px;
             }
         }
     }
 
-    .second-card{
+    .second-card {
         padding: 0;
     }
 
-    #earning-button{
+    #earning-button {
         width: 70%;
         margin: 0 auto;
-        
-        a{
+
+        a {
             font-size: 1rem;
             white-space: nowrap;
             width: 220px;
@@ -396,15 +398,15 @@
         }
     }
 
-    #arrow{
+    #arrow {
         transform: translate(5px, -2px);
     }
 
-    .icons{
+    .icons {
 
-        div{
+        div {
 
-            img{
+            img {
                 width: 100px;
             }
         }

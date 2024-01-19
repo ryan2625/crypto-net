@@ -1,12 +1,12 @@
 @import "../../styles/variables.scss";
 
-.individual-page{
-    background: linear-gradient(90deg, rgba(11,20,38,1) 0%, rgba(29,86,119,1) 100%);
+.individual-page {
+    background: linear-gradient(90deg, rgba(11, 20, 38, 1) 0%, rgba(29, 86, 119, 1) 100%);
     height: 100%;
     min-height: 100vh;
 }
 
-.coin-description{
+.coin-description {
     color: $white;
     width: 75%;
     margin: 0 auto 0 auto;
@@ -20,12 +20,12 @@
         a {
             color: rgb(171, 254, 255);
             text-decoration: underline;
-        
+
         }
     }
 }
 
-.intro-coin{
+.intro-coin {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -45,7 +45,7 @@
         margin-bottom: 2rem;
         width: 100%;
 
-        &::after{
+        &::after {
             content: "";
             position: absolute;
             width: 0%;
@@ -84,11 +84,11 @@
     }
 }
 
-.intro-coin > *{
+.intro-coin>* {
     font-weight: 500;
 }
 
-.back-btn{
+.back-btn {
     position: fixed;
     top: 7rem;
     left: 7rem;
@@ -100,7 +100,7 @@
     background-color: rgba(0, 0, 0, 0.356);
     border-radius: 50%;
 
-    a{
+    a {
         color: #ffffff;
         cursor: pointer;
         display: block;
@@ -109,7 +109,7 @@
     }
 }
 
-.rates{
+.rates {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
@@ -117,7 +117,7 @@
     font-size: 1.25rem;
 }
 
-.add-p{
+.add-p {
     width: 200px;
     margin: 0 auto;
     padding: 1rem;
@@ -130,10 +130,10 @@
     cursor: pointer;
     transition: .3s all ease-in-out;
 
-    &:hover{
-       color: $text-blue;
-       background-color: rgb(255, 255, 255);
-       transition: .3s all ease-in-out;
+    &:hover {
+        color: $text-blue;
+        background-color: rgb(255, 255, 255);
+        transition: .3s all ease-in-out;
     }
 }
 
@@ -187,26 +187,26 @@
 }
 
 
-@media(max-width: 750px){
-    .coin-description{
+@media(max-width: 750px) {
+    .coin-description {
         width: 90%;
     }
 
-    .back-btn{
+    .back-btn {
         top: 3rem;
         left: 3rem;
     }
 
-    .intro-coin{
+    .intro-coin {
 
-        img{
+        img {
             width: 200px;
         }
     }
 
-    .coin-description{
+    .coin-description {
 
-        p{
+        p {
             font-size: 1.1rem;
         }
     }

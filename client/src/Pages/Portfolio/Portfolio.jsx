@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
-import image from "../../assets/gif-loader.gif";
-import Navbar from '../../components/navbar/Navbar';
+import { useScroll } from '../../hooks/useScroll';
+import Navbar from '../components/navbar/Navbar';
 import "./portfolio.scss";
 
+/**
+ * @component Portfolio 
+ * This page is accessible when a user is logged in. They can add coins to their portfolio via the tables in the 
+ * trending page and the home page. Here we grab the user from the auth context and use their token to make a
+ * an authorized request to retrive a user's portfolio data. We also grab the scroll hook to scroll to the 
+ * top of the page.
+ * 
+ * @param {function} setID : Used to set the state of the id of the coin when you click a link in the table.
+ */
+
 function Portfolio({ setId }) {
+
   const [portfolioData, setPortfolioData] = useState([]);
   const { user } = useAuthContext();
+  const { scroller } = useScroll();
+
+  /**
+   * Use effect attemps to make a request to the backend and will retrieve a user's portfolio data if 
+   * they are logged in properly. 
+   */
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,16 +42,11 @@ function Portfolio({ setId }) {
         console.log(err);
       }
     };
-
-    const html = document.querySelector('html');
-    html.style.scrollBehavior = "auto";
-    window.scrollTo({
-      top: 0,
-      behavior: "auto"
-    });
-    html.style.scrollBehavior = '';
+    scroller()
     fetchData();
   }, [user]);
+
+  //Deletes coin from portfolio in backend as well as the state in the frontend so it updates instantly.
 
   async function deleteCoin(deleter) {
     try {
@@ -55,11 +67,16 @@ function Portfolio({ setId }) {
     <>
       <Navbar sourced={false} />
       <section className='portfolio-container'>
+        {user &&
+          <p id="user-display">{user.email}</p>}
         <div className='portfolio-display-container'>
           <h1>Welcome to your portfolio</h1>
           <h2 className="marginer">Here you can explore trending coins and add them to your watchlist.</h2>
           <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav">home</Link> or trending page!</p>
           <div className="your-watchlist">
+            {
+              //If there are no coins in the portfolio, then we will display a loader. Otherwise, we will display the coins in the portfolio.
+            }
             {portfolioData.length === 0 ? (
               <div className="loader-new"></div>
             ) : (

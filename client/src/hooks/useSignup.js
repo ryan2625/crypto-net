@@ -2,6 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./useAuthContext";
 import { useState } from "react";
 
+/**
+ * @hook useSignup
+ * This function handles the logic of signing up to the database. It makes a POST request to the server with the user's
+ * email and password. If the request is successful, the user is signed up/logged in and redirected to the portfolio page. If the
+ * request is unsuccessful, the error is set to the error message from the server.
+ * 
+ * @returns {object} - An object containing the signup function, error, setError, and loading state.
+ */
+
 export const useSignup = () => {
     const [error, setError] = useState(null);
     const [loading, setIsLoading] = useState(false);

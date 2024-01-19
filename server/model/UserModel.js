@@ -21,11 +21,9 @@ userSchema.statics.signup = async function(email, password){
     if (!email || !password) {
         throw new Error('All fields are required')
     }
-
     if (!validator.isEmail(email)) {
         throw new Error('Please enter a valid email')
     }
-
     if (!validator.isStrongPassword(password)) {
         throw new Error('Password not strong enough')
     }
@@ -38,7 +36,6 @@ userSchema.statics.signup = async function(email, password){
 
     const salt = await bcryptjs.genSalt(8)
     const hash = await bcryptjs.hash(password, salt)
-
     const user = await this.create({ email, password: hash })
 
     return user

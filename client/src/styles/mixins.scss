@@ -1,4 +1,6 @@
-@mixin table-grid ($color){
+//SCSS Mixins. Possibly will refactor and include more in the future.
+
+@mixin table-grid ($color) {
     display: grid;
     grid-template-columns: 50px 200px 1fr 1fr 1.25fr;
     background-color: $color;

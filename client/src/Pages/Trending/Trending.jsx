@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/navbar/Navbar';
+import { useScroll } from "../../hooks/useScroll"
+import Navbar from '../components/navbar/Navbar';
 import "./trending.scss"
-import Marquee from '../../components/marquee/Marquee';
+import Marquee from './marquee/Marquee';
+
+/**
+ * @component Trending
+ * Displays the top trending NFTs and coins as defined by the criteria of the API. A scrolling marquee of the top NFTs
+ * is displayed at the top.
+ * 
+ * @param {function} setId : Used to set the state of the id of the coin when you click a link in the table.
+ */
 
 function Trending({ setId }) {
 
+    //Use state to set the trending coins and trending NFTs, which are then mapped out to the two tables below. Also
+    //We grab the scroll hook to scroll to the top of the page.
+
     const [trending, setTrending] = useState([])
     const [nfts, setNFTs] = useState([])
+    const { scroller } = useScroll();
+
+    /**
+     * UseEffect used to first scroll to the top of the page instantly, then checks to see if 
+     * there is already NFT/Coin data in the local storage. If not, then it fetches the data from the API and sets the 
+     * state.
+     */
 
     useEffect(() => {
-        const html = document.querySelector('html')
-        html.style.scrollBehavior = "auto"
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        })
-        html.style.scrollBehavior = ''
+        scroller()
         const fetchData = async () => {
             const res = await fetch("https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn").then(response => response.json()).then(data => {
                 setNFTs(data.nfts)
@@ -36,7 +49,7 @@ function Trending({ setId }) {
     return (
         <>
             <Navbar sourced={false} />
-            <Marquee data={nfts}/>
+            <Marquee data={nfts} />
             <section className='portfolio-display'>
                 <h1 id="first-h1" style={{ textAlign: "center", marginBottom: '4rem' }}>Gain insight through the latest trending coins of the <span>crypto-verse</span></h1>
                 <h1>Trending NFTs</h1>
@@ -56,8 +69,8 @@ function Trending({ setId }) {
                                     <div className='identifier updated-identifier'>
                                         <img src={nft.thumb} alt="" />
                                         <div>
-                                            <h3>{nft.name.toString().slice(0,13)}</h3>
-                                            <p>{nft.symbol.toString().slice(0,13)}</p>
+                                            <h3>{nft.name.toString().slice(0, 13)}</h3>
+                                            <p>{nft.symbol.toString().slice(0, 13)}</p>
                                         </div>
                                     </div>
                                     <p className={nft.floor_price_24h_percentage_change > 0 ? "green" : "red"}>{nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%</p>
@@ -75,13 +88,13 @@ function Trending({ setId }) {
                     <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
                     <div className="coin-base" style={{ padding: 0 }}>
                         <div className="api-table">
-                        <div className="heading">
-                            <h3 className="first-head hash">RANK &#160; </h3>
-                            <h3 className="first-head">&#160; COIN</h3>
-                            <h3>PRICE</h3>
-                            <h3>24H CHANGE</h3>
-                            <h3>MARKET RANK</h3>
-                        </div>
+                            <div className="heading">
+                                <h3 className="first-head hash">RANK &#160; </h3>
+                                <h3 className="first-head">&#160; COIN</h3>
+                                <h3>PRICE</h3>
+                                <h3>24H CHANGE</h3>
+                                <h3>MARKET RANK</h3>
+                            </div>
                             {
                                 trending.map((coin, key) => {
                                     return (

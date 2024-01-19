@@ -1,10 +1,10 @@
-@import "../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .first-banner {
   background: rgb(18, 26, 48);
   background: linear-gradient(180deg, $bg-deep 0%, $bg-mid 90%);
   color: $white;
-  text-align: center; 
+  text-align: center;
   margin: 0 0 0 0;
   width: 100%;
   padding-top: 70px;
@@ -35,7 +35,7 @@
   margin-bottom: 3rem;
   position: fixed;
   z-index: 999;
-  
+
 
 
   div {
@@ -64,6 +64,7 @@
     font-size: calc(1.5vw + 33px);
     transform: scaleY(1.1);
     font-weight: 500;
+
     span {
       -webkit-background-clip: text;
       background-image: $text-gradient;
@@ -113,37 +114,38 @@
   margin-inline-start: 1.45rem !important;
 }
 
-@media(max-width: 600px){
-  .catch{
+@media(max-width: 600px) {
+  .catch {
     width: 95%;
 
-    h1{
+    h1 {
       font-size: 1.75rem;
     }
 
-    h2{
+    h2 {
       font-size: 1.25rem;
     }
   }
 
 }
 
-@media(max-width:800px){
-  .trending{
+@media(max-width:800px) {
+  .trending {
     justify-content: center;
-    div{
+
+    div {
       flex-direction: column;
 
 
-      h4{
+      h4 {
         white-space: nowrap;
       }
     }
   }
 }
 
-@media(max-width: 620px){
-  .optional{
+@media(max-width: 620px) {
+  .optional {
     display: none !important;
   }
 }

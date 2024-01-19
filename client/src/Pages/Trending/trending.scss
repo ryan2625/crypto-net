@@ -1,11 +1,7 @@
 @import "../../styles/variables.scss";
 
-.return-home{
-
-}
-
 .portfolio-display {
-    color:  $white;
+    color: $white;
     padding: 4rem;
     margin-top: 5rem;
 
@@ -20,6 +16,7 @@
     grid-template-columns: 200px 1fr 1fr 1fr;
     padding: 1rem;
     border: 2px solid $visible-grey;
+
     h3 {
         font-size: 17px;
         font-weight: 400;
@@ -34,36 +31,37 @@
     box-sizing: border-box;
     border: 2px solid $visible-grey;
 
-    p{
+    p {
         height: fit-content;
         margin: auto 0;
     }
-}   
+}
 
-.p-container{
+.p-container {
     height: fit-content;
     margin: auto 0;
 }
 
-.off-white{
+.off-white {
     color: $dimmed-text-white;
 }
 
-.off-white2{
+.off-white2 {
     color: rgb(185, 243, 255);
 }
 
 .updated-identifier {
     margin-left: 0;
 
-    img{
+    img {
         aspect-ratio: 1/1;
     }
 
     div {
-        h3{
+        h3 {
             color: $white !important;
         }
+
         p {
             width: 100%;
             text-align: left;
@@ -72,43 +70,44 @@
     }
 }
 
-.trending-nfts{
+.trending-nfts {
     margin: 1rem 0 3rem 0;
     background-color: $darker-grey;
     min-height: 600px;
 }
 
-.trending-main{
-    p{
+.trending-main {
+    p {
         margin-bottom: 1rem;
     }
 }
 
-.sparkline{
+.sparkline {
     aspect-ratio: 27/10;
 }
 
-#first-h1{
-    span{
+#first-h1 {
+    span {
         -webkit-background-clip: text;
         background-image: $text-gradient;
         color: transparent;
     }
 }
 
-@media (max-width: 730px){
-    .optional-display{
+@media (max-width: 730px) {
+    .optional-display {
         display: none;
     }
 
-    .nft-header{
-        grid-template-columns: 1fr 1fr;
-    }
-    .nft-row{
+    .nft-header {
         grid-template-columns: 1fr 1fr;
     }
 
-    .portfolio-display{
+    .nft-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-display {
         padding: .5rem;
     }
 }

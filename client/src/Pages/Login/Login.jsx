@@ -3,25 +3,51 @@ import { Link } from 'react-router-dom'
 import { useSignup } from '../../hooks/useSignup'
 import { useLogin } from '../../hooks/useLogin'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useScroll } from '../../hooks/useScroll'
 import CheckIcon from '@mui/icons-material/Check';
 import HouseIcon from '@mui/icons-material/House';
 import WestIcon from '@mui/icons-material/West';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../components/navbar/Navbar'
 import "./login.scss"
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
+/**
+ * @component Login
+ * Here the user can signup/login using an email and a password. We have the custom hooks useSignup and useLogin
+ * which handle the logic for the signup and login process. We also grab the user from the auth context to display
+ * the confirmation method when logged in.
+ */
+
 
 function Login() {
+
+  //value/setValue is used to determine which tab is open and handles resetting the error message when the tabs are 
+  //switched.
   const [value, setValue] = useState('one');
+  //tabOpen handles the state of which tab is being displayed to the user.
   const [tabOpen, setTabOpen] = useState(true)
   const [email, setEmail] = useState('test@test.com')
   const [password, setPassword] = useState('Test1234@')
+  /**
+   *  pageOpen ensures that the confirmation message will not run on the first render, as we run the code for the 
+   * confirmation to display in the useEffect hook. This will run when the user sucessfully logs in and on the 
+   * first page render (see dependency array).
+   */
   const [pageOpen, setPageOpen] = useState(false)
   const { user } = useAuthContext()
   const { signUp, error, setError, loading } = useSignup()
   const { login, error2, setError2, loading2 } = useLogin()
+  const { scroller } = useScroll()
+  //Ref for the confirmation that appears when a user logs in 
   const confirmation2 = useRef(null)
+
+  /**
+   * Handle the change event of the Tabs component. Resets error message on change
+   *
+   * @param {object} event - The event object of switching tabs.
+   * @param {string} newValue - The new value of the selected tab.
+   */
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -59,13 +85,7 @@ function Login() {
 
 
   useEffect(() => {
-    const html = document.querySelector('html')
-    html.style.scrollBehavior = "auto"
-    window.scrollTo({
-      top: 0,
-      behavior: "auto"
-    })
-    html.style.scrollBehavior = ''
+    scroller()
   }, [])
 
 
@@ -78,7 +98,7 @@ function Login() {
             <Tabs
               value={value}
               onChange={handleChange}
-              textColor="invalid"
+              textColor="white"
               TabIndicatorProps={{
                 style: {
                   backgroundColor: "#4194ec"
@@ -116,15 +136,15 @@ function Login() {
                   value={password} />
               </form>
               <div className="buttons-login">
-              <button className="returner">
+                <button className="returner">
                   <Link to="/"> &nbsp;
                     <HouseIcon className='house' />
                     <WestIcon className='west' />
                   </Link>
                 </button>
                 <button className={loading2 ? 'loading-phase auth-buttons' : "auth-buttons"}
-                onClick={handleSubmitLogin}
-                disabled={loading2}>
+                  onClick={handleSubmitLogin}
+                  disabled={loading2}>
                   Login
                 </button>
               </div>
@@ -156,15 +176,15 @@ function Login() {
                   value={password} />
               </form>
               <div className="buttons-login">
-              <button className="returner">
+                <button className="returner">
                   <Link to="/"> &nbsp;
                     <HouseIcon className='house' />
                     <WestIcon className='west' />
                   </Link>
                 </button>
                 <button className={loading ? 'loading-phase auth-buttons' : "auth-buttons"}
-                onClick={handleSubmitSignup}
-                disabled={loading}>
+                  onClick={handleSubmitSignup}
+                  disabled={loading}>
                   Signup
                 </button>
               </div>

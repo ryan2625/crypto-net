@@ -1,7 +1,12 @@
 import React from 'react'
 import "./footer.scss"
-import image from "../../assets/appleStore.svg"
-import image2 from "../../assets/playStore.svg"
+import image from "../../../assets/appleStore.svg"
+import image2 from "../../../assets/playStore.svg"
+
+/**
+ * @component Footer
+ * The footer for crypto-verse. How lovely it is.
+ */
 
 function Footer() {
     return (
@@ -57,7 +62,7 @@ function Footer() {
                             Careers
                         </li>
                         <li>
-                        Company Vlog
+                            Company Vlog
                         </li>
                     </ul>
                 </div>
@@ -84,12 +89,12 @@ function Footer() {
                         <li>
                             Discord
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
             <div className='divider'>
-
+                {/** Divider for the sections of the navbar*/}
             </div>
             <div className="disclaimer">
                 <div className="copyright">

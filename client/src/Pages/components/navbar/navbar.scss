@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .navbar {
     height: 70px;
@@ -82,7 +82,7 @@
     transform: translateX(-50%) scale(0.7);
     animation: pointer .1s forwards;
     transition: .3s all ease-in-out;
-    
+
 }
 
 @keyframes pointer {
@@ -90,7 +90,7 @@
         pointer-events: auto;
     }
 
-    99%{
+    99% {
         pointer-events: auto;
     }
 
@@ -101,10 +101,10 @@
 
 #profile-li {
     position: relative;
-    
-    a{
-        &:hover{
-            &::after{
+
+    a {
+        &:hover {
+            &::after {
                 width: 0% !important;
             }
         }
@@ -114,7 +114,7 @@
         position: absolute;
         background-color: $darker-grey;
         left: 50%;
-        top: 50px; 
+        top: 50px;
         width: 135px;
         display: flex;
         flex-direction: column;
@@ -137,7 +137,8 @@
             border-left: 2px solid $dimmed-white;
         }
 
-        li, button {
+        li,
+        button {
             color: $white;
             background-color: inherit;
             font-size: 20px;
@@ -161,7 +162,8 @@
                 background-color: $bg-light;
             }
 
-            a, button{
+            a,
+            button {
                 display: block;
                 width: 100%;
                 height: 100%;
@@ -171,34 +173,38 @@
     }
 }
 
-#press{
+#press {
     animation: pressdown .20s ease-in-out forwards !important;
 }
 
-#unpress{
+#unpress {
     animation: pressup .20s ease-in-out forwards;
 }
 
-@keyframes pressup{
-    0%{
+@keyframes pressup {
+    0% {
         transform: translateY(6px);
     }
-    60%{
+
+    60% {
         transform: translateY(10px);
     }
-    100%{
+
+    100% {
         transform: translateY(0px);
     }
 }
 
-@keyframes pressdown{
-    0%{
+@keyframes pressdown {
+    0% {
         transform: translateY(0px);
     }
-    60%{
+
+    60% {
         transform: translateY(10px);
     }
-    100%{
+
+    100% {
         transform: translateY(6px);
     }
 }
@@ -261,7 +267,8 @@
                 bottom: 0;
             }
 
-            a, button {
+            a,
+            button {
                 font-size: 20px;
                 background-color: inherit;
                 color: $white;

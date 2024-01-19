@@ -1,12 +1,12 @@
-@import "../../styles/variables.scss";
-@import "../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
-.market-banner{
+.market-banner {
     background-color: $bg-mid;
     scroll-behavior: smooth;
 }
 
-.top-coins{
+.top-coins {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -45,47 +45,48 @@
     }
 }
 
-.coin-base{
+.coin-base {
     display: flex;
     flex-wrap: wrap;
     color: $white;
     background-color: $bg-deep;
     padding: 3rem;
-  
-    h2{
-      margin-bottom: 3rem;
-      font-weight: 600;
+
+    h2 {
+        margin-bottom: 3rem;
+        font-weight: 600;
     }
-  }
-  
-  .heading{
+}
+
+.heading {
     @include table-grid($bg-main);
     height: 10px;
     border-bottom: 1px solid rgba(151, 151, 151, 0.685);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-align: right;
     padding: 1.5rem 1rem;
     place-content: center;
     box-sizing: border-box;
     width: 100%;
-    h3{
+
+    h3 {
         font-weight: 400;
         height: 25px;
     }
-  }
-  
-  .first-head{
+}
+
+.first-head {
     text-align: left;
     margin-left: 2rem;
-  }
+}
 
-  .api-table{
+.api-table {
     width: 100%;
     height: 700px;
     position: relative;
-  }
+}
 
-  .row{
+.row {
     @include table-grid($bg-light);
     border-bottom: 1px solid $white;
     border-bottom: 1px solid rgba(151, 151, 151, 0.685);
@@ -98,49 +99,49 @@
         width: 40px;
         aspect-ratio: 1/1;
     }
-    
+
     h3 {
         height: fit-content;
         align-self: center;
         font-weight: 400;
     }
 
-    h2{
+    h2 {
         white-space: nowrap;
     }
 
-    &:hover{
+    &:hover {
         background-color: #ffffff35
-    }
-  }
-
-  .pag{
-    margin: 1rem auto 0 auto;
-
-    nav{
-        ul{
-            justify-content: center;
-        }
-    
-    li {
-        button {
-            color: $white !important;
-        }
-
-        div {
-            color: $white !important;
-        }
-
-        &:active{
-            button {
-                color: $white !important;
-            }
-        }
-    }
     }
 }
 
-  .identifier{
+.pag {
+    margin: 1rem auto 0 auto;
+
+    nav {
+        ul {
+            justify-content: center;
+        }
+
+        li {
+            button {
+                color: $white !important;
+            }
+
+            div {
+                color: $white !important;
+            }
+
+            &:active {
+                button {
+                    color: $white !important;
+                }
+            }
+        }
+    }
+}
+
+.identifier {
     display: flex;
     align-items: center;
     margin-left: 2rem;
@@ -148,14 +149,14 @@
     gap: .5rem;
     text-align: left;
 
-    div{
+    div {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 0rem;
 
-        h2{
+        h2 {
             margin: 0;
             font-weight: 500;
         }
@@ -167,63 +168,64 @@
             color: rgba(255, 255, 255, 0.796);
         }
     }
-  }
+}
 
-  
-  #first {
+
+#first {
     margin-left: 2rem;
-  }
-  
-.green{
+}
+
+.green {
     color: #00a666;
 
-    &::before{
+    &::before {
         content: "+";
     }
 }
 
-.red{
+.red {
     color: #D9475A;
 }
 
-.row-link{
+.row-link {
     text-decoration: none;
     color: $white;
     width: 100%;
 }
 
 
-@media(max-width: 960px){
+@media(max-width: 960px) {
 
-    .coin-base{
+    .coin-base {
         padding: 0;
 
-        h2{
+        h2 {
             margin: 1rem auto;
         }
     }
 
-    .api-table{
+    .api-table {
         height: 730px;
         width: 850px;
         margin: 0 auto;
         overflow-x: scroll !important;
     }
 
-    .row{
+    .row {
         width: 850px;
     }
 
-    .heading{
+    .heading {
         width: 850px;
     }
 
 }
 
-@media(max-width: 750px){
-    .top-coins{
+@media(max-width: 750px) {
+    .top-coins {
         flex-wrap: wrap;
-        div{
+
+        div {
             flex-basis: 50%;
         }
     }

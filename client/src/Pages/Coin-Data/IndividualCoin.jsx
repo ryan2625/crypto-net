@@ -3,25 +3,29 @@ import CheckIcon from '@mui/icons-material/Check';
 import "./individual-coin.scss"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useLocation } from 'react-router-dom';
+import { useScroll } from '../../hooks/useScroll';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import image from "../../assets/gif-loader.gif"
+
+/**
+ * @component IndividualCoin
+ * This component is used to display the data of an individual coin. It can be accessed via the home page or the 
+ * trending page. It will display more data points and specifics about the coin. It also allows the user to add
+ * the coin to their portfolio.
+ * 
+ * @param {string} id : the id of the coin to be displayed
+ */
 function IndividualCoin({ id }) {
 
-  //SETUP USESTATE DUMMY DATA PROPERLY INSTEAD OF
-  //DATA NOT AVAILABLE!!
-
   const location = useLocation()
-
+  //To display either coin added successfully or error message
   const confirmation = useRef(null)
-
   const confirmation2 = useRef(null)
-
+  //To determine the navigation of the back button
   const [navigation, setNavigation] = useState("/")
-
   const [added, setAdded] = useState(false)
-
   const { user } = useAuthContext()
-
+  const { scroller } = useScroll()
   const [Error, setError] = useState("")
 
   const [coinData, setCoinData] = useState(
@@ -63,15 +67,12 @@ function IndividualCoin({ id }) {
     } else {
       setCoinData(JSON.parse(localStorage.getItem("coinData_" + id)));
     }
-    const html = document.querySelector('html')
-    html.style.scrollBehavior = "auto"
-    window.scrollTo({
-      top: 0,
-      behavior: "auto"
-    })
-    html.style.scrollBehavior = ''
+    scroller()
     checkSource()
   }, [id, coinData?.data?.image]);
+
+  //This uses react-router-dom to check the state of the location. This will change the back button to either navigate
+  //to the trending page or the portfolio page depending on the entry point.
 
   function checkSource() {
     if (location.state === "trending") {
@@ -139,7 +140,7 @@ function IndividualCoin({ id }) {
       </div>
       <div className='coin-description'>
         <div className="intro-coin">
-          <img src={coinData?.image?.large ||  image } alt="" />
+          <img src={coinData?.image?.large || image} alt="" />
           <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
           <h2></h2>
           <button className='add-p' onClick={addToPortfolio}>ADD TO WATCHLIST</button>
