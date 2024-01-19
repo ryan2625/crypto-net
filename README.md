@@ -1,4 +1,4 @@
-Crypto-verse: A Cryptocurrency App
+[Crypto-verse](https://crypto-net-ten.vercel.app/): A Cryptocurrency App
 
 Frontend: React, SCSS
 
