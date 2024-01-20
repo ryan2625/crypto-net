@@ -11,10 +11,10 @@ The app is still undergoing updates, focusing on improvements in accessibility, 
 The frontend of this app is hosted on [vercel](https://vercel.com/) and the backend is hosted on [cyclic.sh](https://www.cyclic.sh/)
 
 Home Page:
-<img src="./home-image.jpg" alt="Home Page" style="width:100%;">
+<img src="../home-images/home-image.jpg" alt="Home Page" style="width:100%;">
 
 Trending Page:
-![Trending Page](./trending-page.png)
+![Trending Page](../home-images/trending-page.png)
 
 Author: Ryan Freas
 
