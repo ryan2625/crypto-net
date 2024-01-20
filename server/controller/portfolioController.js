@@ -1,6 +1,6 @@
 const Portfolio = require('../model/Portfolio');
 
-//Get all crypto
+//Get all crypto located in a user's portfolio
 const getPortfolio = async (req, res) => {
     try {
         const user_id = req.user._id;
@@ -29,7 +29,6 @@ const addCrypto = async (req, res) => {
 };
 
 //Delete crypto from portfolio
-
 const deleteCrypto = async (req, res) => {
     const { id } = req.params
     const portfolio = await Portfolio.findOneAndDelete({ name: id })
