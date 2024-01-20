@@ -87,7 +87,7 @@ function MarketBanner({ setId }) {
 
   return (
     <>
-      <div className='market-banner'>
+      <section className='market-banner'>
         <div className="top-coins">
           {
             topCoins.map((coin, key) => {
@@ -117,8 +117,13 @@ function MarketBanner({ setId }) {
             </div>
             {coinData.map((coin, key) => {
               return (
-                <Link state="main"
-                  className='row-link row' key={key} onClick={() => setId(coin.id)} to={"/coins/" + coin.name.toLowerCase()}>
+                <Link
+                  state="main"
+                  className='row-link row'
+                  key={key}
+                  onClick={() => setId(coin.id)}
+                  to={"/coins/" + coin.name.toLowerCase()}
+                  aria-label="View individual coin data">
                   <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                   <div className="identifier">
                     <img src={coin.image} alt={coin.name} />
@@ -135,9 +140,12 @@ function MarketBanner({ setId }) {
             })}
           </div>
         </div>
-      </div>
-      <div className="pag">
-        <Pagination count={15} page={page} onChange={handleChange} color='primary' />
+      </section>
+      <div className="pag" aria-label="Change coin page">
+        <Pagination 
+        count={15} 
+        page={page} 
+        onChange={handleChange} color='primary' />
       </div>
     </>
   )

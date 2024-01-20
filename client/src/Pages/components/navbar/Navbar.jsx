@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
-import "./navbar.scss"
 import { Link } from "react-router-dom";
 import { useLogout } from '../../../hooks/useLogout'
 import { useAuthContext } from '../../../hooks/useAuthContext'
 import image from "../../../assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import "./navbar.scss"
 
 /**
  * @component Navbar
@@ -91,56 +92,58 @@ function Navbar({ sourced }) {
   }
 
   return (
-    <div className="navbar">
-      <div className="nav-container">
-        <Link to="/">
-          <img src={image} alt="" onClick={handleLogoClick} />
+    <section className="navbar">
+      <nav className="nav-container">
+        <Link to="/" aria-label="Navigate home">
+          <img src={image} alt="Crypto-net logo" onClick={handleLogoClick} />
         </Link>
         <ul>
           {sourced ? <>
             <li>
-              <a href="#home">
+              <a href="#home" aria-label="scroll to home section">
                 Home
               </a>
             </li>
             <li>
-              <a href="#prices">
+              <a href="#prices" aria-label="scroll to market data section">
                 Prices
               </a>
             </li>
             <li>
-              <a href="#rewards">
+              <a href="#rewards" aria-label="scroll to rewards section">
                 Rewards
               </a>
             </li>
           </> : null}
           <li id="profile-li" onClick={() => setClicked(!liClicked)} ref={liRef}>
-            <a href="#blank" onClick={handlePfpClick}>
-              <AccountBoxIcon className='acc-press' />
+            <a href="#profile" 
+            onClick={handlePfpClick}
+            aria-label="view account pages">
+              <AccountBoxIcon className='acc-press' aria-hidden="true" />
             </a>
             <ul className={
               liClicked ? "account-container" : "account-container-hide"
             }>
               <li>
-                <Link to="/" onClick={handleLogoClick}>
+                <Link to="/" onClick={handleLogoClick} aria-label="Navigate home">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/trending">
+                <Link to="/trending" aria-label="Navigate to trending page">
                   Trending
                 </Link>
               </li>
               <li>
                 {user &&
-                  <Link to="/portfolio">
+                  <Link to="/portfolio" aria-label="Navigate to your portfolio">
                     My Portfolio
                   </Link>
                 }
               </li>
               <li>
                 {user && (
-                  <Link to="/" onClick={handleLogout}>
+                  <Link to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                     Logout
                   </Link>
                 )}
@@ -148,7 +151,7 @@ function Navbar({ sourced }) {
               {
                 !user && (
                   <li>
-                    <Link to="/login">
+                    <Link to="/login" aria-label="Navigate to login page">
                       Login
                     </Link>
                   </li>
@@ -157,36 +160,36 @@ function Navbar({ sourced }) {
             </ul>
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <div className="nav-container-mobile">
-        <Link to="/">
-          <img src={image} alt="" onClick={handleLogoClick} />
+      <nav className="nav-container-mobile">
+        <Link to="/" aria-label="Navigate to home">
+          <img src={image} alt="Crypto-verse logo" onClick={handleLogoClick} />
         </Link>
         <li id="menu-icon" onClick={() => setOpen(!open)}>
-          <MenuIcon />
+          {open ? <CloseIcon aria-label="Close mobile navigation"/> : <MenuIcon aria-label="Open mobile navigation"/>}
         </li>
         <ul className={open ? " shown mobile-ul" : "mobile-ul"}>
           <li>
-            <Link to="/">
+            <Link to="/" aria-label="Navigate to home">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/trending">
+            <Link to="/trending" aria-label="Navigate to trending page">
               Trending
             </Link>
           </li>
           <li>
             {user &&
-              <Link to="/portfolio">
+              <Link to="/portfolio" aria-label="Navigate to your portfolio">
                 My Portfolio
               </Link>
             }
           </li>
           <li>
             {user && (
-              <Link to="/" onClick={handleLogout}>
+              <Link to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                 Logout
               </Link>
             )}
@@ -194,15 +197,15 @@ function Navbar({ sourced }) {
           {
             !user && (
               <li>
-                <Link to="/login" onClick={handleLogoClick}>
+                <Link to="/login" onClick={handleLogoClick} aria-label="Navigate to login page">
                   Login
                 </Link>
               </li>
             )
           }
         </ul>
-      </div>
-    </div>
+      </nav>
+    </section>
   )
 }
 

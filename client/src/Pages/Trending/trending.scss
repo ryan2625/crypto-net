@@ -87,6 +87,9 @@
 }
 
 #first-h1 {
+    font-weight: 700;
+    font-size: calc(2vw + 25px);
+
     span {
         -webkit-background-clip: text;
         background-image: $text-gradient;

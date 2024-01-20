@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "./first-banner.scss"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
+import "./first-banner.scss"
 /**
  * @component FirstBanner
  * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them 
@@ -49,7 +48,7 @@ function FirstBanner() {
 
   return (
     <>
-      <div className='first-banner' id="home">
+      <section className='first-banner' id="home">
         <div className="trending">
           <div id="first">
             <h4>Active Coins: </h4>
@@ -61,11 +60,14 @@ function FirstBanner() {
             <p>{new Intl.NumberFormat('en-US', {
               notation: 'compact',
               compactDisplay: 'short',
-            }).format(marketData.data.total_market_cap.usd)} USD</p>
+            }).format(marketData.data.total_market_cap.usd)}  
+             &nbsp;USD
+             </p>
           </div>
           <div>
             <h4>24H Change:</h4>
-            <p className={marketData.data.market_cap_change_percentage_24h_usd > 1 ? "green" : "red"}>{marketData.data.market_cap_change_percentage_24h_usd.toString().substring(0, 4)} %</p>
+            <p className={marketData.data.market_cap_change_percentage_24h_usd > 1 ? "green" : "red"}>{marketData.data.market_cap_change_percentage_24h_usd.toString().substring(0, 4)} %
+            </p>
           </div>
           <div className='optional'>
             <h4>Market Volume: </h4>
@@ -79,8 +81,7 @@ function FirstBanner() {
             <p>{marketData.data.markets}</p>
           </div>
         </div>
-
-        <div className="catch">
+        <header className="catch">
           <h1>
             THE WORLD'S LEADING <span>CRYPTOCURRENCY</span> PLATFORM
           </h1>
@@ -101,8 +102,8 @@ function FirstBanner() {
               The industry’s most comprehensive insurance coverage and verified proof of reserves
             </li>
           </ul>
-        </div>
-      </div>
+        </header>
+      </section>
     </>
   )
 }

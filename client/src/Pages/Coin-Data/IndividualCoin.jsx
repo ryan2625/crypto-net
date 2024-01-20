@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
-import CheckIcon from '@mui/icons-material/Check';
-import "./individual-coin.scss"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useLocation } from 'react-router-dom';
 import { useScroll } from '../../hooks/useScroll';
 import { useAuthContext } from '../../hooks/useAuthContext'
+import CheckIcon from '@mui/icons-material/Check';
 import image from "../../assets/gif-loader.gif"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import "./individual-coin.scss"
+
 
 /**
  * @component IndividualCoin
@@ -126,21 +127,21 @@ function IndividualCoin({ id }) {
   return (
     <div className="individual-page">
       <div className="confirmation" ref={confirmation}>
-        <h4>Added to Portfolio</h4><span><CheckIcon /></span>
+        <h4>Added to Portfolio</h4><span><CheckIcon aria-hidden="true"/></span>
       </div>
       <div className="confirmation"
         style={{ backgroundColor: "red" }}
         ref={confirmation2}>
-        <h4>{Error}</h4><span><CheckIcon style={{ visibility: "hidden" }} /></span>
+        <h4>{Error}</h4><span><CheckIcon style={{ visibility: "hidden" }} aria-hidden="true" /></span>
       </div>
       <div className="back-btn">
-        <Link to={navigation} state="coin">
-          <ArrowBackIcon />
+        <Link to={navigation} state="coin" aria-label="Navigate back to the page you came from">
+          <ArrowBackIcon aria-hidden="true"/>
         </Link>
       </div>
       <div className='coin-description'>
         <div className="intro-coin">
-          <img src={coinData?.image?.large || image} alt="" />
+          <img src={coinData?.image?.large || image} alt={coinData.name + " image"} />
           <h1>{coinData?.name || "Data not available"} <span>{coinData?.symbol?.toUpperCase() || "Data not available"}</span></h1>
           <h2></h2>
           <button className='add-p' onClick={addToPortfolio}>ADD TO WATCHLIST</button>

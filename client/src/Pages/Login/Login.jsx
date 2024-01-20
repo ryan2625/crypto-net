@@ -8,9 +8,10 @@ import CheckIcon from '@mui/icons-material/Check';
 import HouseIcon from '@mui/icons-material/House';
 import WestIcon from '@mui/icons-material/West';
 import Navbar from '../components/navbar/Navbar'
-import "./login.scss"
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import "./login.scss"
+
 
 /**
  * @component Login
@@ -98,13 +99,13 @@ function Login() {
             <Tabs
               value={value}
               onChange={handleChange}
-              textColor="white"
+              textColor="inherit"
               TabIndicatorProps={{
                 style: {
                   backgroundColor: "#4194ec"
                 }
               }}
-              aria-label="secondary tabs example"
+              aria-label="Login and Signup tabs"
               centered
               variant='fullWidth'
             >
@@ -137,14 +138,15 @@ function Login() {
               </form>
               <div className="buttons-login">
                 <button className="returner">
-                  <Link to="/"> &nbsp;
-                    <HouseIcon className='house' />
-                    <WestIcon className='west' />
+                  <Link to="/" aria-label="Return to the home page"> &nbsp;
+                    <HouseIcon className='house' aria-hidden="true" />
+                    <WestIcon className='west' aria-hidden="true" />
                   </Link>
                 </button>
                 <button className={loading2 ? 'loading-phase auth-buttons' : "auth-buttons"}
                   onClick={handleSubmitLogin}
-                  disabled={loading2}>
+                  disabled={loading2}
+                  aria-label="Login Button">
                   Login
                 </button>
               </div>
@@ -177,14 +179,15 @@ function Login() {
               </form>
               <div className="buttons-login">
                 <button className="returner">
-                  <Link to="/"> &nbsp;
-                    <HouseIcon className='house' />
-                    <WestIcon className='west' />
+                  <Link to="/" aria-label='Return to home page'> &nbsp;
+                    <HouseIcon className='house' aria-hidden="true" />
+                    <WestIcon className='west' aria-hidden="true" />
                   </Link>
                 </button>
                 <button className={loading ? 'loading-phase auth-buttons' : "auth-buttons"}
                   onClick={handleSubmitSignup}
-                  disabled={loading}>
+                  disabled={loading}
+                  aria-label="Signup Button">
                   Signup
                 </button>
               </div>

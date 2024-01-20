@@ -70,9 +70,11 @@ function Portfolio({ setId }) {
         {user &&
           <p id="user-display">{user.email}</p>}
         <div className='portfolio-display-container'>
-          <h1>Welcome to your portfolio</h1>
-          <h2 className="marginer">Here you can explore trending coins and add them to your watchlist.</h2>
-          <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav">home</Link> or trending page!</p>
+          <header>
+            <h1>Welcome to your portfolio</h1>
+            <h2 className="marginer">Here you can explore trending coins and add them to your watchlist.</h2>
+            <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav" aria-label="Return to home page">home</Link> or trending page!</p>
+          </header>
           <div className="your-watchlist">
             {
               //If there are no coins in the portfolio, then we will display a loader. Otherwise, we will display the coins in the portfolio.
@@ -86,7 +88,12 @@ function Portfolio({ setId }) {
                   portfolioData.map((coin, key) => {
                     return (
                       <div className="portfolio-view" key={key}>
-                        <Link className='hover-portfolio' to={`/coins/${coin.name}`} onClick={() => setId(coin.name)} state="portfolio">
+                        <Link
+                          className='hover-portfolio'
+                          to={`/coins/${coin.name}`}
+                          onClick={() => setId(coin.name)}
+                          state="portfolio"
+                          aria-label='View individual coin data'>
                           <div className="portfolio-view-name">
                             <img src={coin.image} alt={coin.name} />
                             <h3>{coin.link}</h3>

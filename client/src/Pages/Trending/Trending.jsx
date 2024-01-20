@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useScroll } from "../../hooks/useScroll"
 import Navbar from '../components/navbar/Navbar';
-import "./trending.scss"
 import Marquee from './marquee/Marquee';
+import "./trending.scss"
 
 /**
  * @component Trending
@@ -51,7 +51,7 @@ function Trending({ setId }) {
             <Navbar sourced={false} />
             <Marquee data={nfts} />
             <section className='portfolio-display'>
-                <h1 id="first-h1" style={{ textAlign: "center", marginBottom: '4rem' }}>Gain insight through the latest trending coins of the <span>crypto-verse</span></h1>
+                <header id="first-h1" style={{ textAlign: "center", marginBottom: '4rem' }}>Gain insight through the latest trending coins of the <span>crypto-verse</span></header>
                 <h1>Trending NFTs</h1>
                 <p className='off-white'>Trending NFTs based on the highest trading volume in the last 24 hours.</p>
                 <div className="trending-nfts">
@@ -67,18 +67,24 @@ function Trending({ setId }) {
                             return (
                                 <div className="nft-row" key={key}>
                                     <div className='identifier updated-identifier'>
-                                        <img src={nft.thumb} alt="" />
+                                        <img src={nft.thumb} alt="NFT thumbnail" />
                                         <div>
                                             <h3>{nft.name.toString().slice(0, 13)}</h3>
                                             <p>{nft.symbol.toString().slice(0, 13)}</p>
                                         </div>
                                     </div>
-                                    <p className={nft.floor_price_24h_percentage_change > 0 ? "green" : "red"}>{nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%</p>
+                                    <p
+                                        className={nft.floor_price_24h_percentage_change > 0 ? "green" : "red"}>
+                                        {nft.floor_price_24h_percentage_change.toString().substring(0, 4)}%
+                                    </p>
                                     <div className='optional-display p-container'>
                                         <p>{nft.data.h24_average_sale_price}</p>
                                         <p className='optional-display off-white2'>{nft.data.floor_price}</p>
                                     </div>
-                                    <img className="optional-display sparkline" src={nft.data.sparkline} alt="" />
+                                    <img
+                                        className="optional-display sparkline"
+                                        src={nft.data.sparkline}
+                                        alt="NFT 7D trends" />
                                 </div>
                             )
                         })}
@@ -98,19 +104,32 @@ function Trending({ setId }) {
                             {
                                 trending.map((coin, key) => {
                                     return (
-                                        <Link state="trending"
-                                            className='row-link row' key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}>
+                                        <Link
+                                            state="trending"
+                                            className='row-link row'
+                                            key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}
+                                            aria-label='Explore Trending Coins Details'>
                                             <h3 className='first-head'>{coin.item.score + 1}</h3>
                                             <div className="identifier">
-                                                <img src={coin.item.small} alt={coin.item.name} loading='lazy' />
+                                                <img
+                                                    src={coin.item.small}
+                                                    alt={coin.item.name}
+                                                    loading='lazy' />
                                                 <div>
                                                     <h2>{coin.item.name}</h2>
                                                     <h3>{coin.item.symbol.toUpperCase()}</h3>
                                                 </div>
                                             </div>
-                                            <h3 className='market-capper'>{coin.item.data.price}</h3>
-                                            <h3 className={coin.item.data.price_change_percentage_24h.usd > 0 ? "green" : "red"}>{coin.item.data.price_change_percentage_24h.usd.toString().substring(0, 4)}%</h3>
-                                            <h3>{new Intl.NumberFormat().format(coin.item.market_cap_rank)}</h3>
+                                            <h3 className='market-capper'>
+                                                {coin.item.data.price}
+                                            </h3>
+                                            <h3
+                                                className={coin.item.data.price_change_percentage_24h.usd > 0 ? "green" : "red"}>
+                                                {coin.item.data.price_change_percentage_24h.usd.toString().substring(0, 4)}%
+                                            </h3>
+                                            <h3>
+                                                {new Intl.NumberFormat().format(coin.item.market_cap_rank)}
+                                            </h3>
                                         </Link>
                                     )
                                 })

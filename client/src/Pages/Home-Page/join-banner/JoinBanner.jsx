@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
+import { useInView } from 'react-intersection-observer';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import image from "../../../assets/cryptoVisa2.webp"
 import image2 from "../../../assets/new-pay-modified.png"
 import image3 from "../../../assets/usdc.png"
 import "./join-banner.scss"
-import { useInView } from 'react-intersection-observer';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 /**
  * @component JoinBanner
@@ -112,17 +112,16 @@ function JoinBanner() {
 
   return (
     <>
-      <div id="reward-intro" ref={rewards} >
+      <header id="reward-intro" ref={rewards} >
         <p id="rewards"></p>
         <h1 className={textView4 ? 'text-trans1 rewards-h1' : "text-trans0 rewards-h1"}>
           Our Rewards Program
         </h1>
-      </div>
-
-      <div className='join-banner' ref={scrollRef}>
+      </header>
+      <section className='join-banner' ref={scrollRef}>
         <div className="card-container">
           <div className="card" ref={childScrollRef}>
-            <img src={image} alt="" loading='lazy' />
+            <img src={image} alt="Crypto Credit Card" loading='lazy' />
           </div>
         </div>
         <div className="first-text" ref={wholeText}>
@@ -150,25 +149,25 @@ function JoinBanner() {
             </div>
             <div className="icons">
               <div>
-                <img src={image2} alt="" />
+                <img src={image2} alt="PYUSD Logo" />
                 <h3>PYUSD</h3>
                 <h2>4%</h2>
                 <p>p.a.</p>
               </div>
               <div>
-                <img src={image3} alt="" />
+                <img src={image3} alt="USDC Logo" />
                 <h3>USDC</h3>
                 <h2>5.5%</h2>
                 <p>p.a.</p>
               </div>
             </div>
             <div id="earning-button">
-              <Link to="/trending">Start Earning Today <ArrowForwardIcon id="arrow" />
+              <Link to="/trending" aria-label='Visit trending coins'>Start Earning Today <ArrowForwardIcon id="arrow" />
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 

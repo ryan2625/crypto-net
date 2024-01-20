@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+/*An infinite marquee I found online: https://ryanmulligan.dev/blog/css-marquee/*/
 
 .marquee {
     --gap: 1rem;
@@ -15,7 +16,6 @@
     color: $white;
     height: 45px;
     top: 71px;
-
 }
 
 .marquee__content {
@@ -64,11 +64,6 @@
 /* Reverse animation */
 .marquee--reverse .marquee__content {
     animation-direction: reverse;
-}
-
-/* Pause on hover */
-.marquee--hover-pause:hover .marquee__content {
-    animation-play-state: paused;
 }
 
 /* Attempt to size parent based on content. Keep in mind that the parent width is equal to both content containers that stretch to fill the parent. */
