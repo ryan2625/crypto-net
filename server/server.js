@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user");
 /**
  * @file server.js
  * 
- * Here we initialize our express app and connect to our MongoDB database, where the connection string is stored
+ * Initialize express app and connect to our MongoDB database, where the connection string is stored
  * in a hidden dotenv file. We also mount our routes to the app and use the express.json() middleware to parse
  * incoming requests with JSON payloads as well as cors() to allow cross-origin requests.
  */
