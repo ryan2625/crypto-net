@@ -162,7 +162,7 @@ function JoinBanner() {
               </div>
             </div>
             <div id="earning-button">
-              <Link to="/trending" aria-label='Visit trending coins'>Start Earning Today <ArrowForwardIcon id="arrow" />
+              <Link to="/trending" aria-label='Visit trending coins'>Start Earning Today <ArrowForwardIcon id="arrow" aria-hidden="true" />
               </Link>
             </div>
           </div>
