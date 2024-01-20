@@ -14,7 +14,7 @@ Home Page:
 <img src="./home-image.jpg" alt="Home Page" style="width:100%;">
 
 Trending Page:
-![Trending Page](./crypto-3.png)
+![Trending Page](./trending-page.png)
 
 Author: Ryan Freas
 
