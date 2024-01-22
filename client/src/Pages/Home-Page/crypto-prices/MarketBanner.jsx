@@ -92,6 +92,9 @@ function MarketBanner({ setId }) {
           {
             topCoins.map((coin, key) => {
               var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
+              if (truncate.slice(-1) === ".") {
+                truncate = truncate.substring(0, 3)
+              }
               return (
                 <div key={key}>
                   <img src={coin.image} alt={coin.name} loading='lazy' />
@@ -116,6 +119,10 @@ function MarketBanner({ setId }) {
               <h3>MARKET CAP</h3>
             </div>
             {coinData.map((coin, key) => {
+              var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
+              if (truncate.slice(-1) === ".") {
+                truncate = truncate.substring(0, 3)
+              }
               return (
                 <Link
                   state="main"
@@ -123,7 +130,7 @@ function MarketBanner({ setId }) {
                   key={key}
                   onClick={() => setId(coin.id)}
                   to={"/coins/" + coin.name.toLowerCase()}
-                  aria-label="View individual coin data">
+                  aria-label={coin.name + " data"}>
                   <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                   <div className="identifier">
                     <img src={coin.image} alt={coin.name} />
@@ -133,7 +140,7 @@ function MarketBanner({ setId }) {
                     </div>
                   </div>
                   <h3 className='market-capper'>${new Intl.NumberFormat().format(coin.current_price)}</h3>
-                  <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{coin.price_change_percentage_24h.toString().substring(0, 4)}%</h3>
+                  <h3 className={coin.price_change_percentage_24h > 0 ? "green" : "red"}>{truncate}%</h3>
                   <h3>${new Intl.NumberFormat().format(coin.market_cap)}</h3>
                 </Link>
               )

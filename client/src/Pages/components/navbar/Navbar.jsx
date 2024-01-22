@@ -105,7 +105,7 @@ function Navbar({ sourced }) {
               </a>
             </li>
             <li>
-              <a href="#prices" aria-label="scroll to market data section">
+              <a href="#prices" aria-label="scroll to market data section/prices of currencies">
                 Prices
               </a>
             </li>

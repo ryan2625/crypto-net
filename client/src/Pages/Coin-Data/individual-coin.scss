@@ -1,28 +1,59 @@
 @import "../../styles/variables.scss";
 
 .individual-page {
-    background: linear-gradient(90deg, rgba(11, 20, 38, 1) 0%, rgba(29, 86, 119, 1) 100%);
     height: 100%;
     min-height: 100vh;
+    background-color: $darker-grey;
 }
 
 .coin-description {
-    color: $white;
+    color: $dimmed-white2;
     width: 75%;
+    max-width: 1500px;
     margin: 0 auto 0 auto;
+}
 
-    p {
-        padding-bottom: 15rem;
-        text-indent: 5rem;
-        font-size: 1.25rem;
-        line-height: 2rem;
+.individual-rates {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
-        a {
-            color: rgb(171, 254, 255);
-            text-decoration: underline;
+    div {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
 
+        &::after{
+            position: absolute;
+            bottom: -12px;
+            background-color: $dimmed-white-trans;
+            width: 100%;
+            height: 1px;
+            content: "";
+        }
+
+        p {
+            position: relative;
+
+            svg{
+                position: absolute;
+                right: -30px;
+                height: 20px;
+            }
+        }
+
+        p:nth-child(2) {
+            color: $white;
+            font-weight: 500;
+        }
+
+        a{
+            color: $white;
+            font-weight: 500;
+            text-decoration: none;
         }
     }
+
 }
 
 .intro-coin {
@@ -51,7 +82,7 @@
             width: 0%;
             height: 4px;
             border-radius: 2px;
-            background-color: #ffffff;
+            background-color: $dimmed-text-white;
             bottom: -1rem;
             left: 50%;
             transform: translateX(-50%);
@@ -118,23 +149,53 @@
 }
 
 .add-p {
-    width: 200px;
+    width: 250px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: .5rem;
     color: rgb(255, 255, 255);
     font-weight: 600;
-    background-color: $text-blue;
+    background-color: $bg-light2;
     font-size: 15px;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: .3s all ease-in-out;
 
     &:hover {
-        color: $text-blue;
-        background-color: rgb(255, 255, 255);
+        color: $bg-light2;
+        background-color: rgb(220, 220, 220);
         transition: .3s all ease-in-out;
     }
+}
+
+.entire-bar{
+    width: 500px;
+    height: 10px;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,119,0,1) 20%, rgba(255,221,0,1) 30%, rgba(189,255,0,1) 55%, rgba(0,255,55,1) 70%, rgba(0,175,38,1) 90%, rgba(0,45,10,1) 100%);
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto;
+    position: relative;
+}
+
+.actual-progress{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    background-color: rgb(81, 84, 101);
+    max-width: 490px;
+    height: 10px;
+    border-radius: 0 10px 10px 0;
+    padding: 0;
+}
+
+.labels{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    font-size: 1rem;
+    color: $white;
+    width: 500px;
 }
 
 .confirmation {
@@ -186,6 +247,130 @@
     }
 }
 
+.table-identifier{
+    margin: 3rem 0 0 0;
+    color: $white;
+}
+
+.data-points{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+
+    div{
+        flex-basis: 50%;
+    }
+}
+
+#tooltip1 {
+    position: relative;
+    pointer-events: none;
+
+    &:hover{
+        &::after{
+            opacity: 1;
+        }
+    }
+
+    &::after{
+        content: "Market Cap = Current Price x Circulating Supply";
+        position: absolute;
+        bottom: 30px;
+        left: 5px;
+        height: 32px;
+        text-align: center;
+        width: 200px;
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: rgb(42, 48, 66);
+        z-index: 20;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s all ease-in-out;
+    }
+
+    svg{
+        pointer-events: all !important;
+    }
+}
+
+
+#tooltip1 {
+    position: relative;
+    pointer-events: none;
+
+    &:hover{
+        &::after{
+            opacity: 1;
+        }
+    }
+
+    &::after{
+        content: "Market Cap = Current Price x Circulating Supply";
+        position: absolute;
+        bottom: 30px;
+        left: 5px;
+        height: 32px;
+        text-align: center;
+        width: 200px;
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: rgb(42, 48, 66);
+        z-index: 20;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s all ease-in-out;
+    }
+
+    svg{
+        pointer-events: all !important;
+    }
+}
+
+
+
+#main-price{
+    text-align: center;
+    color: $white;
+    font-size: 35px;
+    margin: 0 0 2rem 0;
+}
+
+#last-p {
+    padding-bottom: 15rem;
+    margin-top: 3rem;
+    text-indent: 5rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: $white;
+    a {
+        color: rgb(171, 254, 255);
+        text-decoration: underline;
+    }
+}
+
+#drop-arrow{
+    position: absolute;
+    bottom: -3px;
+    height: 60px;
+    width: 60px;
+}
+
+#loader-coin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media(max-width: 1200px) {
+    .data-points{
+        flex-direction: column;
+    }
+}
+
 
 @media(max-width: 750px) {
     .coin-description {
@@ -204,10 +389,13 @@
         }
     }
 
-    .coin-description {
+    #last-p {
+        font-size: 17px;
+    }
+}
 
-        p {
-            font-size: 1.1rem;
-        }
+@media (max-width: 550px){
+    .live-rate{
+        display: none;
     }
 }
