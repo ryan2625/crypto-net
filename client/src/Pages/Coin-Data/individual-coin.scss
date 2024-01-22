@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
+    overflow: hidden;
     div {
         display: flex;
         justify-content: space-between;
@@ -34,13 +34,14 @@
 
         p {
             position: relative;
-
+            
             svg{
                 position: absolute;
                 right: -30px;
                 height: 20px;
             }
         }
+
 
         p:nth-child(2) {
             color: $white;
@@ -51,6 +52,8 @@
             color: $white;
             font-weight: 500;
             text-decoration: none;
+            margin-left: 1rem;
+            text-wrap: wrap !important;
         }
     }
 

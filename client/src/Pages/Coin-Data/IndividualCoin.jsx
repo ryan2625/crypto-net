@@ -113,7 +113,6 @@ function IndividualCoin({ id }) {
     const low = coinData?.market_data?.low_24h?.usd
     const high = coinData?.market_data?.high_24h?.usd - low
     const current = coinData?.market_data?.current_price?.usd - low
-    console.log("Stats: " + low, "Current : " + current, "High: " + high)
     setMeter(current / high * 100)
   }
 
@@ -212,7 +211,11 @@ function IndividualCoin({ id }) {
                     id="drop-arrow"
                     aria-hidden="true"
                     style={{
-                      left: `${((meter / 100) * 500) - 30}px`
+                      left: `
+                      ${
+                        ((meter / 100) * 500) - 30
+                      }px
+                      `
                     }} />
                 </div>
               </div>
@@ -249,7 +252,7 @@ function IndividualCoin({ id }) {
                       24H Change
                     </p>
                     <p>
-                      <span className={coinData?.market_data?.price_change_percentage_24h > 0 ? "green" : "red"}>{coinData?.market_data?.price_change_percentage_24h}%</span>
+                      <span className={coinData?.market_data?.price_change_percentage_24h > 0 ? "green" : "red"}>{coinData?.market_data?.price_change_percentage_24h.toString().substring(0,5)}%</span>
                     </p>
                   </div>
                   <div>
@@ -283,7 +286,7 @@ function IndividualCoin({ id }) {
                       Homepage
                     </p>
                     <a href={coinData?.links?.homepage[0]} target="_blank"
-                    >{coinData?.links?.homepage || "Data not available"}</a>
+                    >{coinData?.links?.homepage[0] || "Data not available"}</a>
                   </div>
                   <div>
                     <p>
