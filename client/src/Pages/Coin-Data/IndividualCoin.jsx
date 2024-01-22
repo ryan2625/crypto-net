@@ -289,7 +289,7 @@ function IndividualCoin({ id }) {
                     <p>
                       White paper
                     </p>{coinData?.links?.whitepaper ? (
-                      <a href={coinData?.links?.whitepaper}
+                      <a href={coinData?.links?.whitepaper} target="_blank"
                       >{coinData?.links?.whitepaper}</a>)
                       :
                       (<p>Data not available</p>)}
@@ -298,7 +298,7 @@ function IndividualCoin({ id }) {
                     <p>
                       Github
                     </p>{coinData?.links?.repos_url?.github[0] ? (
-                      <a href={coinData?.links?.repos_url?.github[0]}
+                      <a href={coinData?.links?.repos_url?.github[0]} target="_blank"
                       >{coinData?.links?.repos_url?.github[0]}</a>)
                       :
                       (<p>Data not available</p>)}
