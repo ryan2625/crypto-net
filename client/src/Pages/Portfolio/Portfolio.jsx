@@ -7,7 +7,9 @@ import "./portfolio.scss";
 
 /**
  * @component Portfolio 
- * This page is accessible when a user is logged in. They can add coins to their portfolio via the tables in the trending page and the home page. Here we grab the user from the auth context and use their token to make an authorized request to retrive a user's portfolio data. We also grab the scroll hook to scroll to the top of the page.
+ * This page is accessible when a user is logged in. They can add coins to their portfolio via the tables in the trending 
+ * page and the home page. Here we grab the user from the auth context and use their token to make an authorized request 
+ * to retrive a user's portfolio data. We also grab the scroll hook to scroll to the top of the page.
  * 
  * @param {function} setID : Used to set the state of the id of the coin when you click a link in the table.
  */

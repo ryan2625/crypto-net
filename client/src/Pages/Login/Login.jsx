@@ -15,7 +15,9 @@ import "./login.scss"
 
 /**
  * @component Login
- * Here the user can signup/login using an email and a password. We have the custom hooks useSignup and useLogin which handle the logic for the signup and login process. We also grab the user from the auth context to display the confirmation method when logged in.
+ * Here the user can signup/login using an email and a password. We have the custom hooks useSignup and useLogin which 
+ * handle the logic for the signup and login process. We also grab the user from the auth context to display the 
+ * confirmation method when logged in.
  */
 
 

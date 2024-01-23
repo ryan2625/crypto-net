@@ -7,7 +7,8 @@ import "./trending.scss"
 
 /**
  * @component Trending
- * Displays the top trending NFTs and coins as defined by the criteria of the API. A scrolling marquee of the top NFTs is displayed at the top.
+ * Displays the top trending NFTs and coins as defined by the criteria of the API. A scrolling marquee of the top NFTs is 
+ * displayed at the top.
  * 
  * @param {function} setId : Used to set the state of the id of the coin when you click a link in the table.
  */

@@ -25,9 +25,9 @@ function JoinBanner() {
   const [val, setVal] = useState(0)
 
   /**
-   * useEffect hook that handles the card animation and uses the boundingClientRect to determine what offset the card should
-   * reach before it animates. We could not use something like window.scrollY as that only determines the offset from top of
-   * the document, whereas getBoundingClientRect() determines the offset of the element relative to the viewport.
+   * useEffect hook that handles the card animation and uses the boundingClientRect to determine what offset the card 
+   * should reach before it animates. We could not use something like window.scrollY as that only determines the offset 
+   * from top of the document, whereas getBoundingClientRect() determines the offset of the element relative to the viewport.
    */
 
   useEffect(() => {

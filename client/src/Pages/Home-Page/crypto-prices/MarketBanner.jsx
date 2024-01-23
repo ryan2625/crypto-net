@@ -6,7 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 /**
  * @component MarketBanner
- * Displays the top 4 coins above the table, while also displaying a chart of the top 150 coins, displayed ten per page. topCoins are the 4 displayed above, and coinData is the 10 displayed in the table per page.
+ * Displays the top 4 coins above the table, while also displaying a chart of the top 150 coins, displayed ten per page. 
+ * topCoins are the 4 displayed above, and coinData is the 10 displayed in the table per page.
  * @param {function} setId : function to set the id of the coin to be displayed on the coin page.
  */
 

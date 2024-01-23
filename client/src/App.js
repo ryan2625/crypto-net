@@ -11,7 +11,11 @@ import Footer from './Pages/components/footer/Footer'
 /**
  * crypto-verse
  *
- An app that allows users to view and track the value of cryptocurrencies. This app implements coingecko's API to fetch the data for cryptocurrencies. Users can also signup/login to create an account and add different coins to their portfolio. This app contains 5 different pages, where the routes are defined below. This app makes requests to the coingecko API often, so to prevent throttling/redundant API calls, the data is saved in local storage often (even though this may make the data out of date).
+ An app that allows users to view and track the value of cryptocurrencies. This app implements coingecko's API to fetch 
+ the data for cryptocurrencies. Users can also signup/login to create an account and add different coins to their 
+ portfolio. This app contains 5 different pages, where the routes are defined below. This app makes requests to the 
+ coingecko API often, so to prevent throttling/redundant API calls, the data is saved in local storage often (even though 
+this may make the data out of date).
  *
  * Author: Ryan Freas
  * Created: 12/01/23

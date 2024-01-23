@@ -12,7 +12,9 @@ import "./individual-coin.scss"
 
 /**
  * @component IndividualCoin
- This component is used to display the data of an individual coin. It can be accessed via the home page or the trending page. It will display more data points and specifics about the coin. It also allows the user to add the coin to their portfolio.
+ * This component is used to display the data of an individual coin. It can be accessed via the home page or the trending 
+ * page. It will display more data points and specifics about the coin. It also allows the user to add the coin to their 
+ * portfolio.
  *
  * @param {string} id : the id of the coin to be displayed
  */

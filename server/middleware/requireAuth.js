@@ -3,7 +3,8 @@ const User = require('../model/UserModel')
 
 /**
  * @file requireAuth.js
- * This middleware verifies that the user is logged in before allowing them to make requests to the server. We use the jsonwebtoken package to verify the user's credentials with the secret we defined in the hidden .env file.
+ * This middleware verifies that the user is logged in before allowing them to make requests to the server. We use the 
+ * jsonwebtoken package to verify the user's credentials with the secret we defined in the hidden .env file.
  */
 
 const requireAuth = async (req, res, next) => {
