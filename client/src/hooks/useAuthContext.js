@@ -3,8 +3,7 @@ import { useContext } from "react";
 
 /**
  * @hook useAuthContext
- * This hook returns the AuthContext. It is used to access the user state and the actions of LOGIN and LOGOUT
- * from the AuthContext reducer.
+ * This hook returns the AuthContext. It is used to access the user state and the actions of LOGIN and LOGOUT from the AuthContext reducer.
  * 
  * @returns {object} - An object containing the AuthContext.
  

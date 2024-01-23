@@ -3,8 +3,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import "./first-banner.scss"
 /**
  * @component FirstBanner
- * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them 
- * right below the navbar.
+ * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them right below the navbar.
  */
 
 

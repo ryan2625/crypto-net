@@ -10,8 +10,7 @@ import "./navbar.scss"
 
 /**
  * @component Navbar
- * This component is present on every page besides the individual coin page. It is used to navigate the site and allows 
- * the user to login and logout.
+ * This component is present on every page besides the individual coin page. It is used to navigate the site and allows the user to login and logout.
  * 
  * @param {boolean} sourced : Used to determine if the navbar is being used on the home page or not. Will display different
  * links based on this prop.

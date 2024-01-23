@@ -12,10 +12,8 @@ import "./individual-coin.scss"
 
 /**
  * @component IndividualCoin
- * This component is used to display the data of an individual coin. It can be accessed via the home page or the 
- * trending page. It will display more data points and specifics about the coin. It also allows the user to add
- * the coin to their portfolio.
- * 
+ This component is used to display the data of an individual coin. It can be accessed via the home page or the trending page. It will display more data points and specifics about the coin. It also allows the user to add the coin to their portfolio.
+ *
  * @param {string} id : the id of the coin to be displayed
  */
 function IndividualCoin({ id }) {
@@ -98,8 +96,7 @@ function IndividualCoin({ id }) {
     setGradient()
   }, [coinData])
 
-  //This uses react-router-dom to check the state of the location. This will change the back button to either navigate
-  //to the trending page or the portfolio page depending on the entry point.
+  //This uses react-router-dom to check the state of the location. This will change the back button to either navigate to the trending page or the portfolio page depending on the entry point.
 
   function checkSource() {
     if (location.state === "trending") {
@@ -108,6 +105,9 @@ function IndividualCoin({ id }) {
       setNavigation("/portfolio")
     }
   }
+
+
+  //This function handles setting the value for the 24H meter. It converts the current price to a percentage of the difference between the high and the low of the value of the day. We also use the meter value that we set here to position the arrow on the bar accordingly. 
 
   function setGradient() {
     const low = coinData?.market_data?.low_24h?.usd

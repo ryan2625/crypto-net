@@ -5,10 +5,7 @@ const validator = require('validator');
 /**
  * @file UserModel.js
  * 
- * This file defines our user model that will allow us to store the user's portfolio in our MongoDB database. We also 
- * have two static methods that will allow us to signup and login a user. We use the validator package to validate the
- * user's email and password, and we use the bcryptjs package to hash the user's password before storing it in the
- * database.
+ * This file defines our user model that will allow us to store the user's portfolio in our MongoDB database. We also have two static methods that will allow us to signup and login a user. We use the validator package to validate the user's email and password, and we use the bcryptjs package to hash the user's password before storing it in the database.
  */
 
 const userSchema = new mongoose.Schema({

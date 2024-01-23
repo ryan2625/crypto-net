@@ -3,8 +3,7 @@ import { createContext, useReducer, useEffect } from "react";
 /**
  * @context AuthContext
  * 
- * This context is used to provide the user state and the actions of LOGIN and LOGOUT to the entire application.
- * See index.js for how it wrpas the entire app.
+ * This context is used to provide the user state and the actions of LOGIN and LOGOUT to the entire application. See index.js for how it wraps the entire app.
  */
 
 export const AuthContext = createContext();
