@@ -1,3 +1,0 @@
-Create chart for individual coin using low and high 24H
-
-Use by calculating percent change of low high and using html progress bar !!!
