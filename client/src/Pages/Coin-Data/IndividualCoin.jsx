@@ -237,7 +237,7 @@ function IndividualCoin({ id }) {
                       Market Cap<HelpOutlineIcon
                       aria-hidden="true" />
                     </p>
-                    <p>{new Intl.NumberFormat().format(coinData?.market_data?.market_cap?.usd) || "Data not available"}
+                    <p>${new Intl.NumberFormat().format(coinData?.market_data?.market_cap?.usd) || "Data not available"}
                     </p>
                   </div>
                   <div>
