@@ -158,8 +158,8 @@ function IndividualCoin({ id }) {
 
   return (
     <section className="individual-page">
-      {coinData.image.large === "" ? (
-        <img src={image} alt={coinData.name + " image"} id="loader-coin" />
+      {coinData?.image?.large === "" ? (
+        <img src={image} alt="loading screen" id="loader-coin" />
       ) : (
         <>
           <div className="confirmation" ref={confirmation}>
@@ -212,9 +212,8 @@ function IndividualCoin({ id }) {
                     aria-hidden="true"
                     style={{
                       left: `
-                      ${
-                        ((meter / 100) * 500) - 30
-                      }px
+                      ${((meter / 100) * 500) - 30
+                        }px
                       `
                     }} />
                 </div>
@@ -235,7 +234,7 @@ function IndividualCoin({ id }) {
                   <div>
                     <p id="tooltip1">
                       Market Cap<HelpOutlineIcon
-                      aria-hidden="true" />
+                        aria-hidden="true" />
                     </p>
                     <p>${new Intl.NumberFormat().format(coinData?.market_data?.market_cap?.usd) || "Data not available"}
                     </p>
@@ -252,7 +251,7 @@ function IndividualCoin({ id }) {
                       24H Change
                     </p>
                     <p>
-                      <span className={coinData?.market_data?.price_change_percentage_24h > 0 ? "green" : "red"}>{coinData?.market_data?.price_change_percentage_24h.toString().substring(0,5)}%</span>
+                      <span className={coinData?.market_data?.price_change_percentage_24h > 0 ? "green" : "red"}>{coinData?.market_data?.price_change_percentage_24h.toString().substring(0, 5)}%</span>
                     </p>
                   </div>
                   <div>
