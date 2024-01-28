@@ -17,7 +17,7 @@ Crypto-verse is a cryptocurrency app that displays the latest crypto data, inclu
 The app is still undergoing updates, focusing on improvements in accessibility, speed optimization, SEO, and more.
 
 
-|----------------------------------------------------------------------------------------------------------|
+
 | METHOD:    URL:                                        // DESCRIPTION                                    |
 |----------------------------------------------------------------------------------------------------------|
 | GET:       https://crypto-endpoint.cyclic.app/api/portfolio/                // get all coins in portfolio|
@@ -25,7 +25,7 @@ The app is still undergoing updates, focusing on improvements in accessibility, 
 | DELETE:    https://crypto-endpoint.cyclic.app/api/portfolio/:id             // delete coin from portfolio|
 | POST:      https://crypto-endpoint.cyclic.app/api/user/signup/              // create account            | 
 | POST:      https://crypto-endpoint.cyclic.app/api/user/login/               // login to account          |
-|----------------------------------------------------------------------------------------------------------|
+
 
 The frontend of this app is hosted on [vercel](https://vercel.com/) and the backend is hosted on [cyclic.sh](https://www.cyclic.sh/)
 
