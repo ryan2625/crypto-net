@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { useScroll } from '../../hooks/useScroll';
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { useScroll } from '../../Hooks/useScroll';
+import { useAuthContext } from '../../Hooks/useAuthContext'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import CheckIcon from '@mui/icons-material/Check';
-import image from "../../assets/gif-loader.gif"
+import image from "../../Assets/gif-loader.gif"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./individual-coin.scss"

@@ -2,7 +2,7 @@ import React from 'react'
 import FirstBanner from "./hero/FirstBanner";
 import MarketBanner from "./crypto-prices/MarketBanner";
 import JoinBanner from "./join-banner/JoinBanner";
-import Navbar from "../components/navbar/Navbar";
+import Navbar from "../Nav-Footer/navbar/Navbar"
 
 /**
  * @component MainPage

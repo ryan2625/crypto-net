@@ -6,7 +6,7 @@ import Main from './Pages/Home-Page/MainPage';
 import Login from './Pages/Login/Login';
 import Portfolio from './Pages/Portfolio/Portfolio';
 import Trending from './Pages/Trending/Trending';
-import Footer from './Pages/components/footer/Footer'
+import Footer from "./Pages/Nav-Footer/footer/Footer"
 
 /**
  * crypto-verse

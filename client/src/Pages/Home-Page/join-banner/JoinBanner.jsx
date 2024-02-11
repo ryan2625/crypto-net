@@ -2,9 +2,9 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { useInView } from 'react-intersection-observer';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import image from "../../../assets/cryptoVisa2.webp"
-import image2 from "../../../assets/new-pay-modified.png"
-import image3 from "../../../assets/usdc.png"
+import image from "../../../Assets/cryptoVisa2.webp"
+import image2 from "../../../Assets/new-pay-modified.png"
+import image3 from "../../../Assets/usdc.png"
 import "./join-banner.scss"
 
 /**

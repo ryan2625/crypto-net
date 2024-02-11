@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../hooks/useAuthContext';
-import { useScroll } from '../../hooks/useScroll';
-import Navbar from '../components/navbar/Navbar';
+import { useAuthContext } from '../../Hooks/useAuthContext';
+import { useScroll } from '../../Hooks/useScroll';
+import Navbar from '../Nav-Footer/navbar/Navbar';
 import "./portfolio.scss";
 
 /**

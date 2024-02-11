@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { useSignup } from '../../hooks/useSignup'
-import { useLogin } from '../../hooks/useLogin'
-import { useAuthContext } from '../../hooks/useAuthContext'
-import { useScroll } from '../../hooks/useScroll'
+import { useSignup } from '../../Hooks/useSignup'
+import { useLogin } from '../../Hooks/useLogin'
+import { useAuthContext } from '../../Hooks/useAuthContext'
+import { useScroll } from '../../Hooks/useScroll'
 import CheckIcon from '@mui/icons-material/Check';
 import HouseIcon from '@mui/icons-material/House';
 import WestIcon from '@mui/icons-material/West';
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../Nav-Footer/navbar/Navbar'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import "./login.scss"

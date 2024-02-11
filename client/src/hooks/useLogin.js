@@ -1,4 +1,4 @@
-import {useAuthContext} from "./useAuthContext";
+import { useAuthContext } from "./useAuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,8 +23,8 @@ export const useLogin = () => {
 
         const res = await fetch("https://crypto-endpoint.cyclic.app/api/user/login", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({email, password})
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
         });
 
         const json = await res.json();
@@ -35,8 +35,8 @@ export const useLogin = () => {
         }
 
         if (res.ok) {
-            localStorage.setItem("user" , JSON.stringify(json));
-            dispatch({type: "LOGIN",  payload: json})
+            localStorage.setItem("user", JSON.stringify(json));
+            dispatch({ type: "LOGIN", payload: json })
             setIsLoading2(false);
             setTimeout(() => {
                 navigate("/portfolio");
@@ -45,5 +45,5 @@ export const useLogin = () => {
 
     }
 
-    return { login, error2, setError2, loading2}
+    return { login, error2, setError2, loading2 }
 }

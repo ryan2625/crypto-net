@@ -1,6 +1,6 @@
 import React from 'react'
-import image from "../../../assets/appleStore.svg"
-import image2 from "../../../assets/playStore.svg"
+import image from "../../../Assets/appleStore.svg"
+import image2 from "../../../Assets/playStore.svg"
 import "./footer.scss"
 
 /**

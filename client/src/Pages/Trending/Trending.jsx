@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useScroll } from "../../hooks/useScroll"
-import Navbar from '../components/navbar/Navbar';
+import { useScroll } from "../../Hooks/useScroll"
+import Navbar from '../Nav-Footer/navbar/Navbar';
 import Marquee from './marquee/Marquee';
 import "./trending.scss"
 
@@ -31,11 +31,11 @@ function Trending({ setId }) {
     useEffect(() => {
         scroller()
         const fetchData = async () => {
-            const res = await fetch("https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn").then(response => response.json()).then(data => {
-                setNFTs(data.nfts)
-                setTrending(data.coins.slice(0, 10))
-                localStorage.setItem("trending", JSON.stringify(data.coins.slice(0, 10)))
-                localStorage.setItem("nfts", JSON.stringify(data.nfts))
+            const res = await fetch("https://crypto-endpoint.cyclic.app/api/trending/").then(response => response.json()).then(data => {
+                setNFTs(data.trendingData.nfts)
+                setTrending(data.trendingData.coins.slice(0, 10))
+                localStorage.setItem("trending", JSON.stringify(data.trendingData.coins.slice(0, 10)))
+                localStorage.setItem("nfts", JSON.stringify(data.trendingData.nfts))
             })
         }
         if (localStorage.getItem("trending") === null) {

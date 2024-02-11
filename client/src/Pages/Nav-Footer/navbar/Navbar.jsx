@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom";
-import { useLogout } from '../../../hooks/useLogout'
-import { useAuthContext } from '../../../hooks/useAuthContext'
-import image from "../../../assets/crypto-logo-official.png"
+import { useLogout } from '../../../Hooks/useLogout'
+import { useAuthContext } from '../../../Hooks/useAuthContext'
+import image from "../../../Assets/crypto-logo-official.png"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
