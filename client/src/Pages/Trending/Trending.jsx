@@ -4,6 +4,7 @@ import { useScroll } from "../../Hooks/useScroll"
 import Navbar from '../Nav-Footer/navbar/Navbar';
 import Marquee from './marquee/Marquee';
 import "./trending.scss"
+import SPARKS  from "../../Assets/sparklines/spark"
 
 /**
  * @component Trending
@@ -30,6 +31,7 @@ function Trending({ setId }) {
 
     useEffect(() => {
         scroller()
+        console.log("Sparks: " + SPARKS)
         const fetchData = async () => {
             const res = await fetch("https://crypto-endpoint.cyclic.app/api/trending/").then(response => response.json()).then(data => {
                 setNFTs(data.trendingData.nfts)
@@ -44,6 +46,7 @@ function Trending({ setId }) {
             setTrending(JSON.parse(localStorage.getItem("trending")))
             setNFTs(JSON.parse(localStorage.getItem("nfts")))
         }
+        console.log("Sparks: " + SPARKS)
     }, [])
 
     return (
@@ -83,7 +86,7 @@ function Trending({ setId }) {
                                     </div>
                                     <img
                                         className="optional-display sparkline"
-                                        src={nft.data.sparkline}
+                                        src={SPARKS[key]}
                                         alt="NFT 7D trends" />
                                 </div>
                             )
