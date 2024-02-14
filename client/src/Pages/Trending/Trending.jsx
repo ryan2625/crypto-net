@@ -4,7 +4,7 @@ import { useScroll } from "../../Hooks/useScroll"
 import Navbar from '../Nav-Footer/navbar/Navbar';
 import Marquee from './marquee/Marquee';
 import "./trending.scss"
-import SPARKS  from "../../Assets/sparklines/sparkImages"
+import SPARKS  from "../../Assets/sparklineSVGs/sparkImages"
 
 /**
  * @component Trending
