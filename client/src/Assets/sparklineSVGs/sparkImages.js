@@ -5,7 +5,7 @@ import image4 from "./spark4.svg"
 import image3 from "./spark3.svg"
 import image2 from "./spark2.svg"
 import image1 from "./spark1.svg"
-
+// The sparklines are displayed on the trending page. We have to use our own images because the images from the API had CORS issues.
 
 
 const SPARKS = [
