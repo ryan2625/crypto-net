@@ -44,7 +44,6 @@ function MarketBanner({ setId }) {
         .then(response => response.json())
         .then(data => {
           setCoinData(data);
-          console.log(data)
           localStorage.setItem("coinData_" + page, JSON.stringify(data));
           var dummyCoins = []
           for (let i = 0; i < 4; i++) {
