@@ -85,6 +85,20 @@
 
 }
 
+.Navlink-Active {
+    position: relative;
+    pointer-events: none;
+    &::after {
+        height: 2px !important;
+        width: 90px !important;
+        position: absolute !important;
+        background-color: $white !important;
+        bottom: 30px !important;
+        left: 50% !important;
+        transform: translate(-50%);
+    }
+}
+
 @keyframes pointer {
     0% {
         pointer-events: auto;
@@ -281,7 +295,7 @@
     }
 
     .shown {
-        transform: translateY(0px);
+        transform: translateY(-4px);
         transition: all .35s ease-in-out;
     }
 

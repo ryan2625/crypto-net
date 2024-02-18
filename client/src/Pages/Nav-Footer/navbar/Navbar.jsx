@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useLogout } from '../../../Hooks/useLogout'
 import { useAuthContext } from '../../../Hooks/useAuthContext'
 import image from "../../../Assets/crypto-logo-official.png"
@@ -13,7 +13,7 @@ import "./navbar.scss"
  * This component is present on every page besides the individual coin page. It is used to navigate the site and allows the user to login and logout.
  * 
  * @param {boolean} sourced : Used to determine if the navbar is being used on the home page or not. Will display different
- * links based on this prop.
+ * Links based on this prop.
  * @returns 
  */
 
@@ -93,9 +93,9 @@ function Navbar({ sourced }) {
   return (
     <section className="navbar">
       <nav className="nav-container">
-        <Link to="/" aria-label="Navigate home">
+        <NavLink to="/" aria-label="Navigate home">
           <img src={image} alt="Crypto-net logo" onClick={handleLogoClick} />
-        </Link>
+        </NavLink>
         <ul>
           {sourced ? <>
             <li>
@@ -115,44 +115,68 @@ function Navbar({ sourced }) {
             </li>
           </> : null}
           <li id="profile-li" onClick={() => setClicked(!liClicked)} ref={liRef}>
-            <a href="#profile" 
-            onClick={handlePfpClick}
-            aria-label="view account pages">
+            <a href="#profile"
+              onClick={handlePfpClick}
+              aria-label="view account pages">
               <AccountBoxIcon className='acc-press' aria-hidden="true" />
             </a>
             <ul className={
               liClicked ? "account-container" : "account-container-hide"
             }>
               <li>
-                <Link to="/" onClick={handleLogoClick} aria-label="Navigate home">
+                <NavLink
+                  to="/"
+                  onClick={handleLogoClick}
+                  aria-label="Navigate home"
+                  className={({ isActive }) =>
+                    [
+                      isActive ? "Navlink-Active" : ""
+                    ]} >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/trending" aria-label="Navigate to trending page">
+                <NavLink
+                  className={({ isActive }) =>
+                    [
+                      isActive ? "Navlink-Active" : ""
+                    ]}
+                  to="/trending"
+                  aria-label="Navigate to trending page">
                   Trending
-                </Link>
+                </NavLink>
               </li>
               <li>
                 {user &&
-                  <Link to="/portfolio" aria-label="Navigate to your portfolio">
+                  <NavLink to="/portfolio"
+                    aria-label="Navigate to your portfolio"
+                    className={({ isActive }) =>
+                      [
+                        isActive ? "Navlink-Active" : ""
+                      ]}>
                     My Portfolio
-                  </Link>
+                  </NavLink>
                 }
               </li>
               <li>
                 {user && (
-                  <Link to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
+                  <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                     Logout
-                  </Link>
+                  </NavLink>
                 )}
               </li>
               {
                 !user && (
                   <li>
-                    <Link to="/login" aria-label="Navigate to login page">
+                    <NavLink
+                      to="/login"
+                      aria-label="Navigate to login page"
+                      className={({ isActive }) =>
+                        [
+                          isActive ? "Navlink-Active" : ""
+                        ]}>
                       Login
-                    </Link>
+                    </NavLink>
                   </li>
                 )
               }
@@ -162,43 +186,43 @@ function Navbar({ sourced }) {
       </nav>
 
       <nav className="nav-container-mobile">
-        <Link to="/" aria-label="Navigate to home">
+        <NavLink to="/" aria-label="Navigate to home">
           <img src={image} alt="Crypto-verse logo" onClick={handleLogoClick} />
-        </Link>
+        </NavLink>
         <li id="menu-icon" onClick={() => setOpen(!open)}>
-          {open ? <CloseIcon aria-label="Close mobile navigation"/> : <MenuIcon aria-label="Open mobile navigation"/>}
+          {open ? <CloseIcon aria-label="Close mobile navigation" /> : <MenuIcon aria-label="Open mobile navigation" />}
         </li>
         <ul className={open ? " shown mobile-ul" : "mobile-ul"}>
           <li>
-            <Link to="/" aria-label="Navigate to home">
+            <NavLink to="/" aria-label="Navigate to home">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/trending" aria-label="Navigate to trending page">
+            <NavLink to="/trending" aria-label="Navigate to trending page">
               Trending
-            </Link>
+            </NavLink>
           </li>
           <li>
             {user &&
-              <Link to="/portfolio" aria-label="Navigate to your portfolio">
+              <NavLink to="/portfolio" aria-label="Navigate to your portfolio">
                 My Portfolio
-              </Link>
+              </NavLink>
             }
           </li>
           <li>
             {user && (
-              <Link to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
+              <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                 Logout
-              </Link>
+              </NavLink>
             )}
           </li>
           {
             !user && (
               <li>
-                <Link to="/login" onClick={handleLogoClick} aria-label="Navigate to login page">
+                <NavLink to="/login" onClick={handleLogoClick} aria-label="Navigate to login page">
                   Login
-                </Link>
+                </NavLink>
               </li>
             )
           }

@@ -30,15 +30,21 @@ function MarketBanner({ setId }) {
   /**
    * UseEffect checks to see if there is already coin data in the local stroage. If not, it makes a request to the
    * coingecko API. In either case, it then sets the state of the coins to be displayed in either the top 4 coins
-   * or the coin table. 
+   * or the coin table. We use an abort controller to ensure good UI experience if a user clicks on the pagnination 
+   * buttons rapidly (prevent flashing). Prevent race conditions, and uneeded api calls if user goes from page to 
+   * page while data still  fetching.
    */
 
   useEffect(() => {
+    const controller = new AbortController()
     const fetchData = async () => {
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`, {
+        signal : controller.signal
+      })
         .then(response => response.json())
         .then(data => {
           setCoinData(data);
+          console.log(data)
           localStorage.setItem("coinData_" + page, JSON.stringify(data));
           var dummyCoins = []
           for (let i = 0; i < 4; i++) {
@@ -50,8 +56,10 @@ function MarketBanner({ setId }) {
         })
         .catch(error => console.error(error));
     }
+
     if (localStorage.getItem("coinData_" + page) === null) {
       fetchData();
+
     } else {
       var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page))
       setCoinData(coinDataLocal);
@@ -64,6 +72,11 @@ function MarketBanner({ setId }) {
       }
     }
     checkSource()
+
+    return () => {
+      controller.abort()
+    }
+
   }, [page]);
 
   //Function used to check if we are navigating from the coin page. If so, it will scroll to the top of the table.
