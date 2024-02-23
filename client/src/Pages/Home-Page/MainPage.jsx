@@ -10,7 +10,7 @@ import Navbar from "../Nav-Footer/navbar/Navbar"
  * sourced={true} because the navbar will then display the Home, Prices, and Rewards Links which are only located on this 
  * page. 
  * 
- * @param {function} setId : Used to set the state of the coin id when navigating to the coin page.
+ * @param {function} setId : Used to set the state of the coin id when navigating to the coin page (received from App.js).
  */
 
 function Main({ setId }) {
