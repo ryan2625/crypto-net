@@ -17,7 +17,11 @@ import "./navbar.scss"
  * @returns 
  */
 
-function Navbar({ sourced }) {
+interface NavbarProps{ 
+  sourced: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({sourced}) => {
 
   //open is used to determine if the mobile menu is open or not.
   const [open, setOpen] = useState(false)
