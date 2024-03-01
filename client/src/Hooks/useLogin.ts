@@ -12,12 +12,12 @@ import { useNavigate } from "react-router-dom";
  */
 
 export const useLogin = () => {
-    const [error2, setError2] = useState<string>("");
-    const [loading2, setIsLoading2] = useState(false);
+    const [error2, setError2] = useState<string | null>("");
+    const [loading2, setIsLoading2] = useState<boolean>(false);
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
 
-    const login = async (email, password) => {
+    const login = async (email: string, password: string) => {
         setError2(null);
         setIsLoading2(true);
 

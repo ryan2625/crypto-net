@@ -9,11 +9,14 @@ import { createContext, useReducer, useEffect } from "react";
  */
 
 export interface User {
-    email?: string;
-    token?: string;
+    user: {
+        email: string | null;
+        token: string | null;
+    }
+    dispatch: React.Dispatch
 }
 
-export const AuthContext = createContext<User>({});
+export const AuthContext = createContext<User>();
 
 export const authReducer = (state, action) =>{
     switch(action.type){
@@ -26,11 +29,14 @@ export const authReducer = (state, action) =>{
             return state
     }
 }
+export const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
 
-export const AuthContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(authReducer, {
-        user: null
+        user: {
+            email: null,
+            token: null
+        }
     })
 
     useEffect(() => {

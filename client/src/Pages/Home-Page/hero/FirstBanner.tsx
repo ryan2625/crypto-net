@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { MarketData } from "./MarketData"
 import { baseState } from './MarketData'
+import "./first-banner.scss"
 /**
  * @component FirstBanner
  * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them 

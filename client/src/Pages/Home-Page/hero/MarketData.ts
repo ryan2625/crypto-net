@@ -12,7 +12,7 @@ export interface MarketData {
     };
   }
   
-  export const baseState = {
+  export const baseState: MarketData = {
     data: {
         markets: 0,
         active_cryptocurrencies: 0,

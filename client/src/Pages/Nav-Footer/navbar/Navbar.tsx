@@ -23,15 +23,15 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
 
   //open is used to determine if the mobile menu is open or not.
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
   //liClicked is used to determine if the account menu is open or not.
-  const [liClicked, setClicked] = useState(false)
+  const [liClicked, setClicked] = useState<boolean>(false)
   //pfpClick is used to determine if the account icon is open or not. Determines animation of the icon.
-  const [pfpClick, setPfp] = useState(true)
+  const [pfpClick, setPfp] = useState<boolean>(true)
   //Determines which animation to use for the account icon.
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(0)
   const { logout } = useLogout()
-  const { email, token } = useAuthContext()
+  const { user } = useAuthContext()
 
   let liRef = useRef<HTMLLIElement | null>(null)
 
@@ -148,7 +148,7 @@ const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
                 </NavLink>
               </li>
               <li>
-                {token &&
+                {user?.token &&
                   <NavLink to="/portfolio"
                     aria-label="Navigate to your portfolio"
                     className={({ isActive }) =>
@@ -159,14 +159,14 @@ const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
                 }
               </li>
               <li>
-                {token && (
+                {user?.token && (
                   <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                     Logout
                   </NavLink>
                 )}
               </li>
               {
-                !token && (
+                !user?.token && (
                   <li>
                     <NavLink
                       to="/login"
@@ -203,21 +203,21 @@ const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
             </NavLink>
           </li>
           <li>
-            {token &&
+            {user?.token &&
               <NavLink to="/portfolio" aria-label="Navigate to your portfolio">
                 My Portfolio
               </NavLink>
             }
           </li>
           <li>
-            {token && (
+            {user?.token && (
               <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                 Logout
               </NavLink>
             )}
           </li>
           {
-            !token && (
+            !user?.token && (
               <li>
                 <NavLink to="/login" onClick={handleLogoClick} aria-label="Navigate to login page">
                   Login

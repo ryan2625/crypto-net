@@ -12,12 +12,12 @@ import { useState } from "react";
  */
 
 export const useSignup = () => {
-    const [error, setError] = useState<string>("");
-    const [loading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>("");
+    const [loading, setIsLoading] = useState<boolean>(false);
     const navigate = useNavigate();
     const { dispatch } = useAuthContext();
 
-    const signUp = async (email, password) => {
+    const signUp = async (email: string, password: string) => {
         setError(null);
         setIsLoading(true);
         const res = await fetch("https://crypto-endpoint.cyclic.app/api/user/signup", {

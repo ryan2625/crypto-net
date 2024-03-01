@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../Hooks/useAuthContext';
 import { useScroll } from '../../Hooks/useScroll';
+import { PortfolioCoinData } from './PortfolioData';
 import Navbar from '../Nav-Footer/navbar/Navbar';
 import "./portfolio.scss";
 
@@ -14,9 +15,13 @@ import "./portfolio.scss";
  * @param {function} setID : Used to set the state of the id of the coin when you click a link in the table.
  */
 
-function Portfolio({ setId }) {
+interface PortfolioProps {
+  setId: React.Dispatch<React.SetStateAction<string | null>>
+}
 
-  const [portfolioData, setPortfolioData] = useState([]);
+const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
+
+  const [portfolioData, setPortfolioData] = useState<PortfolioCoinData[]>([]);
   const { user } = useAuthContext();
   const { scroller } = useScroll();
 
@@ -41,13 +46,14 @@ function Portfolio({ setId }) {
         console.log(err);
       }
     };
+    console.log(user.token)
     scroller()
     fetchData();
-  }, [user]);
+  }, [user.token]);
 
   //Deletes coin from portfolio in backend as well as the state in the frontend so it updates instantly.
 
-  async function deleteCoin(deleter) {
+  async function deleteCoin(deleter: string) {
     try {
       const res = await fetch(`https://crypto-endpoint.cyclic.app/api/portfolio/${deleter}`, {
         method: "DELETE",
@@ -66,7 +72,7 @@ function Portfolio({ setId }) {
     <>
       <Navbar sourced={false} />
       <section className='portfolio-container'>
-        {user &&
+        {user.token &&
           <p id="user-display">{user.email}</p>}
         <div className='portfolio-display-container'>
           <header>
@@ -78,7 +84,7 @@ function Portfolio({ setId }) {
             {
               //If there are no coins in the portfolio, then we will display a loader. Otherwise, we will display the coins in the portfolio.
             }
-            {portfolioData.length === 0 ? (
+            {portfolioData?.length === 0 ? (
               <div className="loader-new"></div>
             ) : (
               <>

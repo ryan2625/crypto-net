@@ -22,7 +22,7 @@ import "./individual-coin.scss"
  */
 
 interface IndividualCoinProps {
-  id: string
+  id: string | null
 }
 
 const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
@@ -35,7 +35,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   const [navigation, setNavigation] = useState<string>("/")
   //Handle showing the confirmation
   const [added, setAdded] = useState<boolean>(false)
-  const { email, token } = useAuthContext()
+  const { user } = useAuthContext()
   const { scroller } = useScroll()
   const [Error, setError] = useState<string>("")
   //Value 24H meter
@@ -87,7 +87,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   }
 
   async function addToPortfolio() {
-    if (!token) {
+    if (!user.token) {
       setError("User not logged in")
       confirmation2.current!.className = "confirmation"
       setTimeout(() => {
@@ -99,7 +99,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        "Authorization": `Bearer ${user.token}`
       },
       body: JSON.stringify({
         name: id,

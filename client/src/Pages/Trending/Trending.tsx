@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { useScroll } from "../../Hooks/useScroll"
 import Navbar from '../Nav-Footer/navbar/Navbar';
 import Marquee from './marquee/Marquee';
+import SPARKS from "../../Assets/sparklineSVGs/sparkImages"
+import { NFT, TrendingInt } from "./TrendingModel"
 import "./trending.scss"
-import SPARKS  from "../../Assets/sparklineSVGs/sparkImages"
+
 
 /**
  * @component Trending
@@ -14,13 +16,17 @@ import SPARKS  from "../../Assets/sparklineSVGs/sparkImages"
  * @param {function} setId : Used to set the state of the id of the coin when you click a link in the table.
  */
 
-function Trending({ setId }) {
+interface TrendingProps {
+    setId: React.Dispatch<React.SetStateAction<string | null>>
+}
+
+const Trending: React.FC<TrendingProps> = ({ setId }) => {
 
     //Use state to set the trending coins and trending NFTs, which are then mapped out to the two tables below. 
     //We grab the scroll hook to scroll to the top of the page.
 
-    const [trending, setTrending] = useState([])
-    const [nfts, setNFTs] = useState([])
+    const [trending, setTrending] = useState<TrendingInt[]>([])
+    const [nfts, setNFTs] = useState<NFT[]>([])
     const { scroller } = useScroll();
 
     /**
@@ -42,8 +48,8 @@ function Trending({ setId }) {
         if (localStorage.getItem("trending") === null) {
             fetchData()
         } else {
-            setTrending(JSON.parse(localStorage.getItem("trending")))
-            setNFTs(JSON.parse(localStorage.getItem("nfts")))
+            setTrending(JSON.parse(localStorage.getItem("trending") || "{}"))
+            setNFTs(JSON.parse(localStorage.getItem("nfts") || "{}"))
         }
     }, [])
 

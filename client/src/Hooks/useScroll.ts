@@ -8,7 +8,7 @@
 export const useScroll = () => {
 
     const scroller = () => {
-        const html = document.querySelector('html');
+        const html = document.querySelector('html')!;
         html.style.scrollBehavior = "auto";
         window.scrollTo({
             top: 0,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,  ChangeEvent } from 'react'
 import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -28,7 +28,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   const navigate = useNavigate()
 
 
-  const handleChange: (event: React.MouseEvent<HTMLButtonElement>, value: number) => void = (event, value) => {
+  const handleChange: (event: ChangeEvent<unknown>, value: number) => void = (event, value) => {
     setPage(value);
   };
 
@@ -169,7 +169,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
         <Pagination 
         count={15} 
         page={page} 
-        onChange={(e) => handleChange} color='primary' />
+        onChange={handleChange} color='primary' />
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, FormEvent} from 'react'
+import React, { useState, useEffect, useRef, SyntheticEvent} from 'react'
 import { Link } from 'react-router-dom'
 import { useSignup } from '../../Hooks/useSignup'
 import { useLogin } from '../../Hooks/useLogin'
@@ -36,7 +36,7 @@ const Login: React.FC = () => {
    * first page render (see dependency array).
    */
   const [pageOpen, setPageOpen] = useState<boolean>(false)
-  const { token } = useAuthContext()
+  const { user } = useAuthContext()
   const { signUp, error, setError, loading } = useSignup()
   const { login, error2, setError2, loading2 } = useLogin()
   const { scroller } = useScroll()
@@ -50,7 +50,7 @@ const Login: React.FC = () => {
    * @param {string} newValue - The new value of the selected tab.
    */
 
-  const handleChange = (event: React.MouseEvent<HTMLButtonElement>, newValue: string) => {
+  const handleChange = (event:  SyntheticEvent<Element, Event>, newValue: string) => {
     setValue(newValue);
     setTabOpen(!tabOpen)
     if (newValue === "one") {
@@ -63,7 +63,7 @@ const Login: React.FC = () => {
   };
 
   useEffect(() => {
-    if (token && pageOpen) {
+    if (user?.token && pageOpen) {
       confirmation2.current!.className = "confirmation";
       setTimeout(() => {
         confirmation2.current!.className = "confirmation confirmation-show";
@@ -72,14 +72,14 @@ const Login: React.FC = () => {
     setTimeout(() => {
       setPageOpen(true)
     }, 750)
-  }, [token])
+  }, [user?.token])
 
-  const handleSubmitLogin = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmitLogin = async (e: SyntheticEvent<Element, Event>) => {
     e.preventDefault()
     await login(email, password)
   }
 
-  const handleSubmitSignup = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmitSignup = async (e: SyntheticEvent<Element, Event>) => {
     e.preventDefault();
     await signUp(email, password)
   };
@@ -98,7 +98,7 @@ const Login: React.FC = () => {
           <nav>
             <Tabs
               value={value}
-              onChange={(e) => handleChange}
+              onChange={handleChange}
               textColor="inherit"
               TabIndicatorProps={{
                 style: {
@@ -144,7 +144,7 @@ const Login: React.FC = () => {
                   </Link>
                 </button>
                 <button className={loading2 ? 'loading-phase auth-buttons' : "auth-buttons"}
-                  onClick={(e) => handleSubmitLogin}
+                  onClick={handleSubmitLogin}
                   disabled={loading2}
                   aria-label="Login Button">
                   Login
@@ -185,7 +185,7 @@ const Login: React.FC = () => {
                   </Link>
                 </button>
                 <button className={loading ? 'loading-phase auth-buttons' : "auth-buttons"}
-                  onClick={(e) => handleSubmitSignup}
+                  onClick={handleSubmitSignup}
                   disabled={loading}
                   aria-label="Signup Button">
                   Signup

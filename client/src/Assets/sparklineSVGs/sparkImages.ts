@@ -8,7 +8,7 @@ import image1 from "./spark1.svg"
 // The sparklines are displayed on the trending page. We have to use our own images because the images from the API had CORS issues.
 
 
-const SPARKS = [
+const SPARKS: string[] = [
     image1,
     image2,
     image3,
