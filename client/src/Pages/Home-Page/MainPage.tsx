@@ -13,7 +13,11 @@ import Navbar from "../Nav-Footer/navbar/Navbar"
  * @param {function} setId : Used to set the state of the coin id when navigating to the coin page (received from App.js).
  */
 
-function Main({ setId }) {
+interface Props {
+    setId: React.Dispatch<React.SetStateAction<string | null>>
+}
+
+const Main: React.FC<Props> = ({ setId }) => {
     return (
         <>
             <Navbar sourced={true} />

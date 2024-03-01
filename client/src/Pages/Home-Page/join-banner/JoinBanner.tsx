@@ -12,17 +12,17 @@ import "./join-banner.scss"
  * This Banner holds the hypothetical rewards for the crypto website. 
  */
 
-function JoinBanner() {
+const JoinBanner: React.FC = () => {
 
   //ScrollRef and childScrollRef are used to translate the card image when the user scrolls down the page. Child ref
   //targets the card image while scrollRef targets the parent div.
-  const scrollRef = useRef(null)
-  const childScrollRef = useRef(null)
+  const scrollRef = useRef<HTMLElement | null>(null);
+  const childScrollRef = useRef<HTMLDivElement | null>(null)
   //Checker is used to ensure that the counter only runs once, right when the user scrolls it into view. Without this
   //value, the counter would run on the first render and then again when the user scrolls it into view.
-  const [checker, setChecker] = useState(0)
+  const [checker, setChecker] = useState<number>(0)
   //Val is used to display the amount of earnings. It counts up from 0 to 275 in a non linear fashion.
-  const [val, setVal] = useState(0)
+  const [val, setVal] = useState<number>(0)
 
   /**
    * useEffect hook that handles the card animation and uses the boundingClientRect to determine what offset the card 
@@ -32,10 +32,10 @@ function JoinBanner() {
 
   useEffect(() => {
 
-    const handleScroll = () => {
+    const handleScroll: () => void = () => {
       if (scrollRef.current && childScrollRef.current) {
-        const parentRect = scrollRef.current.getBoundingClientRect();
-        const yOffset = parentRect.top;
+        const parentRect: DOMRect = scrollRef.current.getBoundingClientRect();
+        const yOffset: number = parentRect.top;
 
         if (yOffset <= 500 && yOffset >= -1550) {
           childScrollRef.current.classList.add('card-translation');
@@ -72,14 +72,16 @@ function JoinBanner() {
     rootMargin: '-100px 0px'
   })
 
-  //Incrementally increase the earnings counter when the user scrolls it into view. Multiple setTimeouts are used to
-  //create a non linear increase in the counter.
+  /*Incrementally increase the earnings counter when 
+  the user scrolls it into view. Multiple setTimeouts 
+  are used to create a non linear increase in the 
+  counter.*/
 
   const { ref: counter, inView: countView } = useInView({
     rootMargin: '-350px 0px',
     onChange: (inView, entry) => {
-      var ensure = 0
-      const handleIncrease = () => {
+      var ensure: number = 0
+      const handleIncrease: () => void = () => {
         if (ensure < 260) {
           setTimeout(() => {
             setVal((prev) => prev + 9)

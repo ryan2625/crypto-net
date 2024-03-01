@@ -14,14 +14,13 @@ import "./navbar.scss"
  * 
  * @param {boolean} sourced : Used to determine if the navbar is being used on the home page or not. Will display different
  * Links based on this prop.
- * @returns 
  */
 
-interface NavbarProps{ 
+interface NavbarProps {
   sourced: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({sourced}) => {
+const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
 
   //open is used to determine if the mobile menu is open or not.
   const [open, setOpen] = useState(false)
@@ -32,9 +31,9 @@ const Navbar: React.FC<NavbarProps> = ({sourced}) => {
   //Determines which animation to use for the account icon.
   const [count, setCount] = useState(0)
   const { logout } = useLogout()
-  const { user } = useAuthContext()
+  const { email, token } = useAuthContext()
 
-  let liRef = useRef()
+  let liRef = useRef<HTMLLIElement | null>(null)
 
   /**
    * useEffect hook that handles the closing of the account menu when the user clicks outside of the menu via the event 
@@ -44,9 +43,9 @@ const Navbar: React.FC<NavbarProps> = ({sourced}) => {
    */
 
   useEffect(() => {
-    liRef.current = document.getElementsByClassName("acc-press")[0];
-    let handler = (e) => {
-      if (!(liRef.current.contains(e.target))) {
+    liRef.current = document.getElementsByClassName("acc-press")[0] as HTMLLIElement;
+    let handler = (e: MouseEvent) => {
+      if (!(liRef.current?.contains(e.target as Node))) {
         setClicked(false)
         let ele = document.getElementsByClassName("acc-press")[0]
         if (ele.id === "press") {
@@ -76,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({sourced}) => {
   }
 
   function scrollTop() {
-    const html = document.querySelector('html')
+    const html = document.querySelector('html')!
     html.style.scrollBehavior = "auto"
     window.scrollTo({
       top: 0,
@@ -133,52 +132,48 @@ const Navbar: React.FC<NavbarProps> = ({sourced}) => {
                   onClick={handleLogoClick}
                   aria-label="Navigate home"
                   className={({ isActive }) =>
-                    [
-                      isActive ? "Navlink-Active" : ""
-                    ]} >
+                    isActive ? "Navlink-Active" : ""
+                  } >
                   Home
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    [
-                      isActive ? "Navlink-Active" : ""
-                    ]}
+                    isActive ? "Navlink-Active" : ""
+                  }
                   to="/trending"
                   aria-label="Navigate to trending page">
                   Trending
                 </NavLink>
               </li>
               <li>
-                {user &&
+                {token &&
                   <NavLink to="/portfolio"
                     aria-label="Navigate to your portfolio"
                     className={({ isActive }) =>
-                      [
-                        isActive ? "Navlink-Active" : ""
-                      ]}>
+                      isActive ? "Navlink-Active" : ""
+                    }>
                     My Portfolio
                   </NavLink>
                 }
               </li>
               <li>
-                {user && (
+                {token && (
                   <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                     Logout
                   </NavLink>
                 )}
               </li>
               {
-                !user && (
+                !token && (
                   <li>
                     <NavLink
                       to="/login"
                       aria-label="Navigate to login page"
                       className={({ isActive }) =>
-                        [
-                          isActive ? "Navlink-Active" : ""
-                        ]}>
+                        isActive ? "Navlink-Active" : ""
+                      }>
                       Login
                     </NavLink>
                   </li>
@@ -208,21 +203,21 @@ const Navbar: React.FC<NavbarProps> = ({sourced}) => {
             </NavLink>
           </li>
           <li>
-            {user &&
+            {token &&
               <NavLink to="/portfolio" aria-label="Navigate to your portfolio">
                 My Portfolio
               </NavLink>
             }
           </li>
           <li>
-            {user && (
+            {token && (
               <NavLink to="/" onClick={handleLogout} aria-label="Signout of your account and navigate to home page">
                 Logout
               </NavLink>
             )}
           </li>
           {
-            !user && (
+            !token && (
               <li>
                 <NavLink to="/login" onClick={handleLogoClick} aria-label="Navigate to login page">
                   Login

@@ -12,7 +12,7 @@ import { useState } from "react";
  */
 
 export const useSignup = () => {
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string>("");
     const [loading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const { dispatch } = useAuthContext();

@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import "./first-banner.scss"
+import { MarketData } from "./MarketData"
+import { baseState } from './MarketData'
 /**
  * @component FirstBanner
  * This component stores the hero banner for the home page. It fetches data points from coinGecko's API and displays them 
  * right below the navbar.
  */
 
+const FirstBanner: React.FC = () => {
 
-function FirstBanner() {
-
-  const [marketData, setMarketData] = useState(
-    {
-      data: {
-        markets: 0,
-        active_cryptocurrencies: 0,
-        market_cap_change_percentage_24h_usd: 0,
-        total_market_cap: {
-          usd: 0
-        },
-        total_volume: {
-          usd: 0
-        },
-      }
-    }
-  )
+  const [marketData, setMarketData] = useState<MarketData>(baseState)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +26,7 @@ function FirstBanner() {
     if (localStorage.getItem("marketData") === null) {
       fetchData();
     } else {
-      var marketDataLocal = JSON.parse(localStorage.getItem("marketData"))
+      var marketDataLocal = JSON.parse(localStorage.getItem("marketData") || "{}")
       setMarketData(marketDataLocal);
     }
 
@@ -60,9 +46,9 @@ function FirstBanner() {
             <p>{new Intl.NumberFormat('en-US', {
               notation: 'compact',
               compactDisplay: 'short',
-            }).format(marketData.data.total_market_cap.usd)}  
-             &nbsp;USD
-             </p>
+            }).format(marketData.data.total_market_cap.usd)}
+              &nbsp;USD
+            </p>
           </div>
           <div>
             <h4>24H Change:</h4>

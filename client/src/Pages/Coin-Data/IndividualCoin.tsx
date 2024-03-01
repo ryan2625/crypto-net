@@ -7,6 +7,8 @@ import CheckIcon from '@mui/icons-material/Check';
 import image from "../../Assets/gif-loader.gif"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { CoinData2 } from "./CoinData2"
+import { initialCoinData } from './CoinData2';
 import "./individual-coin.scss"
 
 
@@ -18,61 +20,27 @@ import "./individual-coin.scss"
  *
  * @param {string} id : the id of the coin to be displayed
  */
-function IndividualCoin({ id }) {
+
+interface IndividualCoinProps {
+  id: string
+}
+
+const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
 
   const location = useLocation()
   //To display either coin added successfully or error message
-  const confirmation = useRef(null)
-  const confirmation2 = useRef(null)
+  const confirmation = useRef<HTMLDivElement>(null)
+  const confirmation2 = useRef<HTMLDivElement>(null)
   //To determine the navigation of the back button
-  const [navigation, setNavigation] = useState("/")
+  const [navigation, setNavigation] = useState<string>("/")
   //Handle showing the confirmation
-  const [added, setAdded] = useState(false)
-  const { user } = useAuthContext()
+  const [added, setAdded] = useState<boolean>(false)
+  const { email, token } = useAuthContext()
   const { scroller } = useScroll()
-  const [Error, setError] = useState("")
+  const [Error, setError] = useState<string>("")
   //Value 24H meter
-  const [meter, setMeter] = useState(0)
-  const [coinData, setCoinData] = useState(
-    {
-      image: {
-        large: ""
-      },
-      name: "",
-      symbol: "",
-      market_data: {
-        current_price: {
-          usd: ""
-        },
-        price_change_percentage_24h: "",
-        high_24h: {
-          usd: ""
-        },
-        low_24h: {
-          usd: ""
-        },
-        total_volume: {
-          usd: ""
-        },
-        market_cap: {
-          usd: ""
-        },
-        circulating_supply: "",
-      },
-      links: {
-        homepage: [],
-        whitepaper: [""],
-        repos_url: {
-          github: []
-        }
-      },
-      genesis_date: "",
-      hashing_algorithm: "",
-      description: {
-        en: ""
-      }
-    }
-  )
+  const [meter, setMeter] = useState<number>(0)
+  const [coinData, setCoinData] = useState<CoinData2>(initialCoinData)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,7 +56,7 @@ function IndividualCoin({ id }) {
     if (localStorage.getItem("coinData_" + id) === null) {
       fetchData();
     } else {
-      setCoinData(JSON.parse(localStorage.getItem("coinData_" + id)));
+      setCoinData(JSON.parse(localStorage.getItem("coinData_" + id) || "{}"));
     }
     scroller()
     checkSource()
@@ -119,11 +87,11 @@ function IndividualCoin({ id }) {
   }
 
   async function addToPortfolio() {
-    if (!user) {
+    if (!token) {
       setError("User not logged in")
-      confirmation2.current.className = "confirmation"
+      confirmation2.current!.className = "confirmation"
       setTimeout(() => {
-        confirmation2.current.className = "confirmation confirmation-show"
+        confirmation2.current!.className = "confirmation confirmation-show"
       }, 50)
       return
     }
@@ -131,7 +99,7 @@ function IndividualCoin({ id }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${user.token}`
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
         name: id,
@@ -143,16 +111,16 @@ function IndividualCoin({ id }) {
 
     if (!res.ok) {
       setError("Oops! Duplicate Coin!")
-      confirmation2.current.className = "confirmation"
+      confirmation2.current!.className = "confirmation"
       setTimeout(() => {
-        confirmation2.current.className = "confirmation confirmation-show"
+        confirmation2.current!.className = "confirmation confirmation-show"
       }, 50)
     }
 
     if (res.ok) {
-      confirmation.current.className = "confirmation"
+      confirmation.current!.className = "confirmation"
       setTimeout(() => {
-        confirmation.current.className = "confirmation confirmation-show"
+        confirmation.current!.className = "confirmation confirmation-show"
       }, 50)
       setAdded(!added)
     }
@@ -187,7 +155,7 @@ function IndividualCoin({ id }) {
               <h2></h2>
               <div className="live-rate">
                 <h3 id="main-price">
-                  ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd || "Data not available")}
+                  ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd)}
                 </h3>
                 <div className="entire-bar">
                   <div className="labels">
@@ -230,7 +198,7 @@ function IndividualCoin({ id }) {
                       Market Rate
                     </p>
                     <p>
-                      ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd || "Data not available")}
+                      ${new Intl.NumberFormat().format(coinData?.market_data?.current_price?.usd)}
                     </p>
                   </div>
                   <div>

@@ -3,6 +3,7 @@ import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { CoinData } from './CoinData'
 
 /**
  * @component MarketBanner
@@ -11,11 +12,15 @@ import { useLocation, useNavigate } from 'react-router-dom'
  * @param {function} setId : function to set the id of the coin to be displayed on the coin page.
  */
 
-function MarketBanner({ setId }) {
+interface MarketBannerProps {
+  setId: React.Dispatch<React.SetStateAction<string | null>>
+}
 
-  const [coinData, setCoinData] = useState([])
-  const [topCoins, setTopCoins] = useState([])
-  const [page, setPage] = useState(1);
+const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
+
+  const [coinData, setCoinData] = useState<CoinData[]>([])
+  const [topCoins, setTopCoins] = useState<CoinData[]>([])
+  const [page, setPage] = useState<number>(1);
   //location is used to retrieve the state from the history stack, which is used to check if the user is navigating 
   //from the coin page. In that case, it will grab the state from the location and scroll to the top of the table.
   //navigate is used to reset the state after we scroll to prevent any unexpected behavior.
@@ -23,7 +28,7 @@ function MarketBanner({ setId }) {
   const navigate = useNavigate()
 
 
-  const handleChange = (event, value) => {
+  const handleChange: (event: React.MouseEvent<HTMLButtonElement>, value: number) => void = (event, value) => {
     setPage(value);
   };
 
@@ -31,7 +36,7 @@ function MarketBanner({ setId }) {
    * UseEffect checks to see if there is already coin data in the local stroage. If not, it makes a request to the
    * coingecko API. In either case, it then sets the state of the coins to be displayed in either the top 4 coins
    * or the coin table. We use an abort controller to ensure good UI experience if a user clicks on the pagnination 
-   * buttons rapidly (prevent flashing). Prevent race conditions, and uneeded api calls if user goes from page to 
+   * buttons rapidly (prevent flashing). Prevent race conditions, and unneeded api calls if user goes from page to 
    * page while data still  fetching.
    */
 
@@ -60,7 +65,7 @@ function MarketBanner({ setId }) {
       fetchData();
 
     } else {
-      var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page))
+      var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page) || "{}" )
       setCoinData(coinDataLocal);
       var dummyCoins = []
       for (let i = 0; i < 4; i++) {
@@ -82,16 +87,16 @@ function MarketBanner({ setId }) {
 
   function checkSource() {
     if (location.state === "coin") {
-      const html = document.querySelector('html')
+      const html = document.querySelector('html')!
       html.style.scrollBehavior = "auto"
-      document.getElementById("scroller").scrollIntoView()
+      document.getElementById("scroller")!.scrollIntoView()
       html.style.scrollBehavior = ""
       navigate('/', { state: null });
     }
     if (location.state === "portfolio-nav") {
-      const html = document.querySelector('html')
+      const html = document.querySelector('html')!
       html.style.scrollBehavior = "auto"
-      document.getElementById("prices").scrollIntoView()
+      document.getElementById("prices")!.scrollIntoView()
       html.style.scrollBehavior = ""
       navigate('/', { state: null });
     }
@@ -164,7 +169,7 @@ function MarketBanner({ setId }) {
         <Pagination 
         count={15} 
         page={page} 
-        onChange={handleChange} color='primary' />
+        onChange={(e) => handleChange} color='primary' />
       </div>
     </>
   )

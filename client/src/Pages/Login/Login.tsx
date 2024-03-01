@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, FormEvent} from 'react'
 import { Link } from 'react-router-dom'
 import { useSignup } from '../../Hooks/useSignup'
 import { useLogin } from '../../Hooks/useLogin'
@@ -21,27 +21,27 @@ import "./login.scss"
  */
 
 
-function Login() {
+const Login: React.FC = () => {
 
   //value/setValue is used to determine which tab is open and handles resetting the error message when the tabs are 
   //switched.
-  const [value, setValue] = useState('one');
+  const [value, setValue] = useState<string>('one');
   //tabOpen handles the state of which tab is being displayed to the user.
-  const [tabOpen, setTabOpen] = useState(true)
-  const [email, setEmail] = useState('test@test.com')
-  const [password, setPassword] = useState('Test1234@')
+  const [tabOpen, setTabOpen] = useState<boolean>(true)
+  const [email, setEmail] = useState<string>('test@test.com')
+  const [password, setPassword] = useState<string>('Test1234@')
   /**
    *  pageOpen ensures that the confirmation message will not run on the first render, as we run the code for the 
    * confirmation to display in the useEffect hook. This will run when the user sucessfully logs in and on the 
    * first page render (see dependency array).
    */
-  const [pageOpen, setPageOpen] = useState(false)
-  const { user } = useAuthContext()
+  const [pageOpen, setPageOpen] = useState<boolean>(false)
+  const { token } = useAuthContext()
   const { signUp, error, setError, loading } = useSignup()
   const { login, error2, setError2, loading2 } = useLogin()
   const { scroller } = useScroll()
   //Ref for the confirmation that appears when a user logs in 
-  const confirmation2 = useRef(null)
+  const confirmation2 = useRef<HTMLDivElement>(null)
 
   /**
    * Handle the change event of the Tabs component. Resets error message on change
@@ -50,7 +50,7 @@ function Login() {
    * @param {string} newValue - The new value of the selected tab.
    */
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>, newValue: string) => {
     setValue(newValue);
     setTabOpen(!tabOpen)
     if (newValue === "one") {
@@ -63,23 +63,23 @@ function Login() {
   };
 
   useEffect(() => {
-    if (user && pageOpen) {
-      confirmation2.current.className = "confirmation";
+    if (token && pageOpen) {
+      confirmation2.current!.className = "confirmation";
       setTimeout(() => {
-        confirmation2.current.className = "confirmation confirmation-show";
+        confirmation2.current!.className = "confirmation confirmation-show";
       }, 50);
     }
     setTimeout(() => {
       setPageOpen(true)
     }, 750)
-  }, [user])
+  }, [token])
 
-  const handleSubmitLogin = async (e) => {
+  const handleSubmitLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await login(email, password)
   }
 
-  const handleSubmitSignup = async (e) => {
+  const handleSubmitSignup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await signUp(email, password)
   };
@@ -98,7 +98,7 @@ function Login() {
           <nav>
             <Tabs
               value={value}
-              onChange={handleChange}
+              onChange={(e) => handleChange}
               textColor="inherit"
               TabIndicatorProps={{
                 style: {
@@ -144,7 +144,7 @@ function Login() {
                   </Link>
                 </button>
                 <button className={loading2 ? 'loading-phase auth-buttons' : "auth-buttons"}
-                  onClick={handleSubmitLogin}
+                  onClick={(e) => handleSubmitLogin}
                   disabled={loading2}
                   aria-label="Login Button">
                   Login
@@ -185,7 +185,7 @@ function Login() {
                   </Link>
                 </button>
                 <button className={loading ? 'loading-phase auth-buttons' : "auth-buttons"}
-                  onClick={handleSubmitSignup}
+                  onClick={(e) => handleSubmitSignup}
                   disabled={loading}
                   aria-label="Signup Button">
                   Signup

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createContext, useReducer, useEffect } from "react";
 
 /**
@@ -7,7 +8,12 @@ import { createContext, useReducer, useEffect } from "react";
  * js for how it wraps the entire app.
  */
 
-export const AuthContext = createContext();
+export interface User {
+    email?: string;
+    token?: string;
+}
+
+export const AuthContext = createContext<User>({});
 
 export const authReducer = (state, action) =>{
     switch(action.type){
