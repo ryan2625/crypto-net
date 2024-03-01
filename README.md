@@ -35,4 +35,7 @@ Home Page:
 Trending Page:
 ![Trending Page](./readme-images/trending-page.png)
 
+
+Hosted backend can be found at this repo: https://github.com/ryan2625Backup/crypto-net/tree/backend-test
+
 Link: [crypto-verse](https://crypto-net-ten.vercel.app/)
