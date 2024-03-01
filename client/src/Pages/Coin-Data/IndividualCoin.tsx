@@ -87,7 +87,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   }
 
   async function addToPortfolio() {
-    if (!user.token) {
+    if (!user?.token) {
       setError("User not logged in")
       confirmation2.current!.className = "confirmation"
       setTimeout(() => {
@@ -99,7 +99,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${user.token}`
+        "Authorization": `Bearer ${user?.token}`
       },
       body: JSON.stringify({
         name: id,

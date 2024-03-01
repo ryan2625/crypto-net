@@ -35,7 +35,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
       try {
         const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio/", {
           headers: {
-            "Authorization": `Bearer ${user.token}`
+            "Authorization": `Bearer ${user?.token}`
           }
         }).then(
           response => response.json().then(data => {
@@ -46,10 +46,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
         console.log(err);
       }
     };
-    console.log(user.token)
     scroller()
     fetchData();
-  }, [user.token]);
+  }, [user?.token]);
 
   //Deletes coin from portfolio in backend as well as the state in the frontend so it updates instantly.
 
@@ -59,7 +58,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${user.token}`
+          "Authorization": `Bearer ${user?.token}`
         }
       });
       setPortfolioData(portfolioData.filter(coin => coin.name !== deleter));
@@ -72,7 +71,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
     <>
       <Navbar sourced={false} />
       <section className='portfolio-container'>
-        {user.token &&
+        {user?.token &&
           <p id="user-display">{user.email}</p>}
         <div className='portfolio-display-container'>
           <header>
