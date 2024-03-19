@@ -47,7 +47,7 @@ const JoinBanner: React.FC = () => {
     handleScroll()
 
     window.addEventListener('scroll', handleScroll);
-    //Clean up event listeners when component unmounts
+    //Cleaning up my event listeners when component unmounts...
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
