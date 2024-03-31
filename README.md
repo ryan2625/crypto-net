@@ -12,7 +12,9 @@ Backend: MongoDB, Express, Node
 
 <hr>
 
-Crypto-verse is a cryptocurrency app that displays the latest crypto data, including the total market volume, 24H change, and information about various coins such as Bitcoin and Ethereum. The app also allows users to create an account, where they can add different currencies to their portfolio for later viewing. The API used to fetch the coin data is CoinGecko, which has a limit of 20 requests/minute.
+Crypto-verse is a cryptocurrency app that displays the latest crypto data, including the total market volume, 24H change, and information about various coins such as Bitcoin and Ethereum. The app also allows users to create an account, where they can add different currencies to their portfolio for later viewing. The API used to fetch the coin data is CoinGecko, which has a limit of 20 requests/minute. 
+
+Crypto-verse also incorporates unit testing with Jest, React Three Fiber, and Framer Motion. 
 
 The app is still undergoing updates, focusing on improvements in accessibility, speed optimization, SEO, and more.
 
