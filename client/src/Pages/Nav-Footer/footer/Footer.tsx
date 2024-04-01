@@ -10,7 +10,7 @@ import "./footer.scss"
 
 const Footer: React.FC = () => {
     return (
-        <footer className="footer">
+        <footer className="footer" data-testid="the-footer">
             <div className="links" aria-label="Hypothetical links section. These pages don't actually exist, so they aren't real links.">
                 <div>
                     <ul>

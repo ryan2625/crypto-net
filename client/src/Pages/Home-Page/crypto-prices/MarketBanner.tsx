@@ -104,7 +104,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
 
   return (
     <>
-      <section className='market-banner'>
+      <section className='market-banner' data-testid="market-banner">
         <div className="top-coins">
           {
             topCoins.map((coin, key) => {

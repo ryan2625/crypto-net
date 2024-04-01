@@ -20,7 +20,7 @@ import Footer from "./Pages/Nav-Footer/footer/Footer"
  * Author: Ryan Freas
  * Created: 11/18/23
  */
-const App: React.FC = () => {
+export const App: React.FC = () => {
   // Use state to set the ID of the coin the user clicks on. Passes this data down as props to set the coin data of 
   // the dynamic individual coin page.
   const [id, setId] = useState<string | null>(null);
