@@ -1,4 +1,4 @@
-import React, { useEffect, useState,  ChangeEvent } from 'react'
+import React, { useEffect, useState, ChangeEvent } from 'react'
 import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -44,7 +44,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
     const controller = new AbortController()
     const fetchData = async () => {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`, {
-        signal : controller.signal
+        signal: controller.signal
       })
         .then(response => response.json())
         .then(data => {
@@ -65,7 +65,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
       fetchData();
 
     } else {
-      var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page) || "{}" )
+      var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page) || "{}")
       setCoinData(coinDataLocal);
       var dummyCoins = []
       for (let i = 0; i < 4; i++) {
@@ -166,10 +166,10 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
         </div>
       </section>
       <div className="pag" aria-label="Change coin page">
-        <Pagination 
-        count={15} 
-        page={page} 
-        onChange={handleChange} color='primary' />
+        <Pagination
+          count={15}
+          page={page}
+          onChange={handleChange} color='primary' />
       </div>
     </>
   )

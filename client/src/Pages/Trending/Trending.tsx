@@ -99,7 +99,7 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
                 <div className="trending-main">
                     <h1>Top Trending Coins</h1>
                     <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
-                    <div className="coin-base" style={{ padding: 0 }}>
+                    <div className="coin-base" id="trending-base" style={{ padding: 0 }}>
                         <div className="api-table">
                             <div className="heading">
                                 <h3 className="first-head hash">RANK &#160; </h3>

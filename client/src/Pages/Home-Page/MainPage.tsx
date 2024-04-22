@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FirstBanner from "./hero/FirstBanner";
 import MarketBanner from "./crypto-prices/MarketBanner";
 import JoinBanner from "./join-banner/JoinBanner";
@@ -31,6 +31,13 @@ const Main: React.FC<Props> = ({ setId }) => {
 
     const [callRef, setCallRef] = useState(false)
     const [callRef3, setCallRef3] = useState(false)
+    const [callRefX, setCallRefX] = useState(false)
+
+    useEffect(() => {
+        if (window.innerWidth < 1450) {
+            document.body.style.zoom = .85
+        }
+    }, [])
 
     const draw = {
         hidden: { pathLength: 0, opacity: 0 },
@@ -58,7 +65,12 @@ const Main: React.FC<Props> = ({ setId }) => {
     });
 
     const { ref: callRef5, inView: callRef5V } = useInView({
-        rootMargin: '-100px 0px'
+        rootMargin: '-100px 0px',
+        onChange: (inView) => {
+            if (inView) {
+                setCallRefX(true)
+            }
+        }
     });
 
     return (
@@ -111,7 +123,7 @@ const Main: React.FC<Props> = ({ setId }) => {
                                 custom={2}
                             />
                         </motion.svg>
-                        <Link ref={callRef5} to="/login" className={callRef5V ? "three-join three-anim" : "three-join"}>JOIN NOW</Link>
+                        <Link ref={callRef5} to="/login" className={callRefX ? "three-join three-anim" : "three-join"}>JOIN NOW</Link>
                     </div>
                 </div>
             </div>
