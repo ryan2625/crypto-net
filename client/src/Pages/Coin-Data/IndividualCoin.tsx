@@ -95,7 +95,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
       }, 50)
       return
     }
-    const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio", {
+    const res = await fetch("https://crypto-api-epz8.onrender.com/api/portfolio", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
