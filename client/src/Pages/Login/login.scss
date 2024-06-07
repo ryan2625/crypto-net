@@ -52,6 +52,7 @@
     form {
         display: flex;
         flex-direction: column;
+        position: relative;
 
         button {
             margin-top: 2rem;
@@ -81,6 +82,13 @@
 
         * {
             margin-top: .5rem;
+        }
+
+        &::after{
+            content: "Note: It may take over a minute for the server to come online and respond. Please be patient.";
+            position: absolute;
+            bottom: -3.25rem;
+            color: $dimmed-text-white
         }
     }
 }
@@ -124,7 +132,7 @@
 }
 
 .auth-buttons {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     background-color: $bg-light;
     border: none;
     padding: 1rem 0;

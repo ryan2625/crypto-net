@@ -79,7 +79,7 @@ const Main: React.FC<Props> = ({ setId }) => {
             <FirstBanner />
             <MarketBanner setId={setId} />
             <JoinBanner />
-            <div class="three-action">
+            <div className="three-action">
                 <Ethereum />
                 <div className="call-action" ref={textRef}>
                     <h2 className={callRef ? "callRefBase callRefEdit" : "callRefBase"}>
