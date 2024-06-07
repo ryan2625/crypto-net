@@ -33,7 +33,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://crypto-endpoint.cyclic.app/api/portfolio/", {
+        const res = await fetch("https://crypto-api-epz8.onrender.com/api/portfolio/", {
           headers: {
             "Authorization": `Bearer ${user?.token}`
           }
@@ -54,7 +54,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
 
   async function deleteCoin(deleter: string) {
     try {
-      const res = await fetch(`https://crypto-endpoint.cyclic.app/api/portfolio/${deleter}`, {
+      const res = await fetch(`https://crypto-api-epz8.onrender.com/api/portfolio/${deleter}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
