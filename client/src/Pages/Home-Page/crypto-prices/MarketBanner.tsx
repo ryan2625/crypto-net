@@ -18,6 +18,7 @@ interface MarketBannerProps {
 
 const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
 
+  const apiKey = process.env.REACT_APP_API_KEY
   const [coinData, setCoinData] = useState<CoinData[]>([])
   const [topCoins, setTopCoins] = useState<CoinData[]>([])
   const [page, setPage] = useState<number>(1);
@@ -43,7 +44,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   useEffect(() => {
     const controller = new AbortController()
     const fetchData = async () => {
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`, {
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=${apiKey}`, {
         signal: controller.signal
       })
         .then(response => response.json())

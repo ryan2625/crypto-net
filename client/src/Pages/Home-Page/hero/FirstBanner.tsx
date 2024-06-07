@@ -11,11 +11,13 @@ import "./first-banner.scss"
 
 const FirstBanner: React.FC = () => {
 
+  const apiKey = process.env.REACT_APP_API_KEY
+
   const [marketData, setMarketData] = useState<MarketData>(baseState)
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn")
+      const res = await fetch(`https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
           setMarketData(data);

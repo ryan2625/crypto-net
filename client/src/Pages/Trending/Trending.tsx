@@ -22,6 +22,7 @@ interface TrendingProps {
 
 const Trending: React.FC<TrendingProps> = ({ setId }) => {
 
+    const apiKey = process.env.REACT_APP_API_KEY
     //Use state to set the trending coins and trending NFTs, which are then mapped out to the two tables below. 
     //We grab the scroll hook to scroll to the top of the page.
 
@@ -38,7 +39,7 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
     useEffect(() => {
         scroller()
         const fetchData = async () => {
-            const res = await fetch("https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn").then(response => response.json()).then(data => {
+            const res = await fetch(`https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=${apiKey}`).then(response => response.json()).then(data => {
                 setNFTs(data.nfts)
                 setTrending(data.coins.slice(0, 10))
                 localStorage.setItem("trending", JSON.stringify(data.coins.slice(0, 10)))
@@ -128,7 +129,7 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
                                                 </div>
                                             </div>
                                             <h3 className='market-capper'>
-                                                {coin.item.data.price}
+                                            ${new Intl.NumberFormat().format(coin.item.data.price)}
                                             </h3>
                                             <h3
                                                 className={coin.item.data.price_change_percentage_24h.usd > 0 ? "green" : "red"}>

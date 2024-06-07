@@ -27,6 +27,7 @@ interface IndividualCoinProps {
 
 const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
 
+  const apiKey = process.env.REACT_APP_API_KEY
   const location = useLocation()
   //To display either coin added successfully or error message
   const confirmation = useRef<HTMLDivElement>(null)
@@ -44,7 +45,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-Z7basDpAgs5kZ5wE72YuVcUn`)
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
           setCoinData(data);
