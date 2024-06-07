@@ -29,7 +29,7 @@ The app is still undergoing updates, focusing on improvements in accessibility, 
 | POST:      https://crypto-endpoint.cyclic.app/api/user/login/               // login to account          |
 
 
-The frontend of this app is hosted on [vercel](https://vercel.com/) and the backend is hosted on [Render.com](https://render.com/)
+The frontend of this app is hosted on [Vercel](https://vercel.com/) and the backend is hosted on [Render.com](https://render.com/)
 
 Home Page:
 <img src="./readme-images/home-image.jpg" alt="Home Page" style="width:100%;">
