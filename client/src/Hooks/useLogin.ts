@@ -21,7 +21,7 @@ export const useLogin = () => {
         setError2(null);
         setIsLoading2(true);
 
-        const res = await fetch("https://crypto-endpoint.cyclic.app/api/user/login", {
+        const res = await fetch("https://crypto-api-epz8.onrender.com/api/user/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
