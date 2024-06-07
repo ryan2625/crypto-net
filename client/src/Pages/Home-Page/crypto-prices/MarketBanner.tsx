@@ -163,14 +163,14 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
               )
             })}
           </div>
-        </div>
-      </section>
-      <div className="pag" aria-label="Change coin page">
+          <div className="pag" aria-label="Change coin page">
         <Pagination
           count={15}
           page={page}
           onChange={handleChange} color='primary' />
       </div>
+        </div>
+      </section>
     </>
   )
 }
