@@ -28,6 +28,7 @@
     padding: .75rem 0;
     background-color: rgb(255, 111, 111);
     text-align: center;
+    margin-top: .75rem !important;
 }
 
 .auth {
@@ -153,4 +154,22 @@
 .full {
     width: 100%;
     height: 100%;
+}
+
+.buttons-login {
+    position: relative;
+}
+
+.load-login {
+    width: 40px;
+    position: absolute;
+    z-index: 999;
+    margin: 0 !important;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 65px);
+}
+
+.none-load {
+    display: none;
 }

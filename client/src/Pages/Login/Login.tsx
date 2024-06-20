@@ -4,6 +4,7 @@ import { useSignup } from '../../Hooks/useSignup'
 import { useLogin } from '../../Hooks/useLogin'
 import { useAuthContext } from '../../Hooks/useAuthContext'
 import { useScroll } from '../../Hooks/useScroll'
+import image from "../../Assets/gif-loader.gif"
 import CheckIcon from '@mui/icons-material/Check';
 import HouseIcon from '@mui/icons-material/House';
 import WestIcon from '@mui/icons-material/West';
@@ -137,6 +138,7 @@ const Login: React.FC = () => {
                   value={password} />
               </form>
               <div className="buttons-login">
+              <img className={loading2 ? "load-login" : "none-load"} src={image} alt="Loading symbol" />
                 <button className="returner">
                   <Link to="/" aria-label="Return to the home page"> &nbsp;
                     <HouseIcon className='house' aria-hidden="true" />
@@ -178,6 +180,7 @@ const Login: React.FC = () => {
                   value={password} />
               </form>
               <div className="buttons-login">
+              <img className={loading ? "load-login" : "none-load"} src={image} alt="Loading symbol" />
                 <button className="returner">
                   <Link to="/" aria-label='Return to home page'> &nbsp;
                     <HouseIcon className='house' aria-hidden="true" />
