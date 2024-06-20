@@ -86,7 +86,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
               <div className="loader-new"></div>
             ) : (
               <>
-                <h1 id="revert-underline">Your Watchlist</h1>
+                <h2 id="revert-underline">Your Watchlist</h2>
                 {portfolioData &&
                   portfolioData.map((coin, key) => {
                     return (
