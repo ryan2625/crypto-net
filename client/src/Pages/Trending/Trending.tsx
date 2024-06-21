@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useScroll } from "../../Hooks/useScroll"
 import Navbar from '../Nav-Footer/navbar/Navbar';
 import Marquee from './marquee/Marquee';
@@ -28,7 +28,9 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
 
     const [trending, setTrending] = useState<TrendingInt[]>([])
     const [nfts, setNFTs] = useState<NFT[]>([])
-    const { scroller } = useScroll();
+    const { scroller } = useScroll()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     /**
      * UseEffect used to first scroll to the top of the page instantly, then checks to see if 
@@ -37,7 +39,12 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
      */
 
     useEffect(() => {
-        scroller()
+        if (location.state !== "trender") {
+            scroller()
+        } else {
+            checkSource()
+        }
+    
         const fetchData = async () => {
             const res = await fetch(`https://api.coingecko.com/api/v3/search/trending?x_cg_demo_api_key=${apiKey}`).then(response => response.json()).then(data => {
                 setNFTs(data.nfts)
@@ -53,6 +60,16 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
             setNFTs(JSON.parse(localStorage.getItem("nfts") || "{}"))
         }
     }, [])
+
+    function checkSource() {
+        if (location.state === "trender") {
+          const html = document.querySelector('html')!
+          html.style.scrollBehavior = "auto"
+          document.getElementById("trend-scroll")!.scrollIntoView()
+          html.style.scrollBehavior = ""
+          navigate('/trending', { state: null });
+        }
+      }
 
     return (
         <>
@@ -97,7 +114,7 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
                             )
                         })}
                 </div>
-                <div className="trending-main">
+                <div className="trending-main" id="trend-scroll">
                     <h1>Top Trending Coins</h1>
                     <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
                     <div className="coin-base" id="trending-base" style={{ padding: 0 }}>

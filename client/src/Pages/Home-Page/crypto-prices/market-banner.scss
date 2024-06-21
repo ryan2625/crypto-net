@@ -205,8 +205,9 @@
     }
 
     .api-table {
+        width: auto;
         margin: 0 auto;
-        overflow-x: scroll !important;
+        overflow-x: auto !important;
     }
 
     .row {

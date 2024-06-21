@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useScroll } from '../../Hooks/useScroll';
 import { useAuthContext } from '../../Hooks/useAuthContext'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
@@ -29,6 +29,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
 
   const apiKey = process.env.REACT_APP_API_KEY
   const location = useLocation()
+
   //To display either coin added successfully or error message
   const confirmation = useRef<HTMLDivElement>(null)
   const confirmation2 = useRef<HTMLDivElement>(null)
@@ -39,6 +40,8 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   const { user } = useAuthContext()
   const { scroller } = useScroll()
   const [Error, setError] = useState<string>("")
+  const [stateLocation, setStateLocation] = useState<string>("main")
+
   //Value 24H meter
   const [meter, setMeter] = useState<number>(0)
   const [coinData, setCoinData] = useState<CoinData2>(initialCoinData)
@@ -72,6 +75,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   function checkSource() {
     if (location.state === "trending") {
       setNavigation("/trending")
+      setStateLocation("trender")
     } else if (location.state === "portfolio") {
       setNavigation("/portfolio")
     }
@@ -142,7 +146,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
             <h4>{Error}</h4><span><CheckIcon style={{ visibility: "hidden" }} aria-hidden="true" /></span>
           </div>
           <div className="back-btn">
-            <Link to={navigation} state="coin" aria-label="Navigate back to the page you came from">
+            <Link to={navigation} state={stateLocation} aria-label="Navigate back to the page you came from">
               <ArrowBackIcon aria-hidden="true" />
             </Link>
           </div>

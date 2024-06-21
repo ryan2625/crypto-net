@@ -2,7 +2,7 @@ import React, { useEffect, useState, ChangeEvent } from 'react'
 import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate} from 'react-router-dom'
 import { CoinData } from './CoinData'
 
 /**
@@ -22,12 +22,12 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   const [coinData, setCoinData] = useState<CoinData[]>([])
   const [topCoins, setTopCoins] = useState<CoinData[]>([])
   const [page, setPage] = useState<number>(1);
+  const params = "?crypto%20page="
   //location is used to retrieve the state from the history stack, which is used to check if the user is navigating 
   //from the coin page. In that case, it will grab the state from the location and scroll to the top of the table.
   //navigate is used to reset the state after we scroll to prevent any unexpected behavior.
   const location = useLocation()
   const navigate = useNavigate()
-
 
   const handleChange: (event: ChangeEvent<unknown>, value: number) => void = (event, value) => {
     setPage(value);
@@ -64,7 +64,6 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
 
     if (localStorage.getItem("coinData_" + page) === null) {
       fetchData();
-
     } else {
       var coinDataLocal = JSON.parse(localStorage.getItem("coinData_" + page) || "{}")
       setCoinData(coinDataLocal);
@@ -76,7 +75,10 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
         setTopCoins(dummyCoins)
       }
     }
+
     checkSource()
+
+
 
     return () => {
       controller.abort()
@@ -87,7 +89,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   //Function used to check if we are navigating from the coin page. If so, it will scroll to the top of the table.
 
   function checkSource() {
-    if (location.state === "coin") {
+    if (location.state === "main") {
       const html = document.querySelector('html')!
       html.style.scrollBehavior = "auto"
       document.getElementById("scroller")!.scrollIntoView()
@@ -147,7 +149,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
                   className='row-link row'
                   key={key}
                   onClick={() => setId(coin.id)}
-                  to={"/coins/" + coin.name.toLowerCase()}
+                  to={"/coins/" + coin.name.toLowerCase() + params + page}
                   aria-label={coin.name + " data"}>
                   <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                   <div className="identifier">
