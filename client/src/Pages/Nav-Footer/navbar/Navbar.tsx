@@ -43,6 +43,15 @@ const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
    */
 
   useEffect(() => {
+    const wakeServer = async () => {
+      const res = await fetch(`https://crypto-api-epz8.onrender.com`)
+        .then(response => response.text())
+        .then(data => {
+          console.log(data)
+        })
+        .catch(error => console.error(error));
+    }
+    wakeServer()
     liRef.current = document.getElementsByClassName("acc-press")[0] as HTMLLIElement;
     let handler = (e: MouseEvent) => {
       if (!(liRef.current?.contains(e.target as Node))) {
