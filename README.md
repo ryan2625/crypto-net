@@ -22,11 +22,12 @@ The app is still undergoing updates, focusing on improvements in accessibility, 
 
 | METHOD:    URL:                                        // DESCRIPTION                                    |
 |----------------------------------------------------------------------------------------------------------|
-| GET:       https://crypto-endpoint.cyclic.app/api/portfolio/                // get all coins in portfolio|
-| POST:      https://crypto-endpoint.cyclic.app/api/portfolio/                // add coin to portfolio     |
-| DELETE:    https://crypto-endpoint.cyclic.app/api/portfolio/:id             // delete coin from portfolio|
-| POST:      https://crypto-endpoint.cyclic.app/api/user/signup/              // create account            | 
-| POST:      https://crypto-endpoint.cyclic.app/api/user/login/               // login to account          |
+| GET:       https://crypto-api-epz8.onrender.com/                              // Ping and wake up server    |
+| GET:       https://crypto-api-epz8.onrender.com/api/portfolio/                // get all coins in portfolio |
+| POST:      https://crypto-api-epz8.onrender.com/api/portfolio/                // add coin to portfolio      |
+| DELETE:    https://crypto-api-epz8.onrender.com/api/portfolio/:id             // delete coin from portfolio |
+| POST:      https://crypto-api-epz8.onrender.com/api/user/signup/              // create account             | 
+| POST:      https://crypto-api-epz8.onrender.comp/api/user/login/              // login to account           |
 
 
 The frontend of this app is hosted on [Vercel](https://vercel.com/) and the backend is hosted on [Render.com](https://render.com/)
