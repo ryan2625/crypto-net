@@ -2,7 +2,7 @@ import React, { useEffect, useState, ChangeEvent } from 'react'
 import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams} from 'react-router-dom'
 import { CoinData } from './CoinData'
 
 /**
@@ -21,16 +21,18 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   const apiKey = process.env.REACT_APP_API_KEY
   const [coinData, setCoinData] = useState<CoinData[]>([])
   const [topCoins, setTopCoins] = useState<CoinData[]>([])
+
+  const [params, setParams] = useSearchParams({ page: ""})
   const [page, setPage] = useState<number>(1);
-  const params = "?crypto%20page="
   //location is used to retrieve the state from the history stack, which is used to check if the user is navigating 
   //from the coin page. In that case, it will grab the state from the location and scroll to the top of the table.
   //navigate is used to reset the state after we scroll to prevent any unexpected behavior.
   const location = useLocation()
   const navigate = useNavigate()
 
-  const handleChange: (event: ChangeEvent<unknown>, value: number) => void = (event, value) => {
+  const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     setPage(value);
+    setParams({ page: value.toString() }); 
   };
 
   /**
@@ -75,11 +77,12 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
         setTopCoins(dummyCoins)
       }
     }
-
     checkSource()
-
-
-
+    const sParam = params.get("page")
+    if (sParam != null && sParam != "") {
+      setPage(parseInt(sParam))
+      setParams({ page: (sParam).toString()})
+    }
     return () => {
       controller.abort()
     }
@@ -126,17 +129,18 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
           }
         </div>
         {/*This Div sets a smooth gradient transition from the top 4 coins to the background of the table*/}
-        <div className="gradient" id="scroller">
+        <div className="gradient">
         </div>
         <div className="coin-base" id="prices">
           <h2 id="todays-prices">Today's Cryptocurrency Prices</h2>
-          <div className='api-table'>
+          <div className='api-table' style={{position: "relative"}}>
             <div className="heading">
               <h3 className="first-head hash">#</h3>
               <h3 className="first-head">COIN</h3>
               <h3>PRICE</h3>
               <h3>24H CHANGE</h3>
               <h3>MARKET CAP</h3>
+              <div id="scroller"></div>
             </div>
             {coinData.map((coin, key) => {
               var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
@@ -145,11 +149,11 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
               }
               return (
                 <Link
-                  state="main"
+                  state={"main " + page}
                   className='row-link row'
                   key={key}
                   onClick={() => setId(coin.id)}
-                  to={"/coins/" + coin.name.toLowerCase() + params + page}
+                  to={"/coins/" + coin.name.toLowerCase()}
                   aria-label={coin.name + " data"}>
                   <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                   <div className="identifier">

@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ sourced }) => {
    * useEffect hook that handles the closing of the account menu when the user clicks outside of the menu via the event 
    * listener. This is done by checking if the ref contains the target of the click. If it does not, then the menu is 
    * closed. setCount here is used to ensure the animation of the account button is correct, as there have been issues 
-   * with the animation not working properly.
+   * with the animation not working properly. Also, we will ping the server to wake up and decrease response waiting time.
    */
 
   useEffect(() => {

@@ -78,6 +78,8 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
       setStateLocation("trender")
     } else if (location.state === "portfolio") {
       setNavigation("/portfolio")
+    } else if (location.state.slice(0, 4) === "main") {
+      setNavigation("/?page=" + location.state.slice(5))
     }
   }
 

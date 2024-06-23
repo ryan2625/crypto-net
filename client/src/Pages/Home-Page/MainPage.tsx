@@ -32,13 +32,7 @@ const Main: React.FC<Props> = ({ setId }) => {
     const [callRef, setCallRef] = useState(false)
     const [callRef3, setCallRef3] = useState(false)
     const [callRefX, setCallRefX] = useState(false)
-
-    useEffect(() => {
-        if (window.innerWidth < 1450) {
-            document.body.style.zoom = .85
-        }
-    }, [])
-
+    
     const draw = {
         hidden: { pathLength: 0, opacity: 0 },
         visible: (i) => {

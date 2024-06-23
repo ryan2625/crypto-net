@@ -63,11 +63,11 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
 
     function checkSource() {
         if (location.state === "trender") {
+          navigate('/trending', { state: null });
           const html = document.querySelector('html')!
           html.style.scrollBehavior = "auto"
-          document.getElementById("trend-scroll")!.scrollIntoView()
+          document.getElementById("scroller2")!.scrollIntoView()
           html.style.scrollBehavior = ""
-          navigate('/trending', { state: null });
         }
       }
 
@@ -114,17 +114,17 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
                             )
                         })}
                 </div>
-                <div className="trending-main" id="trend-scroll">
+                <div className="trending-main">
                     <h1>Top Trending Coins</h1>
                     <p className='off-white'>The 10 most searched coins in the last 24 hours.</p>
                     <div className="coin-base" id="trending-base" style={{ padding: 0 }}>
-                        <div className="api-table">
+                        <div className="api-table" style={{position: "relative"}}>
                             <div className="heading">
                                 <h3 className="first-head hash">RANK &#160; </h3>
                                 <h3 className="first-head">&#160; COIN</h3>
                                 <h3>PRICE</h3>
                                 <h3>24H CHANGE</h3>
-                                <h3>MARKET RANK</h3>
+                                <h3 id="scroller2">MARKET RANK</h3>
                             </div>
                             {
                                 trending.map((coin, key) => {

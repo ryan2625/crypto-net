@@ -170,11 +170,6 @@
     }
 }
 
-
-#first {
-    margin-left: 2rem;
-}
-
 .green {
     color: #00a666;
 
@@ -191,6 +186,15 @@
     text-decoration: none;
     color: $white;
     width: 100%;
+}
+
+#first {
+    margin-left: 2rem;
+}
+
+#scroller {
+    position: absolute;
+    top: -205px;
 }
 
 

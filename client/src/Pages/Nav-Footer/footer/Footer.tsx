@@ -1,4 +1,5 @@
-import React from 'react'
+//@ts-nocheck
+import React, { useState, useEffect } from 'react'
 import image from "../../../Assets/appleStore.svg"
 import image2 from "../../../Assets/playStore.svg"
 import "./footer.scss"
@@ -9,6 +10,13 @@ import "./footer.scss"
  */
 
 const Footer: React.FC = () => {
+    
+    useEffect(() => {
+        if (window.innerWidth < 1450) {
+            document.body.style.zoom = .85
+        }
+    }, [])
+
     return (
         <footer className="footer" data-testid="the-footer">
             <div className="links" aria-label="Hypothetical links section. These pages don't actually exist, so they aren't real links.">
