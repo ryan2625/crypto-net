@@ -21,7 +21,7 @@ interface PortfolioProps {
 
 const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
 
-  const [portfolioData, setPortfolioData] = useState<PortfolioCoinData[]>([]);
+  const [portfolioData, setPortfolioData] = useState<PortfolioCoinData[] | null>(null);
   const { user } = useAuthContext();
   const { scroller } = useScroll();
 
@@ -61,7 +61,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
           "Authorization": `Bearer ${user?.token}`
         }
       });
-      setPortfolioData(portfolioData.filter(coin => coin.name !== deleter));
+      if (portfolioData != null) {
+        setPortfolioData(portfolioData.filter(coin => coin.name !== deleter));
+      }
     } catch (err) {
       console.log(err);
     }
@@ -71,35 +73,37 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
     <>
       <Navbar sourced={false} />
       <section className='portfolio-container'>
-        {user?.token &&
-          <p id="user-display">{user.email}</p>}
+        {user?.token && (
+          <p id="user-display">{user.email}</p>
+        )}
         <div className='portfolio-display-container'>
           <header>
             <h1>Welcome to your portfolio</h1>
             <p className="marginer2">You can add coins to your portfolio by clicking on the charts in the <Link to="/#prices" state="portfolio-nav" aria-label="Return to home page">home</Link> or trending page!</p>
           </header>
           <div className="your-watchlist">
-            {
-              //If there are no coins in the portfolio, then we will display a loader. Otherwise, we will display the coins in the portfolio.
-            }
-            {portfolioData?.length === 0 ? (
+            {/* Display loader if portfolioData is null */}
+            {portfolioData === null ? (
               <div className="loader-new"></div>
             ) : (
               <>
-                <h2 id="revert-underline">Your Watchlist</h2>
-                {portfolioData &&
-                  portfolioData.map((coin, key) => {
-                    return (
+                {portfolioData?.length === 0 ? (
+                  <h3>Your portfolio is empty!</h3>
+                ) : (
+                  <>
+                    <h2 id="revert-underline">Your Watchlist</h2>
+                    {portfolioData.map((coin, key) => (
                       <div className="portfolio-view" key={key}>
                         <Link
                           className='hover-portfolio'
                           to={`/coins/${coin.name}`}
                           onClick={() => setId(coin.name)}
                           state="portfolio"
-                          aria-label='View individual coin data'>
+                          aria-label='View individual coin data'
+                        >
                           <div className="portfolio-view-name">
                             <img src={coin.image} alt={coin.name} />
-                            <h3>{coin.link}</h3>
+                            <h3>{coin.name}</h3>
                           </div>
                           <div className="market-portfolio">
                             <h3>${coin.marketRate}</h3>
@@ -107,8 +111,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
                         </Link>
                         <button className="portfolio-delete" onClick={() => deleteCoin(coin.name)}>Delete</button>
                       </div>
-                    );
-                  })}
+                    ))}
+                  </>
+                )}
               </>
             )}
           </div>
@@ -116,6 +121,6 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
       </section>
     </>
   );
-}
+}  
 
 export default Portfolio;

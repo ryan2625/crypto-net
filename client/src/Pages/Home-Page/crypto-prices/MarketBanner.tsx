@@ -79,7 +79,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
     }
     checkSource()
     const sParam = params.get("page")
-    if (sParam != null && sParam != "") {
+    if (sParam != null && sParam != "" && parseInt(sParam) <= 15) {
       setPage(parseInt(sParam))
       setParams({ page: (sParam).toString()})
     }
