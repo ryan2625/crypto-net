@@ -170,6 +170,7 @@
                 position: absolute;
                 background-color: $dimmed-white-trans;
                 bottom: 0;
+                z-index: 9999;
             }
 
             &:hover {
