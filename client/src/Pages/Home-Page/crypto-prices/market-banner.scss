@@ -13,7 +13,7 @@
     width: 75%;
     margin: 0 auto;
     padding-top: 2rem;
-
+    max-width: 1200px;
     div {
         margin-top: 3rem;
         color: $white;
@@ -51,7 +51,7 @@
     color: $white;
     background-color: $bg-deep;
     padding: 3rem;
-
+    flex-direction: column;
     h2 {
         margin-bottom: 3rem;
         font-weight: 600;
@@ -82,8 +82,10 @@
 
 .api-table {
     width: 100%;
+    max-width: 1200px;
     position: relative;
-    overflow-y: hidden
+    overflow-y: hidden;
+    margin: 0 auto
 }
 
 .row {
@@ -197,6 +199,11 @@
     top: -205px;
 }
 
+#todays-prices {
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
 
 @media(max-width: 960px) {
 
@@ -227,6 +234,7 @@
 @media(max-width: 750px) {
     .top-coins {
         flex-wrap: wrap;
+        width: 100%;
 
         div {
             flex-basis: 50%;

@@ -47,6 +47,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   const [coinData, setCoinData] = useState<CoinData2>(initialCoinData)
 
   useEffect(() => {
+    id = (window.location.href.split('/').slice(-1)[0])
     const fetchData = async () => {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=${apiKey}`)
         .then(response => response.json())
@@ -82,7 +83,6 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
       setNavigation("/?page=" + location.state.slice(5))
     }
   }
-
 
   //This function handles setting the value for the 24H meter. It converts the current price to a percentage of the difference between the high and the low of the value of the day. We also use the meter value that we set here to position the arrow on the bar accordingly. 
 
