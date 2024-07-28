@@ -47,7 +47,7 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
   const [coinData, setCoinData] = useState<CoinData2>(initialCoinData)
 
   useEffect(() => {
-    id = (window.location.href.split('/').slice(-1)[0])
+    
     const fetchData = async () => {
       const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=${apiKey}`)
         .then(response => response.json())

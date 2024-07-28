@@ -153,7 +153,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
                   className='row-link row'
                   key={key}
                   onClick={() => setId(coin.id)}
-                  to={"/coins/" + coin.name.toLowerCase()}
+                  to={"/coins/" + coin.id}
                   aria-label={coin.name + " data"}>
                   <h3 className='first-head'>{(key + 1) + (page * 10) - 10}</h3>
                   <div className="identifier">
