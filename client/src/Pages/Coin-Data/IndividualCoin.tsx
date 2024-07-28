@@ -181,9 +181,17 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
                   </div>
                   <div className='actual-progress'
                     style={{
-                      width: `${(100 - meter) * 5}px`
+                      width: `${(100 - meter)}%`
                     }}
-                  />
+                  >
+                    <ArrowDropDownIcon
+                      id="drop-arrow"
+                      aria-hidden="true"
+                      style={{
+                        left: '-30px'
+                      }} />
+                      {/* In memory of the convoluted way I
+                      originally did this...
                   <ArrowDropDownIcon
                     id="drop-arrow"
                     aria-hidden="true"
@@ -193,6 +201,8 @@ const IndividualCoin: React.FC<IndividualCoinProps> = ({ id }) => {
                         }px
                       `
                     }} />
+                      */}
+                  </div>
                 </div>
               </div>
               <div className="data-points">

@@ -132,7 +132,7 @@ const Trending: React.FC<TrendingProps> = ({ setId }) => {
                                         <Link
                                             state="trending"
                                             className='row-link row'
-                                            key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.name.toLowerCase()}
+                                            key={key} onClick={() => setId(coin.item.id)} to={"/coins/" + coin.item.id}
                                             aria-label='Explore Trending Coins Details'>
                                             <h3 className='first-head'>{coin.item.score + 1}</h3>
                                             <div className="identifier">

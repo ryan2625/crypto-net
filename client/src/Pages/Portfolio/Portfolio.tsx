@@ -31,6 +31,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ setId }) => {
    */
 
   useEffect(() => {
+    let user = (JSON.parse(localStorage.getItem("user") || "{}"))
     const fetchData = async () => {
       try {
         const res = await fetch("https://crypto-api-epz8.onrender.com/api/portfolio/", {
