@@ -2,7 +2,7 @@ import React, { useEffect, useState, ChangeEvent } from 'react'
 import "./market-banner.scss"
 import { Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useLocation, useNavigate, useSearchParams} from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { CoinData } from './CoinData'
 
 /**
@@ -22,7 +22,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   const [coinData, setCoinData] = useState<CoinData[]>([])
   const [topCoins, setTopCoins] = useState<CoinData[]>([])
 
-  const [params, setParams] = useSearchParams({ page: ""})
+  const [params, setParams] = useSearchParams({ page: "" })
   const [page, setPage] = useState<number>(1);
   //location is used to retrieve the state from the history stack, which is used to check if the user is navigating 
   //from the coin page. In that case, it will grab the state from the location and scroll to the top of the table.
@@ -32,7 +32,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
 
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     setPage(value);
-    setParams({ page: value.toString() }); 
+    setParams({ page: value.toString() });
   };
 
   /**
@@ -46,7 +46,8 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
   useEffect(() => {
     const controller = new AbortController()
     const fetchData = async () => {
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}?x_cg_demo_api_key=${apiKey}`, {
+      console.log("PAGE", page)
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&x_cg_demo_api_key=${apiKey}`, {
         signal: controller.signal
       })
         .then(response => response.json())
@@ -81,7 +82,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
     const sParam = params.get("page")
     if (sParam != null && sParam != "" && parseInt(sParam) <= 15) {
       setPage(parseInt(sParam))
-      setParams({ page: (sParam).toString()})
+      setParams({ page: (sParam).toString() })
     }
     return () => {
       controller.abort()
@@ -133,7 +134,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
         </div>
         <div className="coin-base" id="prices">
           <h2 id="todays-prices">Today's Cryptocurrency Prices</h2>
-          <div className='api-table' style={{position: "relative"}}>
+          <div className='api-table' style={{ position: "relative" }}>
             <div className="heading">
               <h3 className="first-head hash">#</h3>
               <h3 className="first-head">COIN</h3>
@@ -171,11 +172,11 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
             })}
           </div>
           <div className="pag" aria-label="Change coin page">
-        <Pagination
-          count={15}
-          page={page}
-          onChange={handleChange} color='primary' />
-      </div>
+            <Pagination
+              count={15}
+              page={page}
+              onChange={handleChange} color='primary' />
+          </div>
         </div>
       </section>
     </>
