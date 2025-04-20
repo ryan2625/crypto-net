@@ -144,7 +144,7 @@ const MarketBanner: React.FC<MarketBannerProps> = ({ setId }) => {
               <div id="scroller"></div>
             </div>
             {coinData.map((coin, key) => {
-              var truncate = coin.price_change_percentage_24h.toString().substring(0, 4)
+              var truncate = coin?.price_change_percentage_24h?.toString().substring(0, 4) || '1.70'
               if (truncate.slice(-1) === ".") {
                 truncate = truncate.substring(0, 3)
               }
